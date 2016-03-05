@@ -1,0 +1,38 @@
+{
+  "name": "formulon-frontend",
+  "version": "0.0.1",
+  "description": "Frontend for formulon (a salesforce formula parser)",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leifg/formulon-frontend.git"
+  },
+  "keywords": [
+    "formulon",
+    "parser",
+    "salesforce"
+  ],
+  "author": "Leif Gensert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leifg/formulon-frontend/issues"
+  },
+  "homepage": "https://github.com/leifg/formulon-frontend#readme",
+  "dependencies": {
+    "react": "^0.14.7"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "jsx-loader": "^0.13.2",
+    "npm-install-webpack-plugin": "^2.0.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.8.3"
+  }
+}
