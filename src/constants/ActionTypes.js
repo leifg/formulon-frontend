@@ -1,0 +1,1 @@
+export const ADD_IDENTIFIER = 'ADD_IDENTIFIER'
