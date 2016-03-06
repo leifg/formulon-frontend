@@ -29,4 +29,16 @@ describe('identifiers reducer', () => {
     reducer(input, action)
     expect(input).to.deep.eq([])
   })
+
+  it('does not add duplicate actions', () => {
+    const action = {
+      type: ADD_IDENTIFIER,
+      name: 'pre__CustomField__c'
+    }
+
+    const input = [{name: 'pre__CustomField__c'}]
+    const expected = [{name: 'pre__CustomField__c'}]
+
+    expect(reducer(input, action)).to.deep.eq(expected)
+  })
 })
