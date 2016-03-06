@@ -1,69 +1,39 @@
-const path = require("path")
-const merge = require("webpack-merge")
-const webpack = require("webpack")
-const NpmInstallPlugin = require('npm-install-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var devFlagPlugin = new webpack.DefinePlugin({
+  __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+});
 
-const TARGET = process.env.npm_lifecycle_event
-const PATHS = {
-  app: path.join(__dirname, "app"),
-  build: path.join(__dirname, "build")
-}
-
-process.env.BABEL_ENV = TARGET;
-
-const common = {
-  entry: {
-    app: PATHS.app,
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+module.exports = {
+  devtool: 'eval',
+  entry: [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    './src'
+  ],
   output: {
-    path: PATHS.build,
-    filename: "bundle.js",
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    devFlagPlugin,
+    new ExtractTextPlugin('app.css')
+  ],
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loaders: ["style", "css"],
-        include: PATHS.app
-      },
-      {
         test: /\.jsx?$/,
-        loaders: ['babel?cacheDirectory'],
-        include: PATHS.app
-      }
+        loaders: ['react-hot', 'babel'],
+        include: path.join(__dirname, 'src')
+      },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?module!cssnext-loader') }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.json']
   }
-}
-
-if(TARGET === "start" || !TARGET) {
-  module.exports = merge(common, {
-    devtool: "eval-source-map",
-    devServer: {
-      contentBase: PATHS.build,
-
-      historyApiFallback: true,
-      hot: true,
-      inline: true,
-      progress: true,
-
-      // Display only errors to reduce the amount of output.
-      stats: "errors-only",
-
-      host: process.env.HOST,
-      port: process.env.PORT
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new NpmInstallPlugin({
-        save: true // --save
-      })
-    ]
-  });
-}
-
-if(TARGET === "build") {
-  module.exports = merge(common, {})
-}
+};
