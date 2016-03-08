@@ -4,7 +4,7 @@
   "description": "Frontend for Formulon (a Salesforce Formula Parser)",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dev-server",
     "lint": "eslint src",
     "test": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch"
