@@ -1,1 +1,1 @@
-export const ADD_IDENTIFIER = 'ADD_IDENTIFIER'
+export const CHANGE_FORMULA = 'CHANGE_FORMULA'
