@@ -7,21 +7,20 @@ const expect = chai.expect;
 
 describe('formula reducer', () => {
   context('CHANGE_FORMULA', () => {
+    const initialState = {
+      identifiers: {},
+    }
+
     context('no identifiers', () => {
       const action = {
         type: CHANGE_FORMULA,
         formula: '1 + 1'
       }
 
-      const initialState = {
-        formula: null,
-        identifiers: [],
-      }
-
       it('changes the formula', () => {
         const expected = {
           formula: '1 + 1',
-          identifiers: []
+          identifiers: {},
         }
 
         expect(reducer(initialState, action)).to.deep.eq(expected)
@@ -34,11 +33,28 @@ describe('formula reducer', () => {
         }
 
         const expected = {
-          formula: null,
-          identifiers: []
+          identifiers: {},
         }
 
         expect(initialState).to.deep.eq(expected)
+      })
+    })
+
+    context('identifiers used', () => {
+      const action = {
+        type: CHANGE_FORMULA,
+        formula: 'dev__CustomField__c + 1'
+      }
+
+      it('changes the formula and identifiers', () => {
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: {
+            'dev__CustomField__c': {}
+          }
+        }
+
+        expect(reducer(initialState, action)).to.deep.eq(expected)
       })
     })
   })
