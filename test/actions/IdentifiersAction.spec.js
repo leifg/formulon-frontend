@@ -5,12 +5,12 @@ import chai from 'chai';
 const expect = chai.expect;
 
 describe('actions', () => {
-  it('creates an action to add identifier', () => {
-    const name = 'pre__CustomField__c'
+  it('creates an action to change formula', () => {
+    const formula = '1 + 1'
     const expectedAction = {
-      type: types.ADD_IDENTIFIER,
-      name
+      type: types.CHANGE_FORMULA,
+      formula
     }
-    expect(actions.addIdentifier(name)).to.deep.eq(expectedAction)
+    expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
   })
 })
