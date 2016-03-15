@@ -29,13 +29,14 @@ describe('formula reducer', () => {
       it('does not change original input', () => {
         const action = {
           type: CHANGE_FORMULA,
-          value: "1 + 1"
+          formula: "1 + 1"
         }
 
         const expected = {
           identifiers: {},
         }
 
+        reducer(initialState, action)
         expect(initialState).to.deep.eq(expected)
       })
     })
@@ -55,6 +56,15 @@ describe('formula reducer', () => {
         }
 
         expect(reducer(initialState, action)).to.deep.eq(expected)
+      })
+
+      it('does not change original input', () => {
+        const expected = {
+          identifiers: {},
+        }
+
+        reducer(initialState, action)
+        expect(initialState).to.deep.eq(expected)
       })
     })
   })

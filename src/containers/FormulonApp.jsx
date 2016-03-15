@@ -1,13 +1,25 @@
-import FormulaInput from '../components/FormulaInput';
-
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import FormulaInput from '../components/FormulaInput';
+import IdentifierList from '../components/IdentifierList';
+import EvalOutput from '../components/EvalOutput';
+import { changeFormula } from '../actions/IdentifierActions'
 
-export default class App extends React.Component {
+class FormulonApp extends React.Component {
   render() {
+    const { formula, changeFormula } = this.props
     return (
       <div>
-        <FormulaInput />
+        <IdentifierList identifiers={formula.identifiers} />
+        <FormulaInput changeFormula={changeFormula} />
+        <EvalOutput formula={formula} />
       </div>
     );
   }
 }
+
+export default connect(
+  ({formula}) => ({formula}),
+  (dispatch) => (bindActionCreators({changeFormula}, dispatch))
+)(FormulonApp)

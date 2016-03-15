@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes';
 
-export function addIdentifier(name) {
+export function changeFormula(formula) {
   return {
-    type: types.ADD_IDENTIFIER,
-    name
+    type: types.CHANGE_FORMULA,
+    formula
   };
 }
