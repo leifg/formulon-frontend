@@ -7,7 +7,7 @@ export default class IdentifierList extends Component {
     return (
       <ul>
         {identifiers.map(identifierAttributes =>
-          <Identifier attributes={identifierAttributes}/>
+          <Identifier key={identifierAttributes.name} attributes={identifierAttributes}/>
         )}
       </ul>
     )

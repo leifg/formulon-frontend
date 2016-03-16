@@ -6,6 +6,6 @@ import React, { Component } from "react"
 export default class Identifier extends Component {
   render() {
     const { attributes } = this.props
-    return <li> {attributes.name} </li>
+    return <li> {attributes.name}: <input type="text" value={attributes.value} /> <input type="text" value={attributes.type} /> </li>
   }
 }

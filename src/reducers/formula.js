@@ -10,6 +10,10 @@ export default function formula(state = initialState, action) {
   switch (action.type) {
     case CHANGE_FORMULA:
       let identifiers = extract(action.formula).map((identifier)  => {
+        let found = state.identifiers.find(x => x.name == identifier)
+        if (found) {
+          return found
+        }
         return {
           name: identifier
         }

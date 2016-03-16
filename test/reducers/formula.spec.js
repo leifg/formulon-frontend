@@ -60,6 +60,37 @@ describe('formula reducer', () => {
         expect(reducer(initialState, action)).to.deep.eq(expected)
       })
 
+      it('does not overwrite existing identifier values', () => {
+        const state = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              value: '2',
+              type: 'int'
+            }
+          ]
+        }
+
+        const expected = {
+          formula: 'dev__CustomField__c + dev__CustomField__c',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              value: '2',
+              type: 'int'
+            }
+          ]
+        }
+
+        const action = {
+          type: CHANGE_FORMULA,
+          formula: 'dev__CustomField__c + dev__CustomField__c'
+        }
+
+        expect(reducer(state, action)).to.deep.eq(expected)
+      })
+
       it('does not change original input', () => {
         const expected = {
           identifiers: [],
