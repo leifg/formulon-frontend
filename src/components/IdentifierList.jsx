@@ -6,8 +6,8 @@ export default class IdentifierList extends Component {
     const { identifiers } = this.props
     return (
       <ul>
-        {Object.keys(identifiers).map(identifier =>
-          <Identifier name={identifier}/>
+        {identifiers.map(identifierAttributes =>
+          <Identifier attributes={identifierAttributes}/>
         )}
       </ul>
     )
