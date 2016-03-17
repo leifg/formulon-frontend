@@ -1,6 +1,5 @@
 import * as types from '../../src/constants/ActionTypes'
 import reducer from '../../src/reducers/formula'
-import { CHANGE_FORMULA } from '../../src/constants/ActionTypes'
 
 import chai from 'chai';
 const expect = chai.expect;
@@ -13,7 +12,7 @@ describe('formula reducer', () => {
 
     context('no identifiers', () => {
       const action = {
-        type: CHANGE_FORMULA,
+        type: 'CHANGE_FORMULA',
         formula: '1 + 1'
       }
 
@@ -28,7 +27,7 @@ describe('formula reducer', () => {
 
       it('does not change original input', () => {
         const action = {
-          type: CHANGE_FORMULA,
+          type: 'CHANGE_FORMULA',
           formula: "1 + 1"
         }
 
@@ -43,7 +42,7 @@ describe('formula reducer', () => {
 
     context('identifiers used', () => {
       const action = {
-        type: CHANGE_FORMULA,
+        type: 'CHANGE_FORMULA',
         formula: 'dev__CustomField__c + 1'
       }
 
@@ -67,7 +66,7 @@ describe('formula reducer', () => {
             {
               name: 'dev__CustomField__c',
               value: '2',
-              type: 'int'
+              dataType: 'int'
             }
           ]
         }
@@ -78,13 +77,13 @@ describe('formula reducer', () => {
             {
               name: 'dev__CustomField__c',
               value: '2',
-              type: 'int'
+              dataType: 'int'
             }
           ]
         }
 
         const action = {
-          type: CHANGE_FORMULA,
+          type: 'CHANGE_FORMULA',
           formula: 'dev__CustomField__c + dev__CustomField__c'
         }
 
@@ -98,6 +97,143 @@ describe('formula reducer', () => {
 
         reducer(initialState, action)
         expect(initialState).to.deep.eq(expected)
+      })
+    })
+  })
+  context('CHANGE_IDENTIFIER', () => {
+    const globalAction = {
+      type: 'CHANGE_IDENTIFIER',
+      payload: {
+        name: 'dev__CustomField__c',
+      }
+    }
+
+    const state = {
+      formula: 'dev__CustomField__c + 1',
+      identifiers: [
+        {
+          name: 'dev__CustomField__c'
+        }
+      ],
+    }
+
+    context('change value', () => {
+      let payload = Object.assign({}, globalAction.payload, { value: '17' })
+      let action = Object.assign({}, globalAction, { payload: payload })
+
+      it('correctly sets value of unitialized variable', () => {
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              value: '17',
+            }
+          ]
+        }
+
+        expect(reducer(state, action)).to.deep.eq(expected)
+      })
+
+      it('correctly replaces value of initialized variable', () => {
+        const prevState = Object.assign(
+          {},
+          state,
+          { identifiers: [ { name: 'dev__CustomField__c', value: "19" } ] }
+        )
+
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              value: '17',
+            }
+          ]
+        }
+
+        expect(reducer(prevState, action)).to.deep.eq(expected)
+      })
+
+      it('leaves existing type untouched', () => {
+        const prevState = Object.assign(
+          {},
+          state,
+          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'string' } ] }
+        )
+
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              dataType: 'string',
+              value: '17',
+            }
+          ]
+        }
+
+        expect(reducer(prevState, action)).to.deep.eq(expected)
+      })
+    })
+
+    context('change dataType', () => {
+      let payload = Object.assign({}, globalAction.payload, { dataType: 'number' })
+      let action = Object.assign({}, globalAction, { payload: payload })
+
+      it('correctly sets type of unitialized variable', () => {
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              dataType: 'number',
+            }
+          ]
+        }
+
+        expect(reducer(state, action)).to.deep.eq(expected)
+      })
+
+      it('correctly replaces type of initialized variable', () => {
+        const prevState = Object.assign(
+          {},
+          state,
+          { identifiers: [ { name: 'dev__CustomField__c', dataType: "string" } ] }
+        )
+
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              dataType: 'number',
+            }
+          ]
+        }
+
+        expect(reducer(prevState, action)).to.deep.eq(expected)
+      })
+
+      it('leaves existing value untouched', () => {
+        const prevState = Object.assign(
+          {},
+          state,
+          { identifiers: [ { name: 'dev__CustomField__c', value: '17' } ] }
+        )
+
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              dataType: 'number',
+              value: '17',
+            }
+          ]
+        }
+
+        expect(reducer(prevState, action)).to.deep.eq(expected)
       })
     })
   })

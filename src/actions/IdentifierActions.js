@@ -6,3 +6,14 @@ export function changeFormula(formula) {
     formula
   };
 }
+
+export function changeIdentifier(name, value, dataType) {
+  return {
+    type: types.CHANGE_IDENTIFIER,
+    payload: {
+      name,
+      value,
+      dataType,
+    }
+  }
+}
