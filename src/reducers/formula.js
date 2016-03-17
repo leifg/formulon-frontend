@@ -1,4 +1,4 @@
-import { CHANGE_FORMULA } from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes';
 import { extract } from "formulon"
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function formula(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_FORMULA:
+    case types.CHANGE_FORMULA:
       let identifiers = extract(action.formula).map((identifier)  => {
         let found = state.identifiers.find(x => x.name == identifier)
         if (found) {
@@ -22,6 +22,16 @@ export default function formula(state = initialState, action) {
         formula: action.formula,
         identifiers: identifiers
       }
+    case types.CHANGE_IDENTIFIER:
+      let changedIdentifiers = state.identifiers.map((identifier) => {
+        if(identifier.name == action.payload.name) {
+          return Object.assign({}, identifier, action.payload)
+        }
+
+        return identifier
+      })
+
+      return Object.assign({}, state, {identifiers: changedIdentifiers})
     default:
       return state
   }

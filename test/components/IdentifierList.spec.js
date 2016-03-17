@@ -19,7 +19,6 @@ describe('IdentifierList', function() {
 
   it("is visible", () => {
     const list = TestUtils.renderIntoDocument(<IdentifierList identifiers={[]} />)
-    const listNode = ReactDOM.findDOMNode(list)
     expect(TestUtils.isCompositeComponent(list)).to.be.true
   })
 
