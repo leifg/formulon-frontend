@@ -24,9 +24,9 @@ describe('Identifier', function() {
   })
 
   it("sets attributes correctly", () => {
-    let output = setup({name: "variable", value: "the string", type: "string"})
+    let output = setup({name: "variable", value: "the string", dataType: "string"})
     expect(output.props.children[1]).to.equal("variable")
     expect(output.props.children[3].props.value).to.equal("the string")
-    expect(output.props.children[5].props.value).to.equal("string")
+    expect(output.props.children[4].props.value).to.equal("string")
   })
 })
