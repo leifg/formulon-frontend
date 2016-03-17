@@ -4,14 +4,14 @@ import { bindActionCreators } from 'redux'
 import FormulaInput from '../components/FormulaInput';
 import IdentifierList from '../components/IdentifierList';
 import EvalOutput from '../components/EvalOutput';
-import { changeFormula } from '../actions/IdentifierActions'
+import { changeFormula, changeIdentifier } from '../actions/IdentifierActions'
 
 class FormulonApp extends React.Component {
   render() {
-    const { formula, changeFormula } = this.props
+    const { formula, changeFormula, changeIdentifier } = this.props
     return (
       <div>
-        <IdentifierList identifiers={formula.identifiers} />
+        <IdentifierList identifiers={formula.identifiers} changeIdentifier={changeIdentifier}/>
         <FormulaInput changeFormula={changeFormula} />
         <EvalOutput formula={formula} />
       </div>
@@ -21,5 +21,5 @@ class FormulonApp extends React.Component {
 
 export default connect(
   ({formula}) => ({formula}),
-  (dispatch) => (bindActionCreators({changeFormula}, dispatch))
+  (dispatch) => (bindActionCreators({changeFormula, changeIdentifier}, dispatch))
 )(FormulonApp)
