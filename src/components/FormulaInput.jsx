@@ -2,7 +2,9 @@ import React, { Component } from "react"
 
 export default class FormulaInput extends Component {
   render() {
-    return <textarea onChange={this.handleChange.bind(this)}></textarea>
+    return <div className="form-group">
+      <textarea className="form-control" style={{fontFamily: 'monospace'}} onChange={this.handleChange.bind(this)} />
+    </div>
   }
 
   handleChange(event) {

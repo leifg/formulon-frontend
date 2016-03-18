@@ -9,11 +9,15 @@ const store = configureStore();
 export default class App extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Formulon</h1>
-        <Provider store={store}>
-          <FormulonApp />
-        </Provider>
+      <div className="container-fluid">
+        <div className="page-header">
+          <h1>Formulon <small>a Salesforce Formula Parser</small></h1>
+        </div>
+        <div className="row">
+          <Provider store={store}>
+            <FormulonApp />
+          </Provider>
+        </div>
       </div>
     );
   }

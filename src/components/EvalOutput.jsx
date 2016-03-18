@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { parse } from "formulon"
+import { defaultMeta } from "../utils/salesforceUtils"
 
 export default class EvalOutput extends Component {
   render() {
@@ -12,27 +13,24 @@ export default class EvalOutput extends Component {
     }
     try {
       let ids = this.transformIdentifiers(this.props.formula.identifiers)
-      const parsedFormula = parse(input, ids)
-      return <div>{ parsedFormula }</div>
+      let parsedFormula = parse(input, ids)
+      return <div className="well well-lg"><code>{ parsedFormula }</code></div>
     }
     catch(err){
-      return <div>{ input }</div>
+      return <div className="well well-lg"><code>{ input }</code></div>
     }
   }
 
   transformIdentifiers(identifersList) {
     return identifersList.reduce((agg, identifier) => {
-      console.log(identifier.name)
-      console.log(identifier.value)
-      console.log(identifier.dataType)
       return Object.assign(
         agg,
         {
-          // [identifier.name]: {
-          //   value: identifier.value,
-          //   dataType: identifier.dataType
-          // }
-          [identifier.name]: identifier.value,
+          [identifier.name]: {
+            value: identifier.value,
+            dataType: identifier.dataType,
+            meta: defaultMeta(identifier.dataType)
+          }
         }
       )
     }, {})
