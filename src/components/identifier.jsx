@@ -1,14 +1,28 @@
 import React, { Component } from "react"
 
-// const Identifier = ({ name }) => <li> {name} </li>
-// export default Identifier
-
 export default class Identifier extends Component {
   render() {
     const { attributes, changeIdentifier } = this.props
-    return <li> {attributes.name}:
-      <input type="text" value={attributes.value} onChange={this.handleValueChange.bind(this)} />
-      <input type="text" value={attributes.dataType} onChange={this.handleDataTypeChange.bind(this)} /> </li>
+    const dataTypeOptions = [
+        { value: 'number', label: 'Number' },
+        { value: 'text', label: 'Text' }
+    ];
+
+    if(!attributes.dataType) {
+      attributes.dataType = dataTypeOptions[0].value
+    }
+
+    return  <tr>
+                <td><strong>{attributes.name}</strong></td>
+                <td><input className="form-control" value={attributes.value} onChange={this.handleValueChange.bind(this)} /></td>
+                <td>
+                  <select className="form-control" placeholder="Data Type" onChange={this.handleDataTypeChange.bind(this)}>
+                    { dataTypeOptions.map(dataTypeOption =>
+                      <option value={dataTypeOption.value}>{dataTypeOption.label}</option>)
+                    }
+                  </select>
+                </td>
+             </tr>
   }
 
   handleValueChange(event) {
