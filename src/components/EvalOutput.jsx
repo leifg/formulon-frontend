@@ -4,21 +4,16 @@ import { defaultMeta } from "../utils/salesforceUtils"
 
 export default class EvalOutput extends Component {
   render() {
-    let input
-    if(this.props.formula.formula == null) {
-      input = "1+1"
+    let ids = this.transformIdentifiers(this.props.formula.identifiers)
+    let formulaResult = parse(this.props.formula.formula, ids)
+    let output
+    if(formulaResult.type == "Error") {
+      output = <i>{formulaResult.errorType}: {formulaResult.errorType}</i>
     }
     else {
-      input = this.props.formula.formula
+      output = <code>{ formulaResult.value }</code>
     }
-    try {
-      let ids = this.transformIdentifiers(this.props.formula.identifiers)
-      let parsedFormula = parse(input, ids)
-      return <div className="well well-lg"><code>{ parsedFormula }</code></div>
-    }
-    catch(err){
-      return <div className="well well-lg"><code>{ input }</code></div>
-    }
+    return <div className="well well-lg">{ output }</div>
   }
 
   transformIdentifiers(identifersList) {
