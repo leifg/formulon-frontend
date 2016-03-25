@@ -1,19 +1,19 @@
+/* global describe it */
+
 import App from '../../src/containers/App'
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import React from 'react'
+import TestUtils from 'react-addons-test-utils'
 
-let jsdom = require('mocha-jsdom');
+let jsdom = require('mocha-jsdom')
 
-import chai from 'chai';
-const expect = chai.expect;
+import chai from 'chai'
+const expect = chai.expect
 
-describe('App', function() {
-  jsdom();
+describe('App', () => {
+  jsdom()
 
-  it("is visible", () => {
-    const app = TestUtils.renderIntoDocument(<App />);
-    const appNode = ReactDOM.findDOMNode(app);
-    expect(TestUtils.isCompositeComponent(app)).to.be.true;
+  it('is visible', () => {
+    const app = TestUtils.renderIntoDocument(<App />)
+    expect(TestUtils.isCompositeComponent(app)).to.be.true
   })
 })

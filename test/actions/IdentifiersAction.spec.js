@@ -1,7 +1,9 @@
+/* global describe it */
+
 import * as actions from '../../src/actions/IdentifierActions'
 
-import chai from 'chai';
-const expect = chai.expect;
+import chai from 'chai'
+const expect = chai.expect
 
 describe('actions', () => {
   describe('#changeFormula', () => {
@@ -25,7 +27,7 @@ describe('actions', () => {
         payload: {
           name,
           value,
-          dataType,
+          dataType
         }
       }
       expect(actions.changeIdentifier(name, value, dataType)).to.deep.eq(expectedAction)

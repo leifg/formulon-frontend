@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
   devtool: 'eval',
@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
@@ -32,6 +32,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './public',
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    port: '9000'
   }
-};
+}

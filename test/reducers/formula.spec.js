@@ -1,13 +1,14 @@
-import * as types from '../../src/constants/ActionTypes'
+/* global describe it context */
+
 import reducer from '../../src/reducers/formula'
 
-import chai from 'chai';
-const expect = chai.expect;
+import chai from 'chai'
+const expect = chai.expect
 
 describe('formula reducer', () => {
   context('CHANGE_FORMULA', () => {
     const initialState = {
-      identifiers: [],
+      identifiers: []
     }
 
     context('no identifiers', () => {
@@ -19,7 +20,7 @@ describe('formula reducer', () => {
       it('changes the formula', () => {
         const expected = {
           formula: '1 + 1',
-          identifiers: [],
+          identifiers: []
         }
 
         expect(reducer(undefined, action)).to.deep.eq(expected)
@@ -28,11 +29,11 @@ describe('formula reducer', () => {
       it('does not change original input', () => {
         const action = {
           type: 'CHANGE_FORMULA',
-          formula: "1 + 1"
+          formula: '1 + 1'
         }
 
         const expected = {
-          identifiers: [],
+          identifiers: []
         }
 
         reducer(initialState, action)
@@ -92,7 +93,7 @@ describe('formula reducer', () => {
 
       it('does not change original input', () => {
         const expected = {
-          identifiers: [],
+          identifiers: []
         }
 
         reducer(initialState, action)
@@ -104,7 +105,7 @@ describe('formula reducer', () => {
     const globalAction = {
       type: 'CHANGE_IDENTIFIER',
       payload: {
-        name: 'dev__CustomField__c',
+        name: 'dev__CustomField__c'
       }
     }
 
@@ -114,7 +115,7 @@ describe('formula reducer', () => {
         {
           name: 'dev__CustomField__c'
         }
-      ],
+      ]
     }
 
     context('change value', () => {
@@ -127,7 +128,7 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              value: '17',
+              value: '17'
             }
           ]
         }
@@ -139,7 +140,7 @@ describe('formula reducer', () => {
         const prevState = Object.assign(
           {},
           state,
-          { identifiers: [ { name: 'dev__CustomField__c', value: "19" } ] }
+          { identifiers: [ { name: 'dev__CustomField__c', value: '19' } ] }
         )
 
         const expected = {
@@ -147,7 +148,7 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              value: '17',
+              value: '17'
             }
           ]
         }
@@ -168,7 +169,7 @@ describe('formula reducer', () => {
             {
               name: 'dev__CustomField__c',
               dataType: 'string',
-              value: '17',
+              value: '17'
             }
           ]
         }
@@ -187,7 +188,7 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              dataType: 'number',
+              dataType: 'number'
             }
           ]
         }
@@ -199,7 +200,7 @@ describe('formula reducer', () => {
         const prevState = Object.assign(
           {},
           state,
-          { identifiers: [ { name: 'dev__CustomField__c', dataType: "string" } ] }
+          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'string' } ] }
         )
 
         const expected = {
@@ -207,7 +208,7 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              dataType: 'number',
+              dataType: 'number'
             }
           ]
         }
@@ -228,7 +229,7 @@ describe('formula reducer', () => {
             {
               name: 'dev__CustomField__c',
               dataType: 'number',
-              value: '17',
+              value: '17'
             }
           ]
         }
@@ -239,15 +240,16 @@ describe('formula reducer', () => {
   })
 
   context('unsupported action', () => {
-    it("returns input", () => {
-      const initialState = "state"
+    it('returns input', () => {
+      const prevState = 'state'
+      const initialState = 'state'
 
       const action = {
-        type: "SOMETHING_WEIRD",
-        value: "1 + 1"
+        type: 'SOMETHING_WEIRD',
+        value: '1 + 1'
       }
 
-      expect(initialState).to.deep.eq(initialState)
+      expect(reducer(prevState, action)).to.deep.eq(initialState)
     })
   })
 })

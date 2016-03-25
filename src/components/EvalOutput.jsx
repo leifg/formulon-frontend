@@ -1,22 +1,21 @@
-import React, { Component } from "react"
-import { parse } from "formulon"
-import { defaultMeta } from "../utils/salesforceUtils"
+import React, { Component } from 'react'
+import { parse } from 'formulon'
+import { defaultMeta } from '../utils/salesforceUtils'
 
 export default class EvalOutput extends Component {
-  render() {
+  render () {
     let ids = this.transformIdentifiers(this.props.formula.identifiers)
     let formulaResult = parse(this.props.formula.formula, ids)
     let output
-    if(formulaResult.type == "Error") {
+    if (formulaResult.type === 'Error') {
       output = <i>{formulaResult.errorType}: {formulaResult.errorType}</i>
+    } else {
+      output = <code>{formulaResult.value}</code>
     }
-    else {
-      output = <code>{ formulaResult.value }</code>
-    }
-    return <div className="well well-lg">{ output }</div>
+    return <div className='well well-lg'>{output}</div>
   }
 
-  transformIdentifiers(identifersList) {
+  transformIdentifiers (identifersList) {
     return identifersList.reduce((agg, identifier) => {
       return Object.assign(
         agg,

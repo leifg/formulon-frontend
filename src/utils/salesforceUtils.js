@@ -1,5 +1,5 @@
 export const defaultMeta = (type) => {
-  switch(type) {
+  switch (type) {
     case 'checkbox':
       return {}
     case 'number':

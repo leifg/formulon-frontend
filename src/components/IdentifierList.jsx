@@ -1,13 +1,12 @@
-import React, { Component } from "react"
-import Identifier from "./Identifier"
-
+import React, { Component } from 'react'
+import Identifier from './Identifier'
 
 export default class IdentifierList extends Component {
-  render() {
+  render () {
     const { identifiers, changeIdentifier } = this.props
     return (
-      <div className="table-responsive">
-        <table className="table">
+      <div className='table-responsive'>
+        <table className='table'>
           <thead>
             <tr>
               <th>Name</th>
@@ -16,7 +15,7 @@ export default class IdentifierList extends Component {
             </tr>
           </thead>
           <tbody>
-            {identifiers.map(identifierAttributes =>
+            {identifiers.map((identifierAttributes) =>
               <Identifier key={identifierAttributes.name} attributes={identifierAttributes} changeIdentifier={changeIdentifier}/>
             )}
           </tbody>
