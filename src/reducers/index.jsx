@@ -1,1 +1,1 @@
-export { default as formula } from './formula';
+export { default as formula } from './formula'
