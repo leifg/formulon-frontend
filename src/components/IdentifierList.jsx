@@ -5,8 +5,7 @@ export default class IdentifierList extends Component {
   render () {
     const { identifiers, changeIdentifier } = this.props
     return (
-      <div className='table-responsive'>
-        <table className='table'>
+        <table className='table table-responsive'>
           <thead>
             <tr>
               <th>Name</th>
@@ -20,7 +19,6 @@ export default class IdentifierList extends Component {
             )}
           </tbody>
         </table>
-      </div>
     )
   }
 }
