@@ -8,3 +8,8 @@ export const defaultMeta = (type) => {
       return {}
   }
 }
+
+export const availableDataTypes = [
+  { id: 'number', label: 'Number' },
+  { id: 'text', label: 'Text' }
+]

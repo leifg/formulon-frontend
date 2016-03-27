@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { defaultMeta } from '../utils/salesforceUtils'
+import { defaultMeta, availableDataTypes } from '../utils/salesforceUtils'
 
 export default class Identifier extends Component {
   render () {
     const { attributes } = this.props
 
     if (!attributes.dataType) {
-      attributes.dataType = 'number'
+      attributes.dataType = availableDataTypes[0].id
     }
 
     if (!attributes.options) {
@@ -39,14 +39,9 @@ export class IdentifierValue extends Component {
 
 export class IdentifierDataType extends Component {
   render () {
-    const dataTypeOptions = [
-        { value: 'number', label: 'Number' },
-        { value: 'text', label: 'Text' }
-    ]
-
     return <select className='form-control' placeholder='Data Type' onChange={this.handleDataTypeChange.bind(this)}>
-      {dataTypeOptions.map((dataTypeOption) =>
-        <option value={dataTypeOption.value}>{dataTypeOption.label}</option>)
+      {availableDataTypes.map((dataTypeOption) =>
+        <option value={dataTypeOption.id}>{dataTypeOption.label}</option>)
       }
     </select>
   }
