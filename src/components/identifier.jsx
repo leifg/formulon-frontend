@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { defaultMeta } from '../utils/salesforceUtils'
 
 export default class Identifier extends Component {
   render () {
@@ -12,8 +13,12 @@ export default class Identifier extends Component {
       attributes.dataType = dataTypeOptions[0].value
     }
 
+    if (!attributes.options) {
+      attributes.options = defaultMeta(attributes.dataType)
+    }
+
     return <tr>
-      <td><strong>{attributes.name}</strong></td>
+      <td><IdentifierName name={attributes.name} /></td>
       <td><input className='form-control' value={attributes.value} onChange={this.handleValueChange.bind(this)} /></td>
       <td>
         <select className='form-control' placeholder='Data Type' onChange={this.handleDataTypeChange.bind(this)}>
@@ -25,11 +30,23 @@ export default class Identifier extends Component {
     </tr>
   }
 
-  handleValueChange (event) {
-    this.props.changeIdentifier(this.props.attributes.name, event.target.value, this.props.attributes.dataType)
-  }
-
   handleDataTypeChange (event) {
     this.props.changeIdentifier(this.props.attributes.name, this.props.attributes.value, event.target.value)
   }
 }
+
+export class IdentifierName extends Component {
+  render () {
+    return <strong>{this.props.name}</strong>
+  }
+}
+
+// export class IdentifierValue extends Component {
+//   render () {
+//     return <input className='form-control' value={this.props.value} onChange={this.handleValueChange.bind(this)} />
+//   }
+
+//   handleValueChange (event) {
+//     this.props.changeIdentifier(this.props.attributes.name, event.target.value, this.props.attributes.dataType)
+//   }
+// }
