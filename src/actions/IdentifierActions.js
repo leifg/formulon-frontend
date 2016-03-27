@@ -7,12 +7,21 @@ export function changeFormula (formula) {
   }
 }
 
-export function changeIdentifier (name, value, dataType) {
+export function changeIdentifierValue (name, value) {
   return {
-    type: types.CHANGE_IDENTIFIER,
+    type: types.CHANGE_IDENTIFIER_VALUE,
     payload: {
       name,
-      value,
+      value
+    }
+  }
+}
+
+export function changeIdentifierDataType (name, dataType) {
+  return {
+    type: types.CHANGE_IDENTIFIER_DATA_TYPE,
+    payload: {
+      name,
       dataType
     }
   }

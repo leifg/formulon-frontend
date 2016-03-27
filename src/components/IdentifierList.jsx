@@ -3,7 +3,7 @@ import Identifier from './Identifier'
 
 export default class IdentifierList extends Component {
   render () {
-    const { identifiers, changeIdentifier } = this.props
+    const { identifiers, changeIdentifierValue, changeIdentifierDataType } = this.props
     return (
         <table className='table table-responsive'>
           <thead>
@@ -15,7 +15,7 @@ export default class IdentifierList extends Component {
           </thead>
           <tbody>
             {identifiers.map((identifierAttributes) =>
-              <Identifier key={identifierAttributes.name} attributes={identifierAttributes} changeIdentifier={changeIdentifier}/>
+              <Identifier key={identifierAttributes.name} attributes={identifierAttributes} changeIdentifierValue={changeIdentifierValue} changeIdentifierDataType={changeIdentifierDataType}/>
             )}
           </tbody>
         </table>
