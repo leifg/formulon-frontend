@@ -11,7 +11,7 @@ export default class IdentifierList extends Component {
             <tr>
               <th>Name</th>
               <th>Value</th>
-              <th>DataType</th>
+              <th>Data Type</th>
             </tr>
           </thead>
           <tbody>
