@@ -4,13 +4,9 @@ import { defaultMeta } from '../utils/salesforceUtils'
 export default class Identifier extends Component {
   render () {
     const { attributes } = this.props
-    const dataTypeOptions = [
-        { value: 'number', label: 'Number' },
-        { value: 'text', label: 'Text' }
-    ]
 
     if (!attributes.dataType) {
-      attributes.dataType = dataTypeOptions[0].value
+      attributes.dataType = 'number'
     }
 
     if (!attributes.options) {
@@ -19,24 +15,9 @@ export default class Identifier extends Component {
 
     return <tr>
       <td><IdentifierName name={attributes.name} /></td>
-      <td><input className='form-control' value={attributes.value} onChange={this.handleValueChange.bind(this)} /></td>
-      <td>
-        <select className='form-control' placeholder='Data Type' onChange={this.handleDataTypeChange.bind(this)}>
-          {dataTypeOptions.map((dataTypeOption) =>
-            <option value={dataTypeOption.value}>{dataTypeOption.label}</option>)
-          }
-        </select>
-      </td>
+      <td><IdentifierValue name={attributes.name} value={attributes.value} changeIdentifierValue={this.props.changeIdentifierValue} /></td>
+      <td><IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={this.props.changeIdentifierDataType}/></td>
     </tr>
-  }
-
-  handleValueChange (event) {
-    this.props.changeIdentifierValue(this.props.attributes.name, event.target.value)
-  }
-
-  handleDataTypeChange (event) {
-    console.log(this.props)
-    this.props.changeIdentifierDataType(this.props.attributes.name, event.target.value)
   }
 }
 
@@ -46,12 +27,31 @@ export class IdentifierName extends Component {
   }
 }
 
-// export class IdentifierValue extends Component {
-//   render () {
-//     return <input className='form-control' value={this.props.value} onChange={this.handleValueChange.bind(this)} />
-//   }
+export class IdentifierValue extends Component {
+  render () {
+    return <input className='form-control' value={this.props.value} onChange={this.handleValueChange.bind(this)} />
+  }
 
-//   handleValueChange (event) {
-//     this.props.changeIdentifier(this.props.attributes.name, event.target.value, this.props.attributes.dataType)
-//   }
-// }
+  handleValueChange (event) {
+    this.props.changeIdentifierValue(this.props.name, event.target.value)
+  }
+}
+
+export class IdentifierDataType extends Component {
+  render () {
+    const dataTypeOptions = [
+        { value: 'number', label: 'Number' },
+        { value: 'text', label: 'Text' }
+    ]
+
+    return <select className='form-control' placeholder='Data Type' onChange={this.handleDataTypeChange.bind(this)}>
+      {dataTypeOptions.map((dataTypeOption) =>
+        <option value={dataTypeOption.value}>{dataTypeOption.label}</option>)
+      }
+    </select>
+  }
+
+  handleDataTypeChange (event) {
+    this.props.changeIdentifierDataType(this.props.name, event.target.value)
+  }
+}
