@@ -31,11 +31,12 @@ export default class Identifier extends Component {
   }
 
   handleValueChange (event) {
-    this.props.changeIdentifier(this.props.attributes.name, event.target.value, this.props.attributes.dataType)
+    this.props.changeIdentifierValue(this.props.attributes.name, event.target.value)
   }
 
   handleDataTypeChange (event) {
-    this.props.changeIdentifier(this.props.attributes.name, this.props.attributes.value, event.target.value)
+    console.log(this.props)
+    this.props.changeIdentifierDataType(this.props.attributes.name, event.target.value)
   }
 }
 

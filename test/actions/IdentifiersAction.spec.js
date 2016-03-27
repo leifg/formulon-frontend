@@ -6,7 +6,7 @@ import chai from 'chai'
 const expect = chai.expect
 
 describe('actions', () => {
-  describe('#changeFormula', () => {
+  describe('changeFormula', () => {
     it('creates an action to change formula', () => {
       const formula = '1 + 1'
       const expectedAction = {
@@ -17,20 +17,33 @@ describe('actions', () => {
     })
   })
 
-  describe('#changeIdentifier', () => {
+  describe('changeIdentifierValue', () => {
     it('creates an action to change value', () => {
       const name = 'dev__CustomField__c'
       const value = '17'
-      const dataType = 'number'
       const expectedAction = {
-        type: 'CHANGE_IDENTIFIER',
+        type: 'CHANGE_IDENTIFIER_VALUE',
         payload: {
           name,
-          value,
+          value
+        }
+      }
+      expect(actions.changeIdentifierValue(name, value)).to.deep.eq(expectedAction)
+    })
+  })
+
+  describe('changeIdentifierDataType', () => {
+    it('creates an action to change data type', () => {
+      const name = 'dev__CustomField__c'
+      const dataType = 'number'
+      const expectedAction = {
+        type: 'CHANGE_IDENTIFIER_DATA_TYPE',
+        payload: {
+          name,
           dataType
         }
       }
-      expect(actions.changeIdentifier(name, value, dataType)).to.deep.eq(expectedAction)
+      expect(actions.changeIdentifierDataType(name, dataType)).to.deep.eq(expectedAction)
     })
   })
 })

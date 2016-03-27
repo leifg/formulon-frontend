@@ -22,7 +22,8 @@ export default function formula (state = initialState, action) {
         formula: action.formula,
         identifiers: identifiers
       }
-    case types.CHANGE_IDENTIFIER:
+    case types.CHANGE_IDENTIFIER_VALUE:
+    case types.CHANGE_IDENTIFIER_DATA_TYPE:
       let changedIdentifiers = state.identifiers.map((identifier) => {
         if (identifier.name === action.payload.name) {
           return Object.assign({}, identifier, action.payload)

@@ -101,9 +101,10 @@ describe('formula reducer', () => {
       })
     })
   })
-  context('CHANGE_IDENTIFIER', () => {
+
+  context('CHANGE_IDENTIFIER_VALUE', () => {
     const globalAction = {
-      type: 'CHANGE_IDENTIFIER',
+      type: 'CHANGE_IDENTIFIER_VALUE',
       payload: {
         name: 'dev__CustomField__c'
       }
@@ -177,6 +178,24 @@ describe('formula reducer', () => {
         expect(reducer(prevState, action)).to.deep.eq(expected)
       })
     })
+  })
+
+  context('CHANGE_IDENTIFIER_DATA_TYPE', () => {
+    const globalAction = {
+      type: 'CHANGE_IDENTIFIER_DATA_TYPE',
+      payload: {
+        name: 'dev__CustomField__c'
+      }
+    }
+
+    const state = {
+      formula: 'dev__CustomField__c + 1',
+      identifiers: [
+        {
+          name: 'dev__CustomField__c'
+        }
+      ]
+    }
 
     context('change dataType', () => {
       let payload = Object.assign({}, globalAction.payload, { dataType: 'number' })
