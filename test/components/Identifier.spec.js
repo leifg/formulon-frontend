@@ -1,6 +1,6 @@
 /* global describe it beforeEach */
 
-import Identifier, { IdentifierName } from '../../src/components/Identifier'
+import Identifier, { IdentifierName, IdentifierValue, IdentifierDataType } from '../../src/components/Identifier'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 
@@ -45,7 +45,49 @@ describe('IdentifierName', () => {
 
   it('contains only name', () => {
     const identifierName = renderer.getRenderOutput()
-    console.log(identifierName.props.children)
     expect(identifierName.props.children).to.eq(name)
+  })
+})
+
+describe('IdentifierValue', () => {
+  const name = 'lg__testName__c'
+  const value = 'content'
+  const renderer = TestUtils.createRenderer()
+
+  beforeEach(() => {
+    renderer.render(<IdentifierValue name={name} value={value} />)
+  })
+
+  it('is an input field', () => {
+    const identifierName = renderer.getRenderOutput()
+    expect(identifierName.type).to.eq('input')
+  })
+
+  it('it has content set', () => {
+    const identifierName = renderer.getRenderOutput()
+    expect(identifierName.props.value).to.eq(value)
+  })
+})
+
+describe('IdentifierDataType', () => {
+  const name = 'lg__testName__c'
+  const value = 'text'
+  const renderer = TestUtils.createRenderer()
+
+  beforeEach(() => {
+    renderer.render(<IdentifierDataType name={name} value={value} />)
+  })
+
+  it('is a selction field', () => {
+    const identifierDataType = renderer.getRenderOutput()
+    expect(identifierDataType.type).to.eq('select')
+  })
+
+  it('has expected options', () => {
+    const identifierDataType = renderer.getRenderOutput()
+    const options = identifierDataType.props.children.map((child) => {
+      return child.props.value
+    })
+    expect(options).to.deep.eq(['number', 'text'])
   })
 })
