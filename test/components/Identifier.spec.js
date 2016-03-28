@@ -1,4 +1,4 @@
-/* global describe it context */
+/* global describe it beforeEach */
 
 import Identifier, { IdentifierName } from '../../src/components/Identifier'
 import React from 'react'
@@ -10,25 +10,42 @@ import chai from 'chai'
 const expect = chai.expect
 
 describe('Identifier', () => {
+  const renderer = TestUtils.createRenderer()
   jsdom()
 
-  context('number', () => {
-    const attributes = {
-      dataType: 'number'
-    }
+  const attributes = {
+    dataType: 'number'
+  }
 
-    it('has options set to default', () => {
-      const identifier = TestUtils.renderIntoDocument(<Identifier attributes={attributes}/>)
-      expect(identifier.props.attributes.options).to.deep.eq({ length: 8, scale: 0 })
-    })
+  it('is a table row', () => {
+    renderer.render(<Identifier attributes={attributes}/>)
+    const identifier = renderer.getRenderOutput()
+    expect(identifier.type).to.eq('tr')
   })
 
-  describe('IdentifierName', () => {
-    const name = 'lg__testName__c'
+  it('contains 3 table cells', () => {
+    renderer.render(<Identifier attributes={attributes}/>)
+    const identifier = renderer.getRenderOutput()
+    expect(identifier.props.children.map((child) => { return child.type })).to.deep.eq(['td', 'td', 'td'])
+  })
+})
 
-    it('shows name', () => {
-      const identifierName = TestUtils.renderIntoDocument(<IdentifierName name={name}/>)
-      expect(identifierName.props.name).to.eq(name)
-    })
+describe('IdentifierName', () => {
+  const name = 'lg__testName__c'
+  const renderer = TestUtils.createRenderer()
+
+  beforeEach(() => {
+    renderer.render(<IdentifierName name={name} />)
+  })
+
+  it('is wrapped in <strong>', () => {
+    const identifierName = renderer.getRenderOutput()
+    expect(identifierName.type).to.eq('strong')
+  })
+
+  it('contains only name', () => {
+    const identifierName = renderer.getRenderOutput()
+    console.log(identifierName.props.children)
+    expect(identifierName.props.children).to.eq(name)
   })
 })
