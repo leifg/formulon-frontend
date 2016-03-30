@@ -11,5 +11,6 @@ export const defaultMeta = (type) => {
 
 export const availableDataTypes = [
   { id: 'number', label: 'Number' },
-  { id: 'text', label: 'Text' }
+  { id: 'text', label: 'Text' },
+  { id: 'checkbox', label: 'Checkbox' }
 ]

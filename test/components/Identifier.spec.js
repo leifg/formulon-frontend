@@ -51,21 +51,69 @@ describe('IdentifierName', () => {
 
 describe('IdentifierValue', () => {
   const name = 'lg__testName__c'
-  const value = 'content'
   const renderer = TestUtils.createRenderer()
 
-  beforeEach(() => {
-    renderer.render(<IdentifierValue name={name} value={value} />)
+  context('number', () => {
+    const dataType = 'number'
+    const value = 'content'
+    const renderer = TestUtils.createRenderer()
+
+    beforeEach(() => {
+      renderer.render(<IdentifierValue name={name} value={value} dataType={dataType}/>)
+    })
+
+    it('is an input field', () => {
+      const identifierName = renderer.getRenderOutput()
+      expect(identifierName.type).to.eq('input')
+      expect(identifierName.props.type).to.eq('text')
+    })
+
+    it('it has content set', () => {
+      const identifierName = renderer.getRenderOutput()
+      expect(identifierName.props.value).to.eq(value)
+    })
   })
 
-  it('is an input field', () => {
-    const identifierName = renderer.getRenderOutput()
-    expect(identifierName.type).to.eq('input')
+  context('text', () => {
+    const dataType = 'text'
+    const value = 'content'
+    const renderer = TestUtils.createRenderer()
+
+    beforeEach(() => {
+      renderer.render(<IdentifierValue name={name} value={value} dataType={dataType}/>)
+    })
+
+    it('is an input field', () => {
+      const identifierName = renderer.getRenderOutput()
+      expect(identifierName.type).to.eq('input')
+      expect(identifierName.props.type).to.eq('text')
+    })
+
+    it('it has content set', () => {
+      const identifierName = renderer.getRenderOutput()
+      expect(identifierName.props.value).to.eq(value)
+    })
   })
 
-  it('it has content set', () => {
-    const identifierName = renderer.getRenderOutput()
-    expect(identifierName.props.value).to.eq(value)
+  context('checkbox', () => {
+    let dataType = 'checkbox'
+    const value = 'true'
+    const renderer = TestUtils.createRenderer()
+
+    beforeEach(() => {
+      renderer.render(<IdentifierValue name={name} value={value} dataType={dataType}/>)
+    })
+
+    it('is a checkbox field', () => {
+      const identifierName = renderer.getRenderOutput()
+      expect(identifierName.type).to.eq('input')
+      expect(identifierName.props.type).to.eq('checkbox')
+    })
+
+    it('it has content set', () => {
+      const identifierName = renderer.getRenderOutput()
+      expect(identifierName.props.value).to.eq(value)
+    })
   })
 })
 
@@ -88,6 +136,6 @@ describe('IdentifierDataType', () => {
     const options = identifierDataType.props.children.map((child) => {
       return child.props.value
     })
-    expect(options).to.deep.eq(['number', 'text'])
+    expect(options).to.deep.eq(['number', 'text', 'checkbox'])
   })
 })
