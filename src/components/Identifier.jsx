@@ -40,7 +40,13 @@ export class IdentifierValue extends Component {
   }
 
   handleValueChange (event) {
-    this.props.changeIdentifierValue(this.props.name, event.target.value)
+    let target = event.target
+    let value = target.value
+
+    if(target.type == 'checkbox') {
+      value = value === 'on' ? true : false
+    }
+    this.props.changeIdentifierValue(this.props.name, value)
   }
 }
 
