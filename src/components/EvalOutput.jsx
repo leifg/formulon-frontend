@@ -10,7 +10,7 @@ export default class EvalOutput extends Component {
     if (formulaResult.type === 'Error') {
       output = <i>{formulaResult.errorType}: {formulaResult.message}</i>
     } else {
-      output = <code>{formulaResult.value}</code>
+      output = <code>{formulaResult.value.toString()}</code>
     }
     return <div className='well well-lg'>{output}</div>
   }
