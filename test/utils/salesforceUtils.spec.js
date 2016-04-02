@@ -1,9 +1,21 @@
 /* global describe it */
 
-import { defaultMeta } from '../../src/utils/salesforceUtils'
+import { availableDataTypes, defaultMeta } from '../../src/utils/salesforceUtils'
 
 import chai from 'chai'
 const expect = chai.expect
+
+describe('availableDataTypes', () => {
+  const expected = [
+    { id: 'number', label: 'Number' },
+    { id: 'text', label: 'Text' },
+    { id: 'checkbox', label: 'Checkbox' }
+  ]
+
+  it('returns the expexted data types', () => {
+    expect(availableDataTypes).to.deep.eq(expected)
+  })
+})
 
 describe('defaultMeta', () => {
   it('returns expected result for checkbox', () => {

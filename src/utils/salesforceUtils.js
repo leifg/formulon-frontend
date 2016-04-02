@@ -1,3 +1,9 @@
+export const availableDataTypes = [
+  { id: 'number', label: 'Number' },
+  { id: 'text', label: 'Text' },
+  { id: 'checkbox', label: 'Checkbox' }
+]
+
 export const defaultMeta = (type) => {
   switch (type) {
     case 'checkbox':
@@ -8,9 +14,3 @@ export const defaultMeta = (type) => {
       return {}
   }
 }
-
-export const availableDataTypes = [
-  { id: 'number', label: 'Number' },
-  { id: 'text', label: 'Text' },
-  { id: 'checkbox', label: 'Checkbox' }
-]
