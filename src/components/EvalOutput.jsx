@@ -8,7 +8,7 @@ export default class EvalOutput extends Component {
     let formulaResult = parse(this.props.formula.formula, ids)
     let output
     if (formulaResult.type === 'Error') {
-      output = <i>{formulaResult.errorType}: {formulaResult.errorType}</i>
+      output = <i>{formulaResult.errorType}: {formulaResult.message}</i>
     } else {
       output = <code>{formulaResult.value}</code>
     }
