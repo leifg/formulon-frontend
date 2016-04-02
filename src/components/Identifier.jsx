@@ -44,7 +44,7 @@ export class IdentifierValue extends Component {
     let value = target.value
 
     if(target.type == 'checkbox') {
-      value = value === 'on' ? true : false
+      value = target.checked
     }
     this.props.changeIdentifierValue(this.props.name, value)
   }
