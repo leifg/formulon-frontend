@@ -14,7 +14,8 @@ describe('formula reducer', () => {
     context('no identifiers', () => {
       const action = {
         type: 'CHANGE_FORMULA',
-        formula: '1 + 1'
+        formula: '1 + 1',
+        identifiers: []
       }
 
       it('changes the formula', () => {
@@ -29,7 +30,8 @@ describe('formula reducer', () => {
       it('does not change original input', () => {
         const action = {
           type: 'CHANGE_FORMULA',
-          formula: '1 + 1'
+          formula: '1 + 1',
+          identifiers: []
         }
 
         const expected = {
@@ -44,7 +46,8 @@ describe('formula reducer', () => {
     context('identifiers used', () => {
       const action = {
         type: 'CHANGE_FORMULA',
-        formula: 'dev__CustomField__c + 1'
+        formula: 'dev__CustomField__c + 1',
+        identifiers: ['dev__CustomField__c']
       }
 
       it('changes the formula and identifiers', () => {
@@ -85,7 +88,8 @@ describe('formula reducer', () => {
 
         const action = {
           type: 'CHANGE_FORMULA',
-          formula: 'dev__CustomField__c + dev__CustomField__c'
+          formula: 'dev__CustomField__c + dev__CustomField__c',
+          identifiers: ['dev__CustomField__c']
         }
 
         expect(reducer(state, action)).to.deep.eq(expected)
@@ -98,6 +102,40 @@ describe('formula reducer', () => {
 
         reducer(initialState, action)
         expect(initialState).to.deep.eq(expected)
+      })
+    })
+
+    context('parsing error', () => {
+      it('does not change existing identifiers', () => {
+        const action = {
+          type: 'CHANGE_FORMULA',
+          formula: '1 + dev__CustomField__c +',
+          identifiers: undefined
+        }
+
+        const state = {
+          formula: '1 + dev__CustomField__c',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              value: '2',
+              dataType: 'int'
+            }
+          ]
+        }
+
+        const expected = {
+          formula: '1 + dev__CustomField__c +',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              value: '2',
+              dataType: 'int'
+            }
+          ]
+        }
+
+        expect(reducer(state, action)).to.deep.eq(expected)
       })
     })
   })
