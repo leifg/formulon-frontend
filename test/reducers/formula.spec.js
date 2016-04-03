@@ -55,7 +55,13 @@ describe('formula reducer', () => {
           formula: 'dev__CustomField__c + 1',
           identifiers: [
             {
-              name: 'dev__CustomField__c'
+              name: 'dev__CustomField__c',
+              dataType: 'number',
+              value: null,
+              options: {
+                length: 8,
+                scale: 0
+              }
             }
           ]
         }
@@ -69,8 +75,9 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              value: '2',
-              dataType: 'int'
+              value: true,
+              dataType: 'checkbox',
+              options: {}
             }
           ]
         }
@@ -80,8 +87,9 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              value: '2',
-              dataType: 'int'
+              value: true,
+              dataType: 'checkbox',
+              options: {}
             }
           ]
         }
