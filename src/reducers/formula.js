@@ -33,7 +33,6 @@ export default function formula (state = initialState, action) {
         if (identifier.name === action.payload.name) {
           return Object.assign({}, identifier, action.payload)
         }
-
         return identifier
       })
 
