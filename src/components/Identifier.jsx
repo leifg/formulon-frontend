@@ -54,7 +54,7 @@ export class IdentifierDataType extends Component {
   render () {
     return <select className='form-control' placeholder='Data Type' onChange={this.handleDataTypeChange.bind(this)}>
       {availableDataTypes.map((dataTypeOption) =>
-        <option value={dataTypeOption.id}>{dataTypeOption.label}</option>)
+        <option key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</option>)
       }
     </select>
   }
