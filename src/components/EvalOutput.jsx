@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { parse } from 'formulon'
-import { defaultMeta } from '../utils/salesforceUtils'
+import { defaultOptions } from '../utils/salesforceUtils'
 
 export default class EvalOutput extends Component {
   render () {
@@ -23,7 +23,7 @@ export default class EvalOutput extends Component {
           [identifier.name]: {
             value: identifier.value,
             dataType: identifier.dataType,
-            meta: defaultMeta(identifier.dataType)
+            options: defaultOptions(identifier.dataType)
           }
         }
       )

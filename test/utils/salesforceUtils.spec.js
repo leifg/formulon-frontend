@@ -1,6 +1,6 @@
 /* global context describe it */
 
-import { availableDataTypes, defaultMeta, transformIdentifiers } from '../../src/utils/salesforceUtils'
+import { availableDataTypes, defaultOptions, transformIdentifiers } from '../../src/utils/salesforceUtils'
 
 import chai from 'chai'
 const expect = chai.expect
@@ -17,17 +17,17 @@ describe('availableDataTypes', () => {
   })
 })
 
-describe('defaultMeta', () => {
+describe('defaultOptions', () => {
   it('returns expected result for checkbox', () => {
-    expect(defaultMeta('checkbox')).to.deep.eq({})
+    expect(defaultOptions('checkbox')).to.deep.eq({})
   })
 
   it('returns expected result for number', () => {
-    expect(defaultMeta('number')).to.deep.eq({length: 8, scale: 0})
+    expect(defaultOptions('number')).to.deep.eq({length: 8, scale: 0})
   })
 
   it('returns empty hash for unknown value', () => {
-    expect(defaultMeta('weirdotype')).to.deep.eq({})
+    expect(defaultOptions('weirdotype')).to.deep.eq({})
   })
 })
 
@@ -57,7 +57,7 @@ describe('transformIdentifiers', () => {
       var1: {
         value: false,
         dataType: 'checkbox',
-        meta: {}
+        options: {}
       }
     }
 
@@ -89,7 +89,7 @@ describe('transformIdentifiers', () => {
       var1: {
         value: 1,
         dataType: 'number',
-        meta: {
+        options: {
           length: 8,
           scale: 0
         }
@@ -97,12 +97,12 @@ describe('transformIdentifiers', () => {
       var2: {
         value: 'content',
         dataType: 'text',
-        meta: {}
+        options: {}
       },
       var3: {
         value: true,
         dataType: 'checkbox',
-        meta: {}
+        options: {}
       }
     }
 
