@@ -1,4 +1,4 @@
-/* global describe it */
+/* global context describe it */
 
 import * as actions from '../../src/actions/IdentifierActions'
 
@@ -7,13 +7,56 @@ const expect = chai.expect
 
 describe('actions', () => {
   describe('changeFormula', () => {
-    it('creates an action to change formula', () => {
-      const formula = '1 + 1'
-      const expectedAction = {
-        type: 'CHANGE_FORMULA',
-        formula
-      }
-      expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
+    context('no identifiers', () => {
+      it('creates an action to change formula', () => {
+        const formula = '1 + 1'
+        const identifiers = []
+        const expectedAction = {
+          type: 'CHANGE_FORMULA',
+          formula,
+          identifiers
+        }
+        expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
+      })
+    })
+
+    context('single identifier', () => {
+      it('creates an action to change formula', () => {
+        const formula = '1 + dev__CustomField__c'
+        const identifiers = ['dev__CustomField__c']
+        const expectedAction = {
+          type: 'CHANGE_FORMULA',
+          formula,
+          identifiers
+        }
+        expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
+      })
+    })
+
+    context('redundant identifiers', () => {
+      it('creates an action to change formula', () => {
+        const formula = '1 + dev__CustomField__c + dev__CustomField__c'
+        const identifiers = ['dev__CustomField__c']
+        const expectedAction = {
+          type: 'CHANGE_FORMULA',
+          formula,
+          identifiers
+        }
+        expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
+      })
+    })
+
+    context('parsing error', () => {
+      it('creates an action to change formula', () => {
+        const formula = '1 + dev__CustomField__c +'
+        const identifiers = undefined
+        const expectedAction = {
+          type: 'CHANGE_FORMULA',
+          formula,
+          identifiers
+        }
+        expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
+      })
     })
   })
 

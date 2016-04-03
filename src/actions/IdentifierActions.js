@@ -1,9 +1,19 @@
 import * as types from '../constants/ActionTypes'
+import { extract } from 'formulon'
 
 export function changeFormula (formula) {
-  return {
-    type: types.CHANGE_FORMULA,
-    formula
+  try {
+    return {
+      type: types.CHANGE_FORMULA,
+      formula,
+      identifiers: extract(formula)
+    }
+  } catch (err) {
+    return {
+      type: types.CHANGE_FORMULA,
+      formula,
+      identifiers: undefined
+    }
   }
 }
 
