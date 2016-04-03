@@ -4,6 +4,14 @@ export const availableDataTypes = [
   { id: 'checkbox', label: 'Checkbox' }
 ]
 
+export const defaultIdentifier = (type = 'number') => {
+  return {
+    dataType: type,
+    value: defaultValue(type),
+    options: defaultOptions(type)
+  }
+}
+
 export const defaultOptions = (type) => {
   switch (type) {
     case 'checkbox':
@@ -12,6 +20,15 @@ export const defaultOptions = (type) => {
       return { length: 8, scale: 0 }
     default:
       return {}
+  }
+}
+
+export const defaultValue = (type) => {
+  switch (type) {
+    case 'checkbox':
+      return false
+    default:
+      return null
   }
 }
 

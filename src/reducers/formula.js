@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes'
+import { defaultIdentifier } from '../utils/salesforceUtils'
 
 const initialState = {
   formula: null,
@@ -19,9 +20,7 @@ export default function formula (state = initialState, action) {
         if (found) {
           return found
         }
-        return {
-          name: identifier
-        }
+        return Object.assign({name: identifier}, defaultIdentifier())
       })
       return {
         formula: action.formula,

@@ -1,9 +1,77 @@
 /* global context describe it */
 
-import { availableDataTypes, defaultOptions, transformIdentifiers } from '../../src/utils/salesforceUtils'
+import {
+  availableDataTypes,
+  defaultIdentifier,
+  defaultOptions,
+  defaultValue,
+  transformIdentifiers
+} from '../../src/utils/salesforceUtils'
 
 import chai from 'chai'
 const expect = chai.expect
+
+describe('defaultIdentifier', () => {
+  context('checkbox', () => {
+    const dataType = 'checkbox'
+
+    it('returns expected result for checkbox', () => {
+      const expected = {
+        dataType: dataType,
+        value: false,
+        options: {}
+      }
+
+      expect(defaultIdentifier(dataType)).to.deep.eq(expected)
+    })
+  })
+
+  context('number', () => {
+    const dataType = 'number'
+
+    it('returns expected result for number', () => {
+      const expected = {
+        dataType: dataType,
+        value: null,
+        options: {
+          length: 8,
+          scale: 0
+        }
+      }
+
+      expect(defaultIdentifier(dataType)).to.deep.eq(expected)
+    })
+  })
+
+  context('text', () => {
+    const dataType = 'text'
+
+    it('returns expected result for text', () => {
+      const expected = {
+        dataType: dataType,
+        value: null,
+        options: {}
+      }
+
+      expect(defaultIdentifier(dataType)).to.deep.eq(expected)
+    })
+  })
+
+  context('undefined', () => {
+    it('returns expected result for number', () => {
+      const expected = {
+        dataType: 'number',
+        value: null,
+        options: {
+          length: 8,
+          scale: 0
+        }
+      }
+
+      expect(defaultIdentifier(undefined)).to.deep.eq(expected)
+    })
+  })
+})
 
 describe('availableDataTypes', () => {
   const expected = [
@@ -28,6 +96,32 @@ describe('defaultOptions', () => {
 
   it('returns empty hash for unknown value', () => {
     expect(defaultOptions('weirdotype')).to.deep.eq({})
+  })
+})
+
+describe('defaultValue', () => {
+  context('number', () => {
+    const dataType = 'number'
+
+    it('returns null', () => {
+      expect(defaultValue(dataType)).to.be.null
+    })
+  })
+
+  context('text', () => {
+    const dataType = 'text'
+
+    it('returns null', () => {
+      expect(defaultValue(dataType)).to.be.null
+    })
+  })
+
+  context('checkbox', () => {
+    const dataType = 'checkbox'
+
+    it('returns false', () => {
+      expect(defaultValue(dataType)).to.be.false
+    })
   })
 })
 
