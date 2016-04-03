@@ -7,9 +7,8 @@ module.exports = {
     './src/index.jsx'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -29,10 +28,5 @@ module.exports = {
         }
       }
     ]
-  },
-  devServer: {
-    contentBase: './public',
-    host: '0.0.0.0',
-    port: '9000'
   }
 }
