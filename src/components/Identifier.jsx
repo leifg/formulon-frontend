@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { defaultMeta, availableDataTypes } from '../utils/salesforceUtils'
+import { defaultOptions, availableDataTypes } from '../utils/salesforceUtils'
 
 export default class Identifier extends Component {
   render () {
@@ -10,7 +10,7 @@ export default class Identifier extends Component {
     }
 
     if (!attributes.options) {
-      attributes.options = defaultMeta(attributes.dataType)
+      attributes.options = defaultOptions(attributes.dataType)
     }
 
     return <tr>

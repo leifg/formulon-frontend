@@ -4,7 +4,7 @@ export const availableDataTypes = [
   { id: 'checkbox', label: 'Checkbox' }
 ]
 
-export const defaultMeta = (type) => {
+export const defaultOptions = (type) => {
   switch (type) {
     case 'checkbox':
       return {}
@@ -23,7 +23,7 @@ export const transformIdentifiers = (identifersList = []) => {
         [identifier.name]: {
           value: coerceData(identifier.value, identifier.dataType),
           dataType: identifier.dataType,
-          meta: defaultMeta(identifier.dataType)
+          options: defaultOptions(identifier.dataType)
         }
       }
     )
