@@ -207,7 +207,7 @@ describe('formula reducer', () => {
         const prevState = Object.assign(
           {},
           state,
-          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'string' } ] }
+          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'text' } ] }
         )
 
         const expected = {
@@ -215,7 +215,7 @@ describe('formula reducer', () => {
           identifiers: [
             {
               name: 'dev__CustomField__c',
-              dataType: 'string',
+              dataType: 'text',
               value: '17'
             }
           ]
@@ -265,7 +265,7 @@ describe('formula reducer', () => {
         const prevState = Object.assign(
           {},
           state,
-          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'string' } ] }
+          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'text' } ] }
         )
 
         const expected = {
@@ -295,6 +295,66 @@ describe('formula reducer', () => {
               name: 'dev__CustomField__c',
               dataType: 'number',
               value: '17'
+            }
+          ]
+        }
+
+        expect(reducer(prevState, action)).to.deep.eq(expected)
+      })
+    })
+  })
+
+  context('CHANGE_IDENTIFIER_OPTIONS', () => {
+    const globalAction = {
+      type: 'CHANGE_IDENTIFIER_OPTIONS',
+      payload: {
+        name: 'dev__CustomField__c',
+        dataType: 'number'
+      }
+    }
+
+    const state = {
+      formula: 'dev__CustomField__c + 1',
+      identifiers: [
+        {
+          name: 'dev__CustomField__c'
+        }
+      ]
+    }
+
+    context('change options', () => {
+      let payload = Object.assign({}, globalAction.payload, { options: { length: 17, scale: 3 } })
+      let action = Object.assign({}, globalAction, { payload: payload })
+
+      it('correctly sets options of unitialized variable', () => {
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              dataType: 'number',
+              options: { length: 17, scale: 3 }
+            }
+          ]
+        }
+
+        expect(reducer(state, action)).to.deep.eq(expected)
+      })
+
+      it('correctly replaces options of initialized variable', () => {
+        const prevState = Object.assign(
+          {},
+          state,
+          { identifiers: [ { name: 'dev__CustomField__c', dataType: 'number', options: { length: 8, scale: 0 } } ] }
+        )
+
+        const expected = {
+          formula: 'dev__CustomField__c + 1',
+          identifiers: [
+            {
+              name: 'dev__CustomField__c',
+              dataType: 'number',
+              options: { length: 17, scale: 3 }
             }
           ]
         }
