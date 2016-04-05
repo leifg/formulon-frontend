@@ -17,6 +17,7 @@ export default class Identifier extends Component {
       <td><IdentifierName name={attributes.name} /></td>
       <td><IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={this.props.changeIdentifierValue} /></td>
       <td><IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={this.props.changeIdentifierDataType}/></td>
+      <td><IdentifierOptions name={attributes.name} dataType={attributes.dataType} options={attributes.options} changeIdentifierOptions={this.props.changeIdentifierOptions}/></td>
     </tr>
   }
 }
@@ -61,5 +62,30 @@ export class IdentifierDataType extends Component {
 
   handleDataTypeChange (event) {
     this.props.changeIdentifierDataType(this.props.name, event.target.value)
+  }
+}
+
+export class IdentifierOptions extends Component {
+  render () {
+    return <IdentifierOptionsNumber />
+  }
+}
+
+export class IdentifierOptionsNumber extends Component {
+  render () {
+    return <form className='form-horizontal'>
+      <div className='form-group'>
+        <label className='control-label col-sm-3'>Length</label>
+        <div className='col-sm-9'>
+          <input className='form-control'/>
+        </div>
+      </div>
+      <div className='form-group'>
+        <label className='control-label col-sm-3'>Decimal Places</label>
+        <div className='col-sm-9'>
+          <input className='form-control'/>
+        </div>
+      </div>
+    </form>
   }
 }

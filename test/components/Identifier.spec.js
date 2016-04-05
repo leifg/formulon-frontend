@@ -23,10 +23,10 @@ describe('Identifier', () => {
     expect(identifier.type).to.eq('tr')
   })
 
-  it('contains 3 table cells', () => {
+  it('contains 4 table cells', () => {
     renderer.render(<Identifier attributes={attributes}/>)
     const identifier = renderer.getRenderOutput()
-    expect(identifier.props.children.map((child) => { return child.type })).to.deep.eq(['td', 'td', 'td'])
+    expect(identifier.props.children.map((child) => { return child.type })).to.deep.eq(['td', 'td', 'td', 'td'])
   })
 })
 
