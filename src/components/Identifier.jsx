@@ -67,7 +67,14 @@ export class IdentifierDataType extends Component {
 
 export class IdentifierOptions extends Component {
   render () {
-    return <IdentifierOptionsNumber />
+    switch (this.props.dataType) {
+      case 'number':
+        return <IdentifierOptionsNumber />
+      case 'text':
+        return <IdentifierOptionsText />
+      default:
+        return <IdentifierOptionsEmpty />
+    }
   }
 }
 
@@ -87,5 +94,24 @@ export class IdentifierOptionsNumber extends Component {
         </div>
       </div>
     </form>
+  }
+}
+
+export class IdentifierOptionsText extends Component {
+  render () {
+    return <form className='form-horizontal'>
+      <div className='form-group'>
+        <label className='control-label col-sm-3'>Length</label>
+        <div className='col-sm-9'>
+          <input className='form-control'/>
+        </div>
+      </div>
+    </form>
+  }
+}
+
+export class IdentifierOptionsEmpty extends Component {
+  render () {
+    return <div />
   }
 }
