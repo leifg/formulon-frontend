@@ -42,7 +42,7 @@ export function changeIdentifierOptions (name, options) {
     type: types.CHANGE_IDENTIFIER_OPTIONS,
     payload: {
       name,
-      options
+      options: {length: parseInt(options.length), scale: parseInt(options.scale)}
     }
   }
 }

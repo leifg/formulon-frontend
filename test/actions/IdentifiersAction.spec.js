@@ -93,12 +93,12 @@ describe('actions', () => {
   describe('changeIdentifierOptions', () => {
     it('creates an action to change options', () => {
       const name = 'dev__CustomField__c'
-      const options = {length: 17, scale: 3}
+      const options = {length: '17', scale: '3'}
       const expectedAction = {
         type: 'CHANGE_IDENTIFIER_OPTIONS',
         payload: {
           name,
-          options
+          options: { length: 17, scale: 3 }
         }
       }
       expect(actions.changeIdentifierOptions(name, options)).to.deep.eq(expectedAction)
