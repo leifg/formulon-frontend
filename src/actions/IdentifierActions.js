@@ -36,3 +36,13 @@ export function changeIdentifierDataType (name, dataType) {
     }
   }
 }
+
+export function changeIdentifierOptions (name, options) {
+  return {
+    type: types.CHANGE_IDENTIFIER_OPTIONS,
+    payload: {
+      name,
+      options
+    }
+  }
+}
