@@ -9,10 +9,6 @@ export default class Identifier extends Component {
       attributes.dataType = availableDataTypes[0].id
     }
 
-    if (!attributes.options) {
-      attributes.options = defaultOptions(attributes.dataType)
-    }
-
     return <tr>
       <td><IdentifierName name={attributes.name} /></td>
       <td><IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={this.props.changeIdentifierValue} /></td>
@@ -67,11 +63,17 @@ export class IdentifierDataType extends Component {
 
 export class IdentifierOptions extends Component {
   render () {
-    switch (this.props.dataType) {
+    const { dataType, options, name, changeIdentifierOptions } = this.props
+
+    if (!options) {
+      attributes.options = defaultOptions(dataType)
+    }
+
+    switch (dataType) {
       case 'number':
-        return <IdentifierOptionsNumber />
+        return <IdentifierOptionsNumber name={name} options={options} changeIdentifierOptions={changeIdentifierOptions}/>
       case 'text':
-        return <IdentifierOptionsText />
+        return <IdentifierOptionsText name={name} options={options} changeIdentifierOptions={changeIdentifierOptions}/>
       default:
         return <IdentifierOptionsEmpty />
     }
@@ -84,16 +86,24 @@ export class IdentifierOptionsNumber extends Component {
       <div className='form-group'>
         <label className='control-label col-sm-3'>Length</label>
         <div className='col-sm-9'>
-          <input className='form-control'/>
+          <input className='form-control' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)}/>
         </div>
       </div>
       <div className='form-group'>
         <label className='control-label col-sm-3'>Decimal Places</label>
         <div className='col-sm-9'>
-          <input className='form-control'/>
+          <input className='form-control' value={this.props.options.scale} onChange={this.handleOptionsScaleChange.bind(this)}/>
         </div>
       </div>
     </form>
+  }
+
+  handleOptionsLengthChange (event) {
+    this.props.changeIdentifierOptions(this.props.name, {length: event.target.value, scale: this.props.options.scale})
+  }
+
+  handleOptionsScaleChange (event) {
+    this.props.changeIdentifierOptions(this.props.name, {length: this.props.options.length, scale: event.target.value})
   }
 }
 
@@ -103,10 +113,14 @@ export class IdentifierOptionsText extends Component {
       <div className='form-group'>
         <label className='control-label col-sm-3'>Length</label>
         <div className='col-sm-9'>
-          <input className='form-control'/>
+          <input className='form-control' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)}/>
         </div>
       </div>
     </form>
+  }
+
+  handleOptionsLengthChange (event) {
+    this.props.changeIdentifierOptions(this.props.name, {length: event.target.value})
   }
 }
 

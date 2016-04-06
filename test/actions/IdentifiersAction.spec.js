@@ -83,7 +83,8 @@ describe('actions', () => {
         type: 'CHANGE_IDENTIFIER_DATA_TYPE',
         payload: {
           name,
-          dataType
+          dataType,
+          options: { length: 8, scale: 0 }
         }
       }
       expect(actions.changeIdentifierDataType(name, dataType)).to.deep.eq(expectedAction)
