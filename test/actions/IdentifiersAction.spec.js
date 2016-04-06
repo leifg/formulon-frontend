@@ -58,6 +58,19 @@ describe('actions', () => {
         expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
       })
     })
+
+    context('reset formula', () => {
+      it('creates an action to change formula', () => {
+        const formula = ''
+        const identifiers = []
+        const expectedAction = {
+          type: 'CHANGE_FORMULA',
+          formula,
+          identifiers
+        }
+        expect(actions.changeFormula(formula)).to.deep.eq(expectedAction)
+      })
+    })
   })
 
   describe('changeIdentifierValue', () => {
