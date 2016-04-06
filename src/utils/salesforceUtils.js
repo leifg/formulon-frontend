@@ -18,6 +18,8 @@ export const defaultOptions = (type) => {
       return {}
     case 'number':
       return { length: 8, scale: 0 }
+    case 'text':
+      return { length: 255 }
     default:
       return {}
   }
@@ -52,7 +54,7 @@ export const transformIdentifiers = (identifersList = []) => {
 const coerceData = (value, dataType) => {
   switch (dataType) {
     case 'number':
-      return parseInt(value, 10)
+      return parseFloat(value, 10)
     case 'checkbox':
       return value === true
     default:

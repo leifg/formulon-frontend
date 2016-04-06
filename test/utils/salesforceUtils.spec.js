@@ -50,7 +50,9 @@ describe('defaultIdentifier', () => {
       const expected = {
         dataType: dataType,
         value: null,
-        options: {}
+        options: {
+          length: 255
+        }
       }
 
       expect(defaultIdentifier(dataType)).to.deep.eq(expected)
@@ -191,7 +193,9 @@ describe('transformIdentifiers', () => {
       var2: {
         value: 'content',
         dataType: 'text',
-        options: {}
+        options: {
+          length: 255,
+        }
       },
       var3: {
         value: true,

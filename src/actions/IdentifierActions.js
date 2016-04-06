@@ -1,5 +1,6 @@
 import * as types from '../constants/ActionTypes'
 import { extract } from 'formulon'
+import { defaultOptions } from '../utils/salesforceUtils'
 
 export function changeFormula (formula) {
   try {
@@ -32,7 +33,8 @@ export function changeIdentifierDataType (name, dataType) {
     type: types.CHANGE_IDENTIFIER_DATA_TYPE,
     payload: {
       name,
-      dataType
+      dataType,
+      options: defaultOptions(dataType)
     }
   }
 }
