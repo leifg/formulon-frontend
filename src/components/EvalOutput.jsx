@@ -13,6 +13,8 @@ export default class EvalOutput extends Component {
       let value = formulaResult.value == null ? '' : formulaResult.value
       output = <code>{value.toString()}</code>
     }
-    return <div className='well well-lg'>{output}</div>
+    return (<div className='slds-card' style={{ padding: '12px' }}>
+        {output}
+    </div>)
   }
 }

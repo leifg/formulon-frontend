@@ -1,1 +1,11 @@
-@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../node_modules/@salesforce-ux/design-system/scss/index";
+
+.slds-form-element__label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.slds-page-header {
+  font-size: 25px;
+  font-weight: bold;
+}

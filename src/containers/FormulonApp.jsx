@@ -10,7 +10,7 @@ class FormulonApp extends React.Component {
   render () {
     const { formula, changeFormula, changeIdentifierDataType, changeIdentifierOptions, changeIdentifierValue } = this.props
     return (
-      <div className='container-fluid'>
+      <div style={ { padding: '12px' } }>
         <IdentifierList identifiers={formula.identifiers} changeIdentifierValue={changeIdentifierValue} changeIdentifierDataType={changeIdentifierDataType} changeIdentifierOptions={changeIdentifierOptions} />
         <FormulaInput changeFormula={changeFormula} />
         <EvalOutput formula={formula} />

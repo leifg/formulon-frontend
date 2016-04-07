@@ -17,35 +17,17 @@ describe('Identifier', () => {
     dataType: 'number'
   }
 
-  it('is a table row', () => {
+  it('is a FieldSet', () => {
     renderer.render(<Identifier attributes={attributes}/>)
     const identifier = renderer.getRenderOutput()
-    expect(identifier.type).to.eq('tr')
+    expect(identifier.type.name).to.eq('FieldSet')
   })
 
-  it('contains 4 table cells', () => {
+  it('contains 1 Row', () => {
     renderer.render(<Identifier attributes={attributes}/>)
     const identifier = renderer.getRenderOutput()
-    expect(identifier.props.children.map((child) => { return child.type })).to.deep.eq(['td', 'td', 'td', 'td'])
-  })
-})
-
-describe('IdentifierName', () => {
-  const name = 'lg__testName__c'
-  const renderer = TestUtils.createRenderer()
-
-  beforeEach(() => {
-    renderer.render(<IdentifierName name={name} />)
-  })
-
-  it('is wrapped in <strong>', () => {
-    const identifierName = renderer.getRenderOutput()
-    expect(identifierName.type).to.eq('strong')
-  })
-
-  it('contains only name', () => {
-    const identifierName = renderer.getRenderOutput()
-    expect(identifierName.props.children).to.eq(name)
+    const children = identifier.props.children
+    expect(children.type.name).to.eq('Row')
   })
 })
 
@@ -62,15 +44,9 @@ describe('IdentifierValue', () => {
       renderer.render(<IdentifierValue name={name} value={value} dataType={dataType}/>)
     })
 
-    it('is an input field', () => {
+    it('is a FieldSet', () => {
       const identifierName = renderer.getRenderOutput()
-      expect(identifierName.type).to.eq('input')
-      expect(identifierName.props.type).to.eq('text')
-    })
-
-    it('it has content set', () => {
-      const identifierName = renderer.getRenderOutput()
-      expect(identifierName.props.value).to.eq(value)
+      expect(identifierName.type.name).to.eq('FieldSet')
     })
   })
 
@@ -83,15 +59,9 @@ describe('IdentifierValue', () => {
       renderer.render(<IdentifierValue name={name} value={value} dataType={dataType}/>)
     })
 
-    it('is an input field', () => {
+    it('is a FieldSet', () => {
       const identifierName = renderer.getRenderOutput()
-      expect(identifierName.type).to.eq('input')
-      expect(identifierName.props.type).to.eq('text')
-    })
-
-    it('it has content set', () => {
-      const identifierName = renderer.getRenderOutput()
-      expect(identifierName.props.value).to.eq(value)
+      expect(identifierName.type.name).to.eq('FieldSet')
     })
   })
 
@@ -104,15 +74,9 @@ describe('IdentifierValue', () => {
       renderer.render(<IdentifierValue name={name} value={value} dataType={dataType}/>)
     })
 
-    it('is a checkbox field', () => {
+    it('is a FieldSet', () => {
       const identifierName = renderer.getRenderOutput()
-      expect(identifierName.type).to.eq('input')
-      expect(identifierName.props.type).to.eq('checkbox')
-    })
-
-    it('it has content set', () => {
-      const identifierName = renderer.getRenderOutput()
-      expect(identifierName.props.value).to.eq(value)
+      expect(identifierName.type.name).to.eq('FieldSet')
     })
   })
 })
@@ -126,16 +90,8 @@ describe('IdentifierDataType', () => {
     renderer.render(<IdentifierDataType name={name} value={value} />)
   })
 
-  it('is a selction field', () => {
+  it('is a FieldSet', () => {
     const identifierDataType = renderer.getRenderOutput()
-    expect(identifierDataType.type).to.eq('select')
-  })
-
-  it('has expected options', () => {
-    const identifierDataType = renderer.getRenderOutput()
-    const options = identifierDataType.props.children.map((child) => {
-      return child.props.value
-    })
-    expect(options).to.deep.eq(['number', 'text', 'checkbox'])
+    expect(identifierDataType.type.name).to.eq('FieldSet')
   })
 })
