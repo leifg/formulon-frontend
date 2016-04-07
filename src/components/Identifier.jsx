@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { defaultOptions, availableDataTypes } from '../utils/salesforceUtils'
+import { Checkbox, Col, FieldSet, Form, Input, Option, Select } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
   render () {
@@ -9,18 +10,13 @@ export default class Identifier extends Component {
       attributes.dataType = availableDataTypes[0].id
     }
 
-    return <tr>
-      <td><IdentifierName name={attributes.name} /></td>
-      <td><IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={this.props.changeIdentifierValue} /></td>
-      <td><IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={this.props.changeIdentifierDataType}/></td>
-      <td><IdentifierOptions name={attributes.name} dataType={attributes.dataType} options={attributes.options} changeIdentifierOptions={this.props.changeIdentifierOptions}/></td>
-    </tr>
-  }
-}
-
-export class IdentifierName extends Component {
-  render () {
-    return <strong>{this.props.name}</strong>
+    return <FieldSet label={attributes.name}>
+      <FieldSet.Row>
+        <IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={this.props.changeIdentifierValue} />
+        <IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={this.props.changeIdentifierDataType}/>
+        <IdentifierOptions name={attributes.name} dataType={attributes.dataType} options={attributes.options} changeIdentifierOptions={this.props.changeIdentifierOptions}/>
+      </FieldSet.Row>
+    </FieldSet>
   }
 }
 
@@ -28,11 +24,11 @@ export class IdentifierValue extends Component {
   render () {
     switch (this.props.dataType) {
       case 'number':
-        return <input className='form-control' type='text' value={this.props.value} onChange={this.handleValueChange.bind(this)} />
+      return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={this.props.value} onChange={this.handleValueChange.bind(this)} /></FieldSet.Row></FieldSet>
       case 'text':
-        return <input className='form-control' type='text' value={this.props.value} onChange={this.handleValueChange.bind(this)} />
+        return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={this.props.value} onChange={this.handleValueChange.bind(this)} /></FieldSet.Row></FieldSet>
       case 'checkbox':
-        return <input type='checkbox' value={this.props.value} onChange={this.handleValueChange.bind(this)} />
+        return <FieldSet><FieldSet.Row><Checkbox label='Checked' value={this.props.value} onChange={this.handleValueChange.bind(this)} /></FieldSet.Row></FieldSet>
     }
   }
 
@@ -49,11 +45,15 @@ export class IdentifierValue extends Component {
 
 export class IdentifierDataType extends Component {
   render () {
-    return <select className='form-control' placeholder='Data Type' onChange={this.handleDataTypeChange.bind(this)}>
-      {availableDataTypes.map((dataTypeOption) =>
-        <option key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</option>)
-      }
-    </select>
+    return <FieldSet>
+      <FieldSet.Row>
+        <Select label='Data Type' defaultValue={availableDataTypes[0].id} onChange={this.handleDataTypeChange.bind(this)}>
+          {availableDataTypes.map((dataTypeOption) =>
+            <Option key={dataTypeOption.id} value={dataTypeOption.id} label={dataTypeOption.label} />)
+          }
+        </Select>
+      </FieldSet.Row>
+    </FieldSet>
   }
 
   handleDataTypeChange (event) {
@@ -82,20 +82,12 @@ export class IdentifierOptions extends Component {
 
 export class IdentifierOptionsNumber extends Component {
   render () {
-    return <form className='form-horizontal'>
-      <div className='form-group'>
-        <label className='control-label col-sm-3'>Length</label>
-        <div className='col-sm-9'>
-          <input className='form-control' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)}/>
-        </div>
-      </div>
-      <div className='form-group'>
-        <label className='control-label col-sm-3'>Decimal Places</label>
-        <div className='col-sm-9'>
-          <input className='form-control' value={this.props.options.scale} onChange={this.handleOptionsScaleChange.bind(this)}/>
-        </div>
-      </div>
-    </form>
+    return <FieldSet>
+      <FieldSet.Row>
+        <Input label='Length' type='text' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)} />
+        <Input label='Scale' type='text' value={this.props.options.scale} onChange={this.handleOptionsScaleChange.bind(this)} />
+      </FieldSet.Row>
+    </FieldSet>
   }
 
   handleOptionsLengthChange (event) {
@@ -109,14 +101,11 @@ export class IdentifierOptionsNumber extends Component {
 
 export class IdentifierOptionsText extends Component {
   render () {
-    return <form className='form-horizontal'>
-      <div className='form-group'>
-        <label className='control-label col-sm-3'>Length</label>
-        <div className='col-sm-9'>
-          <input className='form-control' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)}/>
-        </div>
-      </div>
-    </form>
+    return <FieldSet>
+      <FieldSet.Row>
+        <Input label='Length' type='text' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)} />
+      </FieldSet.Row>
+    </FieldSet>
   }
 
   handleOptionsLengthChange (event) {
@@ -126,6 +115,6 @@ export class IdentifierOptionsText extends Component {
 
 export class IdentifierOptionsEmpty extends Component {
   render () {
-    return <div />
+    return <FieldSet />
   }
 }
