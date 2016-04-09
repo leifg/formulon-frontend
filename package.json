@@ -25,13 +25,13 @@
   "homepage": "https://github.com/leifg/formulon-frontend#readme",
   "dependencies": {
     "@salesforce-ux/design-system": "^1.0.0",
-    "formulon": "file:///Users/leifg/projects/formulon",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "formulon": "^1.0.1",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "react-lightning-design-system": "^0.2.10",
-    "svg4everybody": "git://github.com/leifg/svg4everybody.git#check-for-navigator",
-    "react-redux": "^4.4.1",
-    "redux": "^3.3.1"
+    "react-redux": "^4.4.2",
+    "redux": "^3.4.0",
+    "svg4everybody": "git://github.com/leifg/svg4everybody.git#check-for-navigator"
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
@@ -48,7 +48,7 @@
     "mocha": "^2.4.5",
     "mocha-jsdom": "^1.1.0",
     "node-sass": "^3.4.2",
-    "react-addons-test-utils": "^0.14.8",
+    "react-addons-test-utils": "^15.0.1",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.2.0",
     "redux-logger": "^2.6.1",
