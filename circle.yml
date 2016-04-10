@@ -15,6 +15,6 @@ test:
     - mkdir -p ~/assets/cache/
     - touch ~/assets/cache/.awspublish-formulon-assets
     - cp ~/assets/cache/.awspublish-formulon-assets .
-    - gulp --s3Bucket=${S3_BUCKET} --awsKeyId=${AWS_KEY_ID} --awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY} --cfDistributionId=${CF_DISTRIBUTION_ID} --awsRegion=${AWS_REGION} deploy
+    - npm run deploy
     - cp -f .awspublish-formulon-assets ~/assets/cache/
 
