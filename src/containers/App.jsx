@@ -20,6 +20,15 @@ export default class App extends React.Component {
         <Provider store={store}>
           <FormulonApp />
         </Provider>
+        <Row>
+          <Col>
+            <footer className="slds-p-around--large" role="contentinfo">
+              <div className="slds-grid slds-grid--align-end">
+              <p className="slds-col">powered by <a href="https://github.com/leifg/formulon" target="_blank">formulon</a> built by <a href="http://leif.io" target="_blank">Leif Gensert</a></p>
+              </div>
+            </footer>
+          </Col>
+        </Row>
       </Grid>
     )
   }
