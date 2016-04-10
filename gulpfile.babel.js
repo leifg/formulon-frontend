@@ -12,17 +12,22 @@ import RevAll from 'gulp-rev-all'
 import awspublish from 'gulp-awspublish'
 import cloudfront from 'gulp-cloudfront'
 
-const aws = {
+let s3Config = {
   params: {
     Bucket: gutil.env.s3Bucket
   },
   accessKeyId: gutil.env.awsKeyId,
   secretAccessKey: gutil.env.awsSecretAccessKey,
-  distributionId: gutil.env.cfDistributionId,
   region: gutil.env.awsRegion
 }
 
-let publisher = awspublish.create(aws)
+let cfConfig = {
+  key: gutil.env.awsKeyId,
+  secret: gutil.env.awsSecretAccessKey,
+  distributionId: gutil.env.cfDistributionId
+}
+
+let publisher = awspublish.create(s3Config)
 let headers = {'Cache-Control': 'max-age=315360000, no-transform, public'}
 
 gulp.task('default', sequence('webpack-dev-server'))
@@ -35,7 +40,7 @@ gulp.task('publish', () => {
       .pipe(publisher.publish(headers))
       .pipe(publisher.cache())
       .pipe(awspublish.reporter())
-      .pipe(cloudfront(aws))
+      .pipe(cloudfront(cfConfig))
 })
 
 gulp.task('deploy', (callback) => {
