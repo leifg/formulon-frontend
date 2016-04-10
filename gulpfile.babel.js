@@ -24,15 +24,19 @@ gulp.task('clean', () => {
   return del('./public/**/*')
 })
 
-gulp.task('html', () => {
+gulp.task('sf-design-system', ['clean'], () => {
+  return gulp.src('./node_modules/@salesforce-ux/design-system/assets/**/*').pipe(gulp.dest('./public/sf-ux'))
+})
+
+gulp.task('html', ['clean'], () => {
   return gulp.src('./src/index.html').pipe(gulp.dest('./public'))
 })
 
-gulp.task('styles', () => {
+gulp.task('styles', ['clean'], () => {
   return gulp.src('./src/main.scss').pipe(sass()).pipe(gulp.dest('./public'))
 })
 
-gulp.task('webpack-dev-server', ['clean', 'html', 'styles', 'webpack'], (callback) => {
+gulp.task('webpack-dev-server', ['clean', 'sf-design-system', 'html', 'styles', 'webpack'], (callback) => {
   const compiler = webpack(webpackConfig)
   const port = '9000'
   const devServerOptions = {
