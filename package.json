@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp",
     "test": "mocha --compilers js:babel-register --recursive",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "deploy": "gulp --s3Bucket=${S3_BUCKET} --awsKeyId=${AWS_KEY_ID} --awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY} --cfDistributionId=${CF_DISTRIBUTION_ID} --awsRegion=${AWS_REGION} deploy"
   },
   "repository": {
     "type": "git",
