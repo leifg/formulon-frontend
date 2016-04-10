@@ -5,8 +5,6 @@ machine:
 dependencies:
   pre:
     - npm install
-  cache_directories:
-    - "~/assets/cache"
 
 test:
   override:
@@ -16,8 +14,4 @@ deployment:
   production:
     branch: master
     commands:
-      - mkdir -p ~/assets/cache/
-      - touch ~/assets/cache/.awspublish-formulon-assets
-      - cp ~/assets/cache/.awspublish-formulon-assets .
       - npm deploy
-      - cp -f .awspublish-formulon-assets ~/assets/cache/
