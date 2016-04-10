@@ -140,44 +140,30 @@ describe('transformIdentifiers', () => {
     })
   })
 
-  context('undefined checkbox', () => {
-    const input = [
-      {
-        name: 'var1',
-        value: undefined,
-        dataType: 'checkbox'
-      }
-    ]
-
-    const expectedOutput = {
-      var1: {
-        value: false,
-        dataType: 'checkbox',
-        options: {}
-      }
-    }
-
-    it('returns expected output', () => {
-      expect(transformIdentifiers(input)).to.deep.eq(expectedOutput)
-    })
-  })
-
   context('list of identifiers', () => {
     const input = [
       {
         name: 'var1',
         value: '1',
-        dataType: 'number'
+        dataType: 'number',
+        options: {
+          length: 4,
+          scale: 0
+        }
       },
       {
         name: 'var2',
         value: 'content',
-        dataType: 'text'
+        dataType: 'text',
+        options: {
+          length: 10
+        }
       },
       {
         name: 'var3',
         value: true,
-        dataType: 'checkbox'
+        dataType: 'checkbox',
+        options: {}
       }
     ]
 
@@ -186,7 +172,7 @@ describe('transformIdentifiers', () => {
         value: 1,
         dataType: 'number',
         options: {
-          length: 8,
+          length: 4,
           scale: 0
         }
       },
@@ -194,7 +180,7 @@ describe('transformIdentifiers', () => {
         value: 'content',
         dataType: 'text',
         options: {
-          length: 255,
+          length: 10
         }
       },
       var3: {
