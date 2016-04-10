@@ -5,3 +5,4 @@
 /tmp
 *.log
 /.awspublish-formulon-assets
+/set-aws-credentials.sh
