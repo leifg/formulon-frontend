@@ -42,7 +42,7 @@ export const transformIdentifiers = (identifersList = []) => {
         [identifier.name]: {
           value: coerceData(identifier.value, identifier.dataType),
           dataType: identifier.dataType,
-          options: defaultOptions(identifier.dataType)
+          options: identifier.options
         }
       }
     )
