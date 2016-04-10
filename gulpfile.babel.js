@@ -12,7 +12,7 @@ import RevAll from 'gulp-rev-all'
 import awspublish from 'gulp-awspublish'
 import cloudfront from 'gulp-cloudfront'
 
-let aws = {
+const aws = {
   params: {
     Bucket: gutil.env.s3Bucket
   },
