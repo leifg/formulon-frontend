@@ -12,7 +12,7 @@ import RevAll from 'gulp-rev-all'
 import awspublish from 'gulp-awspublish'
 import cloudfront from 'gulp-cloudfront'
 
-let aws = {
+const aws = {
   params: {
     Bucket: gutil.env.s3Bucket
   },
@@ -57,7 +57,13 @@ gulp.task('clean', () => {
 })
 
 gulp.task('sf-design-system', () => {
-  return gulp.src('./node_modules/@salesforce-ux/design-system/assets/**/*').pipe(gulp.dest('./public/sf-ux'))
+  return gulp.src(
+    [
+      'node_modules/@salesforce-ux/design-system/assets/**',
+      '!node_modules/@salesforce-ux/design-system/assets/{icons,icons/**}',
+      '!./node_modules/@salesforce-ux/design-system/assets/**/*.txt'
+    ]
+  ).pipe(gulp.dest('./public/sf-ux'))
 })
 
 gulp.task('html', () => {
