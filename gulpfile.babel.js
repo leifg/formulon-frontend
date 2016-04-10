@@ -7,8 +7,9 @@ import WebpackDevServer from 'webpack-dev-server'
 import gutil from 'gulp-util'
 import del from 'del'
 import sass from 'gulp-sass'
+import sequence from 'gulp-sequence'
 
-gulp.task('default', ['webpack-dev-server'])
+gulp.task('default', sequence('webpack-dev-server'))
 
 gulp.task('webpack', (callback) => {
   webpack(webpackConfig, (err, stats) => {
@@ -24,19 +25,23 @@ gulp.task('clean', () => {
   return del('./public/**/*')
 })
 
-gulp.task('sf-design-system', ['clean'], () => {
+gulp.task('sf-design-system', () => {
   return gulp.src('./node_modules/@salesforce-ux/design-system/assets/**/*').pipe(gulp.dest('./public/sf-ux'))
 })
 
-gulp.task('html', ['clean'], () => {
+gulp.task('html', () => {
   return gulp.src('./src/index.html').pipe(gulp.dest('./public'))
 })
 
-gulp.task('styles', ['clean'], () => {
+gulp.task('styles', () => {
   return gulp.src('./src/main.scss').pipe(sass()).pipe(gulp.dest('./public'))
 })
 
-gulp.task('webpack-dev-server', ['clean', 'sf-design-system', 'html', 'styles', 'webpack'], (callback) => {
+gulp.task('dev-server-requires', (callback) => {
+  sequence(['clean'], ['sf-design-system', 'html', 'styles'], ['webpack'])(callback)
+})
+
+gulp.task('webpack-dev-server', ['dev-server-requires'], (callback) => {
   const compiler = webpack(webpackConfig)
   const port = '9000'
   const devServerOptions = {
