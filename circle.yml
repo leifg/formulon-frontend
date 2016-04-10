@@ -16,6 +16,7 @@ deployment:
   production:
     branch: master
     commands:
-      - cp ~/assets/cache/.awspublish-formulon-assets .
+      - mkdir -p ~/assets/cache/
+      - cp -f ~/assets/cache/.awspublish-formulon-assets .
       - gulp --s3Bucket=${S3_BUCKET} --awsKeyId=${AWS_KEY_ID} --awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY} --cfDistributionId=${CF_DISTRIBUTION_ID} --awsRegion=${AWS_REGION} publish
       - cp -f .awspublish-formulon-assets ~/assets/cache/
