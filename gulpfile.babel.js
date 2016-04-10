@@ -8,8 +8,39 @@ import gutil from 'gulp-util'
 import del from 'del'
 import sass from 'gulp-sass'
 import sequence from 'gulp-sequence'
+import RevAll from 'gulp-rev-all'
+import awspublish from 'gulp-awspublish'
+import cloudfront from 'gulp-cloudfront'
+
+let aws = {
+  params: {
+    Bucket: gutil.env.s3Bucket
+  },
+  accessKeyId: gutil.env.awsKeyId,
+  secretAccessKey: gutil.env.awsSecretAccessKey,
+  distributionId: gutil.env.cfDistributionId,
+  region: gutil.env.awsRegion
+}
+
+let publisher = awspublish.create(aws)
+let headers = {'Cache-Control': 'max-age=315360000, no-transform, public'}
 
 gulp.task('default', sequence('webpack-dev-server'))
+
+gulp.task('publish', () => {
+  const revAll = new RevAll()
+  return gulp.src('public/**')
+      .pipe(revAll.revision())
+      .pipe(awspublish.gzip())
+      .pipe(publisher.publish(headers))
+      .pipe(publisher.cache())
+      .pipe(awspublish.reporter())
+      .pipe(cloudfront(aws))
+})
+
+gulp.task('deploy', (callback) => {
+  sequence('build', 'publish')(callback)
+})
 
 gulp.task('webpack', (callback) => {
   webpack(webpackConfig, (err, stats) => {
@@ -37,11 +68,11 @@ gulp.task('styles', () => {
   return gulp.src('./src/main.scss').pipe(sass()).pipe(gulp.dest('./public'))
 })
 
-gulp.task('dev-server-requires', (callback) => {
+gulp.task('build', (callback) => {
   sequence(['clean'], ['sf-design-system', 'html', 'styles'], ['webpack'])(callback)
 })
 
-gulp.task('webpack-dev-server', ['dev-server-requires'], (callback) => {
+gulp.task('webpack-dev-server', ['build'], (callback) => {
   const compiler = webpack(webpackConfig)
   const port = '9000'
   const devServerOptions = {
