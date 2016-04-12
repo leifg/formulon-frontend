@@ -1,17 +1,21 @@
 {
   "name": "formulon-frontend",
-  "version": "0.0.1",
+  "version": "0.0.0-semantically-released",
   "description": "Frontend for Formulon (a Salesforce Formula Parser)",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
     "test": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
-    "deploy": "gulp --s3Bucket=${S3_BUCKET} --awsKeyId=${AWS_KEY_ID} --awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY} --cfDistributionId=${CF_DISTRIBUTION_ID} --awsRegion=${AWS_REGION} deploy"
+    "deploy": "gulp --s3Bucket=${S3_BUCKET} --awsKeyId=${AWS_KEY_ID} --awsSecretAccessKey=${AWS_SECRET_ACCESS_KEY} --cfDistributionId=${CF_DISTRIBUTION_ID} --awsRegion=${AWS_REGION} deploy",
+    "semantic-release": "semantic-release pre && npm run deploy && semantic-release post"
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leifg/formulon-frontend.git"
+    "url": "https://github.com/leifg/formulon-frontend.git"
   },
   "keywords": [
     "formulon",
@@ -41,6 +45,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
+    "condition-circle": "^1.2.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-awspublish": "^3.0.1",
@@ -60,6 +65,7 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",
     "sass-loader": "^3.2.0",
+    "semantic-release": "^4.3.5",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }

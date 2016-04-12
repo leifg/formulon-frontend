@@ -9,9 +9,5 @@ dependencies:
 test:
   override:
     - npm run test
-
-deployment:
-  production:
-    branch: master
-    commands:
-      - npm run deploy
+  post:
+    - npm run semantic-release || true
