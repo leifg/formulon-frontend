@@ -68,7 +68,7 @@ gulp.task('sf-design-system', () => {
       '!node_modules/@salesforce-ux/design-system/assets/{icons,icons/**}',
       '!./node_modules/@salesforce-ux/design-system/assets/**/*.txt'
     ]
-  ).pipe(gulp.dest('./public/sf-ux'))
+  ).pipe(gulp.dest('./public/assets'))
 })
 
 gulp.task('html', () => {
