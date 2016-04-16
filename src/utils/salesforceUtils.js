@@ -4,7 +4,7 @@ export const availableDataTypes = [
   { id: 'checkbox', label: 'Checkbox' }
 ]
 
-export const defaultIdentifier = (type = 'number') => {
+export const defaultIdentifier = (type = availableDataTypes[0].id) => {
   return {
     dataType: type,
     value: defaultValue(type),
