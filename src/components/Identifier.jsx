@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { defaultOptions, availableDataTypes } from '../utils/salesforceUtils'
-import { Checkbox, Col, FieldSet, Form, Grid, Input, Option, Row, Select } from 'react-lightning-design-system'
+import { Checkbox, Col, DropdownButton, FieldSet, Form, Grid, Input, MenuItem, Option, Row, Select } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
   renderValue(attributes, onValueChange) {
@@ -28,16 +28,22 @@ export default class Identifier extends Component {
   }
 
   renderDataType(attributes, onDataTypeChange) {
-    let handleDataTypeChange = (event) => {
-      onDataTypeChange(attributes.name, event.target.value)
+    let handleDataTypeChange = (item) => {
+      onDataTypeChange(attributes.name, item.value)
     }
 
+    let selectedDataType = availableDataTypes.find((dataType) => {
+      return dataType.id == attributes.dataType
+    })
+
     return <Col padded cols={1}>
-      <Select label='Data Type' defaultValue={availableDataTypes[0].id} onChange={handleDataTypeChange}>
-        {availableDataTypes.map((dataTypeOption) =>
-          <Option key={dataTypeOption.id} value={dataTypeOption.id} label={dataTypeOption.label} />)
-        }
-      </Select>
+      <FieldSet label='Data Type'>
+        <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
+          {availableDataTypes.map((dataTypeOption) =>
+            <MenuItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</MenuItem>)
+          }
+        </DropdownButton>
+      </FieldSet>
     </Col>
   }
 
