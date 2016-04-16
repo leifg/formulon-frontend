@@ -41,7 +41,47 @@ export default class Identifier extends Component {
   }
 
   renderOptions(attributes, onOptionsChange) {
-    return <IdentifierOptions name={attributes.name} dataType={attributes.dataType} options={attributes.options} changeIdentifierOptions={onOptionsChange}/>
+    switch (attributes.dataType) {
+      case 'number':
+        return this.renderNumberOptions(attributes, onOptionsChange)
+      case 'text':
+        return this.renderTextOptions(attributes, onOptionsChange)
+      default:
+        return this.renderEmptyOptions()
+    }
+  }
+
+  renderNumberOptions(attributes, onOptionsNumberChange) {
+    let handleOptionsLengthChange = (event) => {
+      onOptionsNumberChange(attributes.name, {length: event.target.value, scale: attributes.options.scale})
+    }
+
+    let handleOptionsScaleChange = (event) => {
+      onOptionsNumberChange(attributes.name, {length: attributes.options.length, scale: event.target.value})
+    }
+
+    return <FieldSet>
+      <FieldSet.Row>
+        <Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} />
+        <Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} />
+      </FieldSet.Row>
+    </FieldSet>
+  }
+
+  renderTextOptions(attributes, onOptionsTextChange) {
+    let handleOptionsLengthChange = (event) => {
+      onOptionsTextChange(attributes.name, {length: event.target.value})
+    }
+
+    return <FieldSet>
+      <FieldSet.Row>
+        <Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} />
+      </FieldSet.Row>
+    </FieldSet>
+  }
+
+  renderEmptyOptions() {
+    return <FieldSet />
   }
 
   render () {
@@ -54,59 +94,5 @@ export default class Identifier extends Component {
         { this.renderOptions(attributes, this.props.changeIdentifierOptions)}
       </FieldSet.Row>
     </FieldSet>
-  }
-}
-
-export class IdentifierOptions extends Component {
-  render () {
-    const { dataType, options, name, changeIdentifierOptions } = this.props
-
-    switch (dataType) {
-      case 'number':
-        return <IdentifierOptionsNumber name={name} options={options} changeIdentifierOptions={changeIdentifierOptions}/>
-      case 'text':
-        return <IdentifierOptionsText name={name} options={options} changeIdentifierOptions={changeIdentifierOptions}/>
-      default:
-        return <IdentifierOptionsEmpty />
-    }
-  }
-}
-
-export class IdentifierOptionsNumber extends Component {
-  render () {
-    return <FieldSet>
-      <FieldSet.Row>
-        <Input label='Length' type='text' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)} />
-        <Input label='Scale' type='text' value={this.props.options.scale} onChange={this.handleOptionsScaleChange.bind(this)} />
-      </FieldSet.Row>
-    </FieldSet>
-  }
-
-  handleOptionsLengthChange (event) {
-    this.props.changeIdentifierOptions(this.props.name, {length: event.target.value, scale: this.props.options.scale})
-  }
-
-  handleOptionsScaleChange (event) {
-    this.props.changeIdentifierOptions(this.props.name, {length: this.props.options.length, scale: event.target.value})
-  }
-}
-
-export class IdentifierOptionsText extends Component {
-  render () {
-    return <FieldSet>
-      <FieldSet.Row>
-        <Input label='Length' type='text' value={this.props.options.length} onChange={this.handleOptionsLengthChange.bind(this)} />
-      </FieldSet.Row>
-    </FieldSet>
-  }
-
-  handleOptionsLengthChange (event) {
-    this.props.changeIdentifierOptions(this.props.name, {length: event.target.value})
-  }
-}
-
-export class IdentifierOptionsEmpty extends Component {
-  render () {
-    return <FieldSet />
   }
 }
