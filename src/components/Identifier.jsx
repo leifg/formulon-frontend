@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { defaultOptions, availableDataTypes } from '../utils/salesforceUtils'
-import { Checkbox, Col, FieldSet, Form, Input, Option, Select } from 'react-lightning-design-system'
+import { Checkbox, Col, FieldSet, Form, Grid, Input, Option, Row, Select } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
   renderValue(attributes, onValueChange) {
@@ -16,11 +16,14 @@ export default class Identifier extends Component {
 
     switch (attributes.dataType) {
       case 'number':
-        return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></FieldSet.Row></FieldSet>
+        return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'text':
-        return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></FieldSet.Row></FieldSet>
+        return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'checkbox':
-        return <FieldSet><FieldSet.Row><Checkbox label='Checked' value={attributes.value} onChange={handleValueChange} /></FieldSet.Row></FieldSet>
+        return <Col padded cols={2}>
+          <legend className="slds-form-element__label">Value</legend>
+          <Checkbox value={attributes.value} onChange={handleValueChange} />
+        </Col>
     }
   }
 
@@ -29,15 +32,13 @@ export default class Identifier extends Component {
       onDataTypeChange(attributes.name, event.target.value)
     }
 
-    return <FieldSet>
-      <FieldSet.Row>
-        <Select label='Data Type' defaultValue={availableDataTypes[0].id} onChange={handleDataTypeChange}>
-          {availableDataTypes.map((dataTypeOption) =>
-            <Option key={dataTypeOption.id} value={dataTypeOption.id} label={dataTypeOption.label} />)
-          }
-        </Select>
-      </FieldSet.Row>
-    </FieldSet>
+    return <Col padded cols={1}>
+      <Select label='Data Type' defaultValue={availableDataTypes[0].id} onChange={handleDataTypeChange}>
+        {availableDataTypes.map((dataTypeOption) =>
+          <Option key={dataTypeOption.id} value={dataTypeOption.id} label={dataTypeOption.label} />)
+        }
+      </Select>
+    </Col>
   }
 
   renderOptions(attributes, onOptionsChange) {
@@ -60,12 +61,10 @@ export default class Identifier extends Component {
       onOptionsNumberChange(attributes.name, {length: attributes.options.length, scale: event.target.value})
     }
 
-    return <FieldSet>
-      <FieldSet.Row>
-        <Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} />
-        <Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} />
-      </FieldSet.Row>
-    </FieldSet>
+    return [
+      <Col key="length" padded cols={1}><Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} /></Col>,
+      <Col key="scale" padded cols={1}><Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} /></Col>
+    ]
   }
 
   renderTextOptions(attributes, onOptionsTextChange) {
@@ -73,26 +72,22 @@ export default class Identifier extends Component {
       onOptionsTextChange(attributes.name, {length: event.target.value})
     }
 
-    return <FieldSet>
-      <FieldSet.Row>
+    return <Col padded cols={2}>
         <Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} />
-      </FieldSet.Row>
-    </FieldSet>
+    </Col>
   }
 
   renderEmptyOptions() {
-    return <FieldSet />
+    return <Col padded cols={2} />
   }
 
   render () {
     const { attributes } = this.props
 
-    return <FieldSet label={attributes.name}>
-      <FieldSet.Row>
+    return  <Row cols={5}>
         { this.renderValue(attributes, this.props.changeIdentifierValue) }
         { this.renderDataType(attributes, this.props.changeIdentifierDataType)}
         { this.renderOptions(attributes, this.props.changeIdentifierOptions)}
-      </FieldSet.Row>
-    </FieldSet>
+      </Row>
   }
 }
