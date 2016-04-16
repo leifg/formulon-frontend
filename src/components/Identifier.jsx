@@ -61,10 +61,6 @@ export class IdentifierOptions extends Component {
   render () {
     const { dataType, options, name, changeIdentifierOptions } = this.props
 
-    if (!options) {
-      attributes.options = defaultOptions(dataType)
-    }
-
     switch (dataType) {
       case 'number':
         return <IdentifierOptionsNumber name={name} options={options} changeIdentifierOptions={changeIdentifierOptions}/>
