@@ -6,10 +6,6 @@ export default class Identifier extends Component {
   render () {
     const { attributes } = this.props
 
-    if (!attributes.dataType) {
-      attributes.dataType = availableDataTypes[0].id
-    }
-
     return <FieldSet label={attributes.name}>
       <FieldSet.Row>
         <IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={this.props.changeIdentifierValue} />
