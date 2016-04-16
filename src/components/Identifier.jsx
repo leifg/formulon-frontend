@@ -4,7 +4,24 @@ import { Checkbox, Col, FieldSet, Form, Input, Option, Select } from 'react-ligh
 
 export default class Identifier extends Component {
   renderValue(attributes, onValueChange) {
-    return <IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={onValueChange} />
+    let handleValueChange = (event) => {
+      let target = event.target
+      let value = target.value
+
+      if(target.type == 'checkbox') {
+        value = target.checked
+      }
+      onValueChange(attributes.name, value)
+    }
+
+    switch (attributes.dataType) {
+      case 'number':
+        return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></FieldSet.Row></FieldSet>
+      case 'text':
+        return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></FieldSet.Row></FieldSet>
+      case 'checkbox':
+        return <FieldSet><FieldSet.Row><Checkbox label='Checked' value={attributes.value} onChange={handleValueChange} /></FieldSet.Row></FieldSet>
+    }
   }
 
   renderDataType(attributes, onDataTypeChange) {
@@ -25,29 +42,6 @@ export default class Identifier extends Component {
         { this.renderOptions(attributes, this.props.changeIdentifierOptions)}
       </FieldSet.Row>
     </FieldSet>
-  }
-}
-
-export class IdentifierValue extends Component {
-  render () {
-    switch (this.props.dataType) {
-      case 'number':
-      return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={this.props.value} onChange={this.handleValueChange.bind(this)} /></FieldSet.Row></FieldSet>
-      case 'text':
-        return <FieldSet><FieldSet.Row><Input label='Value' type='text' value={this.props.value} onChange={this.handleValueChange.bind(this)} /></FieldSet.Row></FieldSet>
-      case 'checkbox':
-        return <FieldSet><FieldSet.Row><Checkbox label='Checked' value={this.props.value} onChange={this.handleValueChange.bind(this)} /></FieldSet.Row></FieldSet>
-    }
-  }
-
-  handleValueChange (event) {
-    let target = event.target
-    let value = target.value
-
-    if(target.type == 'checkbox') {
-      value = target.checked
-    }
-    this.props.changeIdentifierValue(this.props.name, value)
   }
 }
 
