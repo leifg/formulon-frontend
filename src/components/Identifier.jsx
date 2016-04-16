@@ -3,14 +3,26 @@ import { defaultOptions, availableDataTypes } from '../utils/salesforceUtils'
 import { Checkbox, Col, FieldSet, Form, Input, Option, Select } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
+  renderValue(attributes, onValueChange) {
+    return <IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={onValueChange} />
+  }
+
+  renderDataType(attributes, onDataTypeChange) {
+    return <IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={onDataTypeChange}/>
+  }
+
+  renderOptions(attributes, onOptionsChange) {
+    return <IdentifierOptions name={attributes.name} dataType={attributes.dataType} options={attributes.options} changeIdentifierOptions={onOptionsChange}/>
+  }
+
   render () {
     const { attributes } = this.props
 
     return <FieldSet label={attributes.name}>
       <FieldSet.Row>
-        <IdentifierValue name={attributes.name} value={attributes.value} dataType={attributes.dataType} changeIdentifierValue={this.props.changeIdentifierValue} />
-        <IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={this.props.changeIdentifierDataType}/>
-        <IdentifierOptions name={attributes.name} dataType={attributes.dataType} options={attributes.options} changeIdentifierOptions={this.props.changeIdentifierOptions}/>
+        { this.renderValue(attributes, this.props.changeIdentifierValue) }
+        { this.renderDataType(attributes, this.props.changeIdentifierDataType)}
+        { this.renderOptions(attributes, this.props.changeIdentifierOptions)}
       </FieldSet.Row>
     </FieldSet>
   }
