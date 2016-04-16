@@ -25,7 +25,19 @@ export default class Identifier extends Component {
   }
 
   renderDataType(attributes, onDataTypeChange) {
-    return <IdentifierDataType name={attributes.name} dataType={attributes.dataType} changeIdentifierDataType={onDataTypeChange}/>
+    let handleDataTypeChange = (event) => {
+      onDataTypeChange(attributes.name, event.target.value)
+    }
+
+    return <FieldSet>
+      <FieldSet.Row>
+        <Select label='Data Type' defaultValue={availableDataTypes[0].id} onChange={handleDataTypeChange}>
+          {availableDataTypes.map((dataTypeOption) =>
+            <Option key={dataTypeOption.id} value={dataTypeOption.id} label={dataTypeOption.label} />)
+          }
+        </Select>
+      </FieldSet.Row>
+    </FieldSet>
   }
 
   renderOptions(attributes, onOptionsChange) {
@@ -42,24 +54,6 @@ export default class Identifier extends Component {
         { this.renderOptions(attributes, this.props.changeIdentifierOptions)}
       </FieldSet.Row>
     </FieldSet>
-  }
-}
-
-export class IdentifierDataType extends Component {
-  render () {
-    return <FieldSet>
-      <FieldSet.Row>
-        <Select label='Data Type' defaultValue={availableDataTypes[0].id} onChange={this.handleDataTypeChange.bind(this)}>
-          {availableDataTypes.map((dataTypeOption) =>
-            <Option key={dataTypeOption.id} value={dataTypeOption.id} label={dataTypeOption.label} />)
-          }
-        </Select>
-      </FieldSet.Row>
-    </FieldSet>
-  }
-
-  handleDataTypeChange (event) {
-    this.props.changeIdentifierDataType(this.props.name, event.target.value)
   }
 }
 
