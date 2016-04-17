@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { parse } from 'formulon'
-import { defaultOptions, transformIdentifiers } from '../utils/salesforceUtils'
+import { transformIdentifiers } from '../utils/salesforceUtils'
 import { Col, Grid, Row } from 'react-lightning-design-system'
 
 export default class EvalOutput extends Component {

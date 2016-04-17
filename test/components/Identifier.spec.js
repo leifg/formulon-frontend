@@ -1,6 +1,6 @@
-/* global describe it beforeEach */
+/* global describe it */
 
-import Identifier, { IdentifierName, IdentifierValue, IdentifierDataType } from '../../src/components/Identifier'
+import Identifier from '../../src/components/Identifier'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 
@@ -17,7 +17,7 @@ describe('Identifier', () => {
     dataType: 'number',
     options: {
       length: 8,
-      scale: 0,
+      scale: 0
     }
   }
 
