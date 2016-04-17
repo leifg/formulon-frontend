@@ -8,7 +8,7 @@ const loggerMiddleware = createLogger()
 const createStoreWithMiddleware = compose(
   applyMiddleware(thunkMiddleware),
   applyMiddleware(loggerMiddleware),
-  typeof window === 'object' && typeof window.devToolsExtension !== undefined ? window.devToolsExtension() : (f) => f
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f
 )(createStore)
 
 export default function configureStore () {
