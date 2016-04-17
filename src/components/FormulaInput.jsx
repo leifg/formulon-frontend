@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Textarea } from 'react-lightning-design-system'
+import { Grid, Textarea } from 'react-lightning-design-system'
 
 export default class FormulaInput extends Component {
   render () {
-    return <Textarea label='Formula' style={{fontFamily: 'monospace', fontSize: '15px'}} onChange={this.handleChange.bind(this)} placeholder='Start typing your formula' />
+    return <Grid>
+      <Textarea label='Formula' style={{fontFamily: 'monospace', fontSize: '15px'}} onChange={this.handleChange.bind(this)} placeholder='Start typing your formula' />
+    </Grid>
   }
 
   handleChange (event) {

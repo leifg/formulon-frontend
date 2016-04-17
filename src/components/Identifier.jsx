@@ -37,7 +37,7 @@ export default class Identifier extends Component {
     })
 
     return <Col padded cols={1}>
-      <label className="slds-form-element__label">Data Type</label>
+      <legend className="slds-form-element__label">Data Type</legend>
       <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
         {availableDataTypes.map((dataTypeOption) =>
           <MenuItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</MenuItem>)
