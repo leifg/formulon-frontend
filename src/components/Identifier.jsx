@@ -91,8 +91,8 @@ export default class Identifier extends Component {
     const { attributes } = this.props
 
     return  <Row cols={5}>
-        { this.renderValue(attributes, this.props.changeIdentifierValue) }
         { this.renderDataType(attributes, this.props.changeIdentifierDataType)}
+        { this.renderValue(attributes, this.props.changeIdentifierValue) }
         { this.renderOptions(attributes, this.props.changeIdentifierOptions)}
       </Row>
   }
