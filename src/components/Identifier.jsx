@@ -21,7 +21,7 @@ export default class Identifier extends Component {
         return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'checkbox':
         return <Col padded cols={2}>
-          <legend className="slds-form-element__label">Value</legend>
+          <label className="slds-form-element__label">Value</label>
           <Checkbox value={attributes.value} onChange={handleValueChange} />
         </Col>
     }
@@ -37,13 +37,12 @@ export default class Identifier extends Component {
     })
 
     return <Col padded cols={1}>
-      <FieldSet label='Data Type'>
-        <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
-          {availableDataTypes.map((dataTypeOption) =>
-            <MenuItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</MenuItem>)
-          }
-        </DropdownButton>
-      </FieldSet>
+      <label className="slds-form-element__label">Data Type</label>
+      <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
+        {availableDataTypes.map((dataTypeOption) =>
+          <MenuItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</MenuItem>)
+        }
+      </DropdownButton>
     </Col>
   }
 
