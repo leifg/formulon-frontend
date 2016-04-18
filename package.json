@@ -11,7 +11,8 @@
     "semantic-release": "semantic-release pre && npm run deploy && semantic-release post"
   },
   "release": {
-    "verifyConditions": "condition-circle"
+    "verifyConditions": "condition-circle",
+    "getLastRelease": "last-release-git-tag"
   },
   "repository": {
     "type": "git",
@@ -66,6 +67,7 @@
     "redux-thunk": "^2.0.1",
     "sass-loader": "^3.2.0",
     "semantic-release": "^4.3.5",
+    "last-release-git-tag": "git://github.com/RisingStack/last-release-git-tag",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }
