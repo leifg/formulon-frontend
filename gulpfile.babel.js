@@ -65,10 +65,12 @@ gulp.task('sf-design-system', () => {
   return gulp.src(
     [
       'node_modules/@salesforce-ux/design-system/assets/**',
-      '!node_modules/@salesforce-ux/design-system/assets/{icons,icons/**}',
-      '!./node_modules/@salesforce-ux/design-system/assets/**/*.txt'
+      '!node_modules/@salesforce-ux/design-system/assets/icons/{action,custom,doctype,standard,utility}',
+      '!node_modules/@salesforce-ux/design-system/assets/icons/{action,custom,doctype,standard,utility}/**',
+      '!./node_modules/@salesforce-ux/design-system/assets/**/*.txt',
+      '!./node_modules/@salesforce-ux/design-system/assets/**/*.html'
     ]
-  ).pipe(gulp.dest('./public/sf-ux'))
+  ).pipe(gulp.dest('./public/assets'))
 })
 
 gulp.task('html', () => {

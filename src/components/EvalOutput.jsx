@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { parse } from 'formulon'
-import { defaultOptions, transformIdentifiers } from '../utils/salesforceUtils'
+import { transformIdentifiers } from '../utils/salesforceUtils'
+import { Col, Grid, Row } from 'react-lightning-design-system'
 
 export default class EvalOutput extends Component {
   render () {
@@ -13,8 +14,12 @@ export default class EvalOutput extends Component {
       let value = formulaResult.value == null ? '' : formulaResult.value
       output = <code>{value.toString()}</code>
     }
-    return (<div className='slds-card' style={{ padding: '12px' }}>
-        {output}
-    </div>)
+    return (<Grid className='slds-card' style={{ padding: '12px' }}>
+      <Row>
+        <Col>
+          {output}
+        </Col>
+      </Row>
+    </Grid>)
   }
 }

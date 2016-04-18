@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Grid } from 'react-lightning-design-system'
 import FormulaInput from '../components/FormulaInput'
 import IdentifierList from '../components/IdentifierList'
 import EvalOutput from '../components/EvalOutput'
@@ -10,11 +11,11 @@ class FormulonApp extends React.Component {
   render () {
     const { formula, changeFormula, changeIdentifierDataType, changeIdentifierOptions, changeIdentifierValue } = this.props
     return (
-      <div style={ { padding: '12px' } }>
+      <Grid style={{padding: '12px'}}>
         <IdentifierList identifiers={formula.identifiers} changeIdentifierValue={changeIdentifierValue} changeIdentifierDataType={changeIdentifierDataType} changeIdentifierOptions={changeIdentifierOptions} />
         <FormulaInput changeFormula={changeFormula} />
         <EvalOutput formula={formula} />
-      </div>
+      </Grid>
     )
   }
 }
