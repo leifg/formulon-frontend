@@ -31,7 +31,7 @@
   "homepage": "https://github.com/leifg/formulon-frontend#readme",
   "dependencies": {
     "@salesforce-ux/design-system": "^1.0.0",
-    "formulon": "^2.0.0",
+    "formulon": "^2.2.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-lightning-design-system": "^0.2.10",
@@ -47,6 +47,7 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "condition-circle": "^1.2.0",
+    "deep-freeze": "0.0.1",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-awspublish": "^3.0.1",
@@ -57,6 +58,7 @@
     "gulp-util": "^3.0.7",
     "install": "^0.5.4",
     "jsdom": "^8.3.0",
+    "last-release-git-tag": "git://github.com/RisingStack/last-release-git-tag",
     "mocha": "^2.4.5",
     "mocha-jsdom": "^1.1.0",
     "node-sass": "^3.4.2",
@@ -67,7 +69,6 @@
     "redux-thunk": "^2.0.1",
     "sass-loader": "^3.2.0",
     "semantic-release": "^4.3.5",
-    "last-release-git-tag": "git://github.com/RisingStack/last-release-git-tag",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   }

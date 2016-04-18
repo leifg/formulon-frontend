@@ -1,6 +1,9 @@
 machine:
   node:
     version: 5.8.0
+  environment:
+    NODE_ENV: production
+    GH_REPOSITORY_URL: https://github.com/leifg/formulon-frontend
 
 dependencies:
   pre:

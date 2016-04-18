@@ -33,7 +33,7 @@ let headers = {'Cache-Control': 'max-age=315360000, no-transform, public'}
 gulp.task('default', sequence('webpack-dev-server'))
 
 gulp.task('publish', () => {
-  const revAll = new RevAll()
+  const revAll = new RevAll({ dontGlobal: [/^\/assets\/icons/] })
   return gulp.src('public/**')
       .pipe(revAll.revision())
       .pipe(awspublish.gzip())

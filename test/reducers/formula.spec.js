@@ -1,8 +1,10 @@
-/* global describe it context */
+/* global beforeEach describe it context */
 
 import reducer from '../../src/reducers/formula'
 
 import chai from 'chai'
+import deepFreeze from 'deep-freeze'
+
 const expect = chai.expect
 
 describe('formula reducer', () => {
@@ -10,6 +12,10 @@ describe('formula reducer', () => {
     const initialState = {
       identifiers: []
     }
+
+    beforeEach(() => {
+      deepFreeze(initialState)
+    })
 
     context('no identifiers', () => {
       const action = {
@@ -25,21 +31,6 @@ describe('formula reducer', () => {
         }
 
         expect(reducer(undefined, action)).to.deep.eq(expected)
-      })
-
-      it('does not change original input', () => {
-        const action = {
-          type: 'CHANGE_FORMULA',
-          formula: '1 + 1',
-          identifiers: []
-        }
-
-        const expected = {
-          identifiers: []
-        }
-
-        reducer(initialState, action)
-        expect(initialState).to.deep.eq(expected)
       })
     })
 
