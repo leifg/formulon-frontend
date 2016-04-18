@@ -68,7 +68,8 @@ gulp.task('sf-design-system', () => {
       '!node_modules/@salesforce-ux/design-system/assets/icons/{action,custom,doctype,standard,utility}',
       '!node_modules/@salesforce-ux/design-system/assets/icons/{action,custom,doctype,standard,utility}/**',
       '!./node_modules/@salesforce-ux/design-system/assets/**/*.txt',
-      '!./node_modules/@salesforce-ux/design-system/assets/**/*.html'
+      '!./node_modules/@salesforce-ux/design-system/assets/**/*.html',
+      '!./node_modules/@salesforce-ux/design-system/assets/**/README'
     ]
   ).pipe(gulp.dest('./public/assets'))
 })
