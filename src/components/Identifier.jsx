@@ -3,6 +3,13 @@ import { availableDataTypes } from '../utils/salesforceUtils'
 import { Checkbox, Col, DropdownButton, Input, MenuItem, Row } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
+
+  // There is currently no way to refactor the individual parts into components
+  // The Data Type component will contain 2 Columns
+  // Wrapping multiple Columns into any element will result in wrong rendering
+  // There is already a discussion in the React repository about this issue
+  // https://github.com/facebook/react/issues/2127
+
   renderValue (attributes, onValueChange) {
     let handleValueChange = (event) => {
       let target = event.target
