@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { availableDataTypes } from '../utils/salesforceUtils'
-import { Checkbox, Col, DropdownButton, Input, MenuItem, Row } from 'react-lightning-design-system'
+import { Checkbox, Col, Input, Picklist, PicklistItem, Row } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
 
@@ -23,11 +23,11 @@ export default class Identifier extends Component {
 
     switch (attributes.dataType) {
       case 'number':
-        return <Col padded noflex cols={6}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
+        return <Col padded noflex cols={5}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'text':
-        return <Col padded noflex cols={6}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
+        return <Col padded noflex cols={5}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'checkbox':
-        return <Col padded noflex cols={6}>
+        return <Col padded noflex cols={5}>
           <label className='slds-form-element__label'>Value</label>
           <Checkbox value={attributes.value} onChange={handleValueChange} />
         </Col>
@@ -36,20 +36,19 @@ export default class Identifier extends Component {
 
   renderDataType (attributes, onDataTypeChange) {
     let handleDataTypeChange = (item) => {
-      onDataTypeChange(attributes.name, item.value)
+      onDataTypeChange(attributes.name, item)
     }
 
     let selectedDataType = availableDataTypes.find((dataType) => {
       return dataType.id === attributes.dataType
     })
 
-    return <Col padded noflex cols={2}>
-      <legend className='slds-form-element__label'>Data Type</legend>
-      <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
+    return <Col padded noflex cols={3}>
+      <Picklist label='Data Type' onValueChange={handleDataTypeChange} selectedText={selectedDataType.label}>
         {availableDataTypes.map((dataTypeOption) =>
-          <MenuItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</MenuItem>)
+          <PicklistItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</PicklistItem>)
         }
-      </DropdownButton>
+      </Picklist>
     </Col>
   }
 
