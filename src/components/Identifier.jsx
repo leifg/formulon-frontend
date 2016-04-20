@@ -23,11 +23,11 @@ export default class Identifier extends Component {
 
     switch (attributes.dataType) {
       case 'number':
-        return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
+        return <Col padded noflex cols={6}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'text':
-        return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
+        return <Col padded noflex cols={6}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'checkbox':
-        return <Col padded cols={2}>
+        return <Col padded noflex cols={6}>
           <label className='slds-form-element__label'>Value</label>
           <Checkbox value={attributes.value} onChange={handleValueChange} />
         </Col>
@@ -43,7 +43,7 @@ export default class Identifier extends Component {
       return dataType.id === attributes.dataType
     })
 
-    return <Col padded cols={1}>
+    return <Col padded noflex cols={2}>
       <legend className='slds-form-element__label'>Data Type</legend>
       <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
         {availableDataTypes.map((dataTypeOption) =>
@@ -74,8 +74,8 @@ export default class Identifier extends Component {
     }
 
     return [
-      <Col key='length' padded cols={1}><Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} /></Col>,
-      <Col key='scale' padded cols={1}><Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} /></Col>
+      <Col key='length' padded noflex cols={2}><Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} /></Col>,
+      <Col key='scale' padded noflex cols={2}><Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} /></Col>
     ]
   }
 
@@ -84,19 +84,19 @@ export default class Identifier extends Component {
       onOptionsTextChange(attributes.name, {length: event.target.value})
     }
 
-    return <Col padded cols={2}>
+    return <Col padded noflex cols={4}>
       <Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} />
     </Col>
   }
 
   renderEmptyOptions () {
-    return <Col padded cols={2} />
+    return <Col padded noflex cols={4} />
   }
 
   render () {
     const { attributes } = this.props
 
-    return <Row cols={5}>
+    return <Row cols={12}>
       {this.renderDataType(attributes, this.props.changeIdentifierDataType)}
       {this.renderValue(attributes, this.props.changeIdentifierValue)}
       {this.renderOptions(attributes, this.props.changeIdentifierOptions)}
