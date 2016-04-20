@@ -13,5 +13,9 @@ dependencies:
 test:
   override:
     - npm run test
-  post:
-    - npm run semantic-release || true
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run semantic-release || true
