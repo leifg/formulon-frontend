@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { availableDataTypes } from '../utils/salesforceUtils'
-import { Checkbox, Col, DropdownButton, Input, MenuItem, Row } from 'react-lightning-design-system'
+import { Checkbox, Col, Input, Picklist, PicklistItem, Row } from 'react-lightning-design-system'
 
 export default class Identifier extends Component {
+
+  // There is currently no way to refactor the individual parts into components
+  // The Data Type component will contain 2 Columns
+  // Wrapping multiple Columns into any element will result in wrong rendering
+  // There is already a discussion in the React repository about this issue
+  // https://github.com/facebook/react/issues/2127
+
   renderValue (attributes, onValueChange) {
     let handleValueChange = (event) => {
       let target = event.target
@@ -16,11 +23,11 @@ export default class Identifier extends Component {
 
     switch (attributes.dataType) {
       case 'number':
-        return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
+        return <Col padded noflex cols={5}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'text':
-        return <Col padded cols={2}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
+        return <Col padded noflex cols={5}><Input label='Value' type='text' value={attributes.value} onChange={handleValueChange} /></Col>
       case 'checkbox':
-        return <Col padded cols={2}>
+        return <Col padded noflex cols={5}>
           <label className='slds-form-element__label'>Value</label>
           <Checkbox value={attributes.value} onChange={handleValueChange} />
         </Col>
@@ -29,20 +36,19 @@ export default class Identifier extends Component {
 
   renderDataType (attributes, onDataTypeChange) {
     let handleDataTypeChange = (item) => {
-      onDataTypeChange(attributes.name, item.value)
+      onDataTypeChange(attributes.name, item)
     }
 
     let selectedDataType = availableDataTypes.find((dataType) => {
       return dataType.id === attributes.dataType
     })
 
-    return <Col padded cols={1}>
-      <legend className='slds-form-element__label'>Data Type</legend>
-      <DropdownButton type='neutral' label={selectedDataType.label} onMenuItemClick={handleDataTypeChange}>
+    return <Col padded noflex cols={3}>
+      <Picklist label='Data Type' onValueChange={handleDataTypeChange} selectedText={selectedDataType.label}>
         {availableDataTypes.map((dataTypeOption) =>
-          <MenuItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</MenuItem>)
+          <PicklistItem key={dataTypeOption.id} value={dataTypeOption.id}>{dataTypeOption.label}</PicklistItem>)
         }
-      </DropdownButton>
+      </Picklist>
     </Col>
   }
 
@@ -67,8 +73,8 @@ export default class Identifier extends Component {
     }
 
     return [
-      <Col key='length' padded cols={1}><Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} /></Col>,
-      <Col key='scale' padded cols={1}><Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} /></Col>
+      <Col key='length' padded noflex cols={2}><Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} /></Col>,
+      <Col key='scale' padded noflex cols={2}><Input label='Scale' type='text' value={attributes.options.scale} onChange={handleOptionsScaleChange} /></Col>
     ]
   }
 
@@ -77,19 +83,19 @@ export default class Identifier extends Component {
       onOptionsTextChange(attributes.name, {length: event.target.value})
     }
 
-    return <Col padded cols={2}>
+    return <Col padded noflex cols={4}>
       <Input label='Length' type='text' value={attributes.options.length} onChange={handleOptionsLengthChange} />
     </Col>
   }
 
   renderEmptyOptions () {
-    return <Col padded cols={2} />
+    return <Col padded noflex cols={4} />
   }
 
   render () {
     const { attributes } = this.props
 
-    return <Row cols={5}>
+    return <Row cols={12}>
       {this.renderDataType(attributes, this.props.changeIdentifierDataType)}
       {this.renderValue(attributes, this.props.changeIdentifierValue)}
       {this.renderOptions(attributes, this.props.changeIdentifierOptions)}
