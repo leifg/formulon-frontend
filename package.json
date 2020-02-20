@@ -49,7 +49,7 @@
     "condition-circle": "^1.2.0",
     "deep-freeze": "0.0.1",
     "del": "^2.2.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-awspublish": "^3.0.1",
     "gulp-cloudfront": "0.0.14",
     "gulp-rev-all": "^0.8.24",
