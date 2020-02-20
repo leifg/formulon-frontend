@@ -50,7 +50,7 @@
     "deep-freeze": "0.0.1",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
-    "gulp-awspublish": "^3.0.1",
+    "gulp-awspublish": "^4.1.1",
     "gulp-cloudfront": "0.0.14",
     "gulp-rev-all": "^0.8.24",
     "gulp-sass": "^2.2.0",
