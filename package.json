@@ -54,7 +54,7 @@
     "gulp-cloudfront": "0.0.14",
     "gulp-rev-all": "^0.8.24",
     "gulp-sass": "^2.2.0",
-    "gulp-sequence": "^0.4.5",
+    "gulp-sequence": "^1.0.0",
     "gulp-util": "^3.0.7",
     "install": "^0.5.4",
     "jsdom": "^8.3.0",
