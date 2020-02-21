@@ -34,7 +34,7 @@
     "formulon": "^2.3.3",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-lightning-design-system": "^0.2.10",
+    "react-lightning-design-system": "^2.5.8",
     "react-redux": "^4.4.2",
     "redux": "^3.4.0",
     "svg4everybody": "git://github.com/leifg/svg4everybody.git#check-for-navigator"
