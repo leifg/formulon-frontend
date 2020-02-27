@@ -1,0 +1,9 @@
+/build/**
+/coverage/**
+/docs/**
+/jsdoc/**
+/templates/**
+/tmp/**
+/node_modules/**
+/src/serviceWorker.js
+config-overrides.js

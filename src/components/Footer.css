@@ -1,0 +1,8 @@
+.slds-card .footer-content {
+  margin: 0.25rem;
+}
+
+.footer-content {
+  text-align: right;
+  font-size: 10px
+}
