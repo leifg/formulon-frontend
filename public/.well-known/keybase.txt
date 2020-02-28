@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/leifg
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://formulon.io
+  * I am leifg (https://keybase.io/leifg) on keybase.
+  * I have a public key ASCql7TXT-mPxDRtrfmaC9WSRLeVhAgHK-VJtCN1eg1QUwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01206d54a04fa9a947d0d7eadbaf3758d690241edf80e6f469b625f5aa224ec58a820a",
+      "host": "keybase.io",
+      "kid": "0120aa97b4d74fe98fc4346dadf99a0bd59244b7958408072be549b423757a0d50530a",
+      "uid": "61592d1d9f39d2ca611296d1d6dac600",
+      "username": "leifg"
+    },
+    "merkle_root": {
+      "ctime": 1582926805,
+      "hash": "0e7a2ee6ab40bfedce51b3ff7da6cc69c146a95d695b07c4d94eee9fa73f96c9778552f26c2f35c1d9db4ef1a95cb98d923f7275edaca9fef3abc683dfb2607b",
+      "hash_meta": "57b5e79775911b26b26d046dc6af5f538380efbbaad7938db6e09972d5b42987",
+      "seqno": 14810009
+    },
+    "service": {
+      "entropy": "/id+d9M1NVEMpR3us+6kKWMg",
+      "hostname": "formulon.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.2.1"
+  },
+  "ctime": 1582926824,
+  "expire_in": 504576000,
+  "prev": "561316f8c83a1edd9071a8d66812ea8711c93b781aa2b01a82a63604d23317db",
+  "seqno": 33,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgqpe010/pj8Q0ba35mgvVkkS3lYQIByvlSbQjdXoNUFMKp3BheWxvYWTESpcCIcQgVhMW+Mg6Ht2QcajWaBLqhxHJO3gaorAagqY2BNIzF9vEIO4RDZAwANkjGKZHzhjrQLZ66g5pytywOx1pyWl3hZb5AgHCo3NpZ8RAFTLofGyBCNXfLC1bM4L9Hv4A3RqnCnAM0ehqp+tE4u1pOi+ied0ZkM4hRKsIUnzhlwYop4k6YNSSzpIKQw4rBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIEdQp4NRMjMXmvav7dEyozEsbgQYuEEbmIViS64fG3dpo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/leifg
+
+==================================================================
