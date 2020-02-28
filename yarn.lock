@@ -4748,10 +4748,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-formulon@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-2.4.0.tgz#58d9913b0b59d260529a10da26117624ca6524c7"
-  integrity sha512-8MHjHGdVr/vTCW65frGO7y4Y3ickdCIlCjhXeNMpwQWHlxt66LS2B8vue253TbHsbn42WQI8hai2sf8thDXp3g==
+formulon@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.0.0.tgz#6b206bb6d4664cb7928e859a78d2405ee0f8bf0a"
+  integrity sha512-lHDoA3XCPHiAitowi3Pqbaaapq5OnhhEAzAajc1iCiXFZs44do+TRoXO8hKDi55u6J1IQiQS8Ed33w5AoJNtzw==
 
 forwarded@~0.1.2:
   version "0.1.2"
