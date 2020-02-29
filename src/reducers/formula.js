@@ -4,17 +4,7 @@ import { transformIdentifiers } from '../utils/salesforceUtils'
 export const formulaReducer = (state, action) => {
   switch (action.type) {
     case 'CHANGE_FORMULA':
-      try {
-        return applyFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), state)
-      } catch (err) {
-        return {
-          ...state,
-          inputFormula: action.value,
-          identifiers: state.identifiers,
-          result: '',
-          lastError: err.message,
-        }
-      }
+      return applyFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), state)
     case 'CHANGE_IDENTIFIER_TYPE':
       return applyFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), state)
     case 'CHANGE_IDENTIFIER_VALUE':
