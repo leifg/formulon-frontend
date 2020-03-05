@@ -1,4 +1,4 @@
-import { extract, parse } from 'formulon'
+import { extract, parse, toString } from 'formulon'
 import { transformIdentifiers } from '../utils/salesforceUtils'
 
 export const formulaReducer = (state, action) => {
@@ -116,7 +116,7 @@ function applyFormulaChange(inputFormula, identifiers, state) {
     ...state,
     inputFormula: inputFormula,
     identifiers: identifiers,
-    result: error ? state.result : parsedFormula.value,
+    result: error ? state.result : toString(parsedFormula),
     lastError: error,
   }
 }
