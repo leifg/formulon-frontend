@@ -3,16 +3,16 @@ import FormElement from '../lightning/FormElement';
 import { Combobox, IconSettings } from '@salesforce/design-system-react';
 
 const dataTypes = [
-	{
-		id: 'number',
+  {
+    id: 'number',
     label: 'Number',
-	},
-	{
-		id: 'text',
+  },
+  {
+    id: 'text',
     label: 'Text',
-	},
-	{
-		id: 'checkbox',
+  },
+  {
+    id: 'checkbox',
     label: 'Checkbox',
 	}
 ]
