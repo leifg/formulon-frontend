@@ -49,6 +49,8 @@ function dispatchIconName(type) {
       return 'number_input'
     case 'checkbox':
       return 'multi_select_checkbox'
+    case 'geolocation':
+      return 'location'
     default:
       return 'text'
   }
