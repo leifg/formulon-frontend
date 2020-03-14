@@ -33,7 +33,7 @@ function replaceIdentifiers(formula, existingIdentifiers) {
 
     return {
       name: identifierName,
-      type: 'text',
+      dataType: 'text',
       value: defaultValue('text'),
       options: defaultOptions('text')
     }})
@@ -68,7 +68,7 @@ function updateIdentiferType(identifiers, name, type) {
     }
     return {
       ...identifier,
-      type: type,
+      dataType: type,
       value: defaultValue(type),
       options: defaultOptions(type)
     }
