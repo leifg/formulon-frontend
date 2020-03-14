@@ -33,7 +33,7 @@ function replaceIdentifiers(formula, existingIdentifiers) {
 
     return {
       name: identifierName,
-      type: 'text',
+      dataType: 'text',
       value: defaultValue('text'),
       options: defaultOptions('text')
     }})
@@ -56,6 +56,8 @@ function defaultValue(type) {
       return ''
     case 'checkbox':
       return false
+    case 'geolocation':
+        return [0, 0]
     default:
       return null
   }
@@ -68,7 +70,7 @@ function updateIdentiferType(identifiers, name, type) {
     }
     return {
       ...identifier,
-      type: type,
+      dataType: type,
       value: defaultValue(type),
       options: defaultOptions(type)
     }

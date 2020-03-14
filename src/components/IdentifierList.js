@@ -13,7 +13,7 @@ function IdentifierList({identifiers, dispatch}) {
             <Column padded>
               <Identifier
                 name={identifier.name}
-                type={identifier.type}
+                type={identifier.dataType}
                 value={identifier.value}
                 options={identifier.options}
                 dispatch={dispatch} />
