@@ -14,7 +14,11 @@ const dataTypes = [
   {
     id: 'checkbox',
     label: 'Checkbox',
-	}
+  },
+  {
+    id: 'geolocation',
+    label: 'Geolocation',
+  }
 ]
 
 function DataTypeSelector({selected, name, dispatch, ...props}) {

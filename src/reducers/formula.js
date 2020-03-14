@@ -56,6 +56,8 @@ function defaultValue(type) {
       return ''
     case 'checkbox':
       return false
+    case 'geolocation':
+        return [0, 0]
     default:
       return null
   }
