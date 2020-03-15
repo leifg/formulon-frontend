@@ -11,6 +11,11 @@ export const formulaReducer = (state, action) => {
       return applyFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), state)
     case 'CHANGE_IDENTIFIER_OPTIONS':
       return applyFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), state)
+    case 'CHANGE_IDENTIFER_PICKLIST_VALUES':
+      return {
+        ...state,
+        identifiers: updatePicklistValues(state.identifiers, action.name, action.values),
+      }
     default:
       return state
   }
@@ -45,6 +50,9 @@ function defaultOptions(type) {
       return { length: 255 }
     case 'number':
       return { length: 8, scale: 0 }
+    case 'picklist':
+    case 'multipicklist':
+      return { values: [] }
     default:
       return {}
   }
@@ -57,7 +65,9 @@ function defaultValue(type) {
     case 'checkbox':
       return false
     case 'geolocation':
-        return [null, null]
+      return [null, null]
+    case 'multipicklist':
+      return []
     default:
       return null
   }
@@ -85,6 +95,18 @@ function updateIdentiferValue(identifiers, name, value) {
     return {
       ...identifier,
       value: value,
+    }
+  })
+}
+
+function updatePicklistValues(identifiers, name, values) {
+  return identifiers.map((identifier) => {
+    if (identifier.name !== name) {
+      return identifier
+    }
+    return {
+      ...identifier,
+      options: Object.assign(identifier.options, { values: values }),
     }
   })
 }

@@ -16,6 +16,14 @@ const dataTypes = [
     label: 'Checkbox',
   },
   {
+    id: 'picklist',
+    label: 'Picklist (Single)',
+  },
+  {
+    id: 'multipicklist',
+    label: 'Picklist (Multi)',
+  },
+  {
     id: 'geolocation',
     label: 'Geolocation',
   }

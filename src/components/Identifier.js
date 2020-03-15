@@ -3,6 +3,8 @@ import CardHeader from './lightning/CardHeader';
 import CardBody from './lightning/CardBody';
 import CheckboxIdentifier from './identifiers/CheckboxIdentifier';
 import TextIdentifier from './identifiers/TextIdentifier';
+import PicklistIdentifier from './identifiers/PicklistIdentifier';
+import MultipicklistIdentifier from './identifiers/MultipicklistIdentifier';
 import GeolocationIdentifier from './identifiers/GeolocationIdentifier';
 import NumberIdentifier from './identifiers/NumberIdentifier';
 import DataTypeSelector from './identifiers/DataTypeSelector';
@@ -38,6 +40,10 @@ function dispatchIdentifier(type, name, value, options, dispatch) {
       return <GeolocationIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     case 'checkbox':
       return <CheckboxIdentifier name={name} value={value} options={options} dispatch={dispatch} />
+    case 'picklist':
+      return <PicklistIdentifier name={name} value={value} options={options} dispatch={dispatch} />
+    case 'multipicklist':
+      return <MultipicklistIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     default:
       return <TextIdentifier name={name} value={value} options={options} dispatch={dispatch} />
   }
