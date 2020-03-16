@@ -3,6 +3,7 @@ import CardHeader from './lightning/CardHeader';
 import CardBody from './lightning/CardBody';
 import CheckboxIdentifier from './identifiers/CheckboxIdentifier';
 import DateIdentifier from './identifiers/DateIdentifier';
+import TimeIdentifier from './identifiers/TimeIdentifier';
 import TextIdentifier from './identifiers/TextIdentifier';
 import PicklistIdentifier from './identifiers/PicklistIdentifier';
 import MultipicklistIdentifier from './identifiers/MultipicklistIdentifier';
@@ -39,6 +40,8 @@ function dispatchIdentifier(type, name, value, options, dispatch) {
       return <NumberIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     case 'date':
       return <DateIdentifier name={name} value={value} options={options} dispatch={dispatch} />
+    case 'time':
+      return <TimeIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     case 'geolocation':
       return <GeolocationIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     case 'checkbox':
@@ -58,6 +61,8 @@ function dispatchIconName(type) {
       return 'number_input'
     case 'date':
       return 'date_input'
+    case 'time':
+      return 'clock'
     case 'checkbox':
       return 'multi_select_checkbox'
     case 'picklist':

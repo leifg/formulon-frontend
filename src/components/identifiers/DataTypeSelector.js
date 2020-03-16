@@ -16,6 +16,10 @@ const dataTypes = [
     label: 'Date',
   },
   {
+    id: 'time',
+    label: 'Time',
+  },
+  {
     id: 'checkbox',
     label: 'Checkbox',
   },
