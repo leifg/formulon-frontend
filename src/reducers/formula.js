@@ -62,6 +62,8 @@ function defaultValue(type) {
   switch(type) {
     case 'text':
       return ''
+    case 'date':
+      return new Date()
     case 'checkbox':
       return false
     case 'geolocation':
