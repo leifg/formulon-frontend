@@ -63,6 +63,7 @@ function defaultValue(type) {
     case 'text':
       return ''
     case 'date':
+    case 'time':
       return new Date()
     case 'checkbox':
       return false
