@@ -2,6 +2,7 @@ import React from 'react';
 import CardHeader from './lightning/CardHeader';
 import CardBody from './lightning/CardBody';
 import CheckboxIdentifier from './identifiers/CheckboxIdentifier';
+import DateIdentifier from './identifiers/DateIdentifier';
 import TextIdentifier from './identifiers/TextIdentifier';
 import PicklistIdentifier from './identifiers/PicklistIdentifier';
 import MultipicklistIdentifier from './identifiers/MultipicklistIdentifier';
@@ -36,6 +37,8 @@ function dispatchIdentifier(type, name, value, options, dispatch) {
   switch(type) {
     case 'number':
       return <NumberIdentifier name={name} value={value} options={options} dispatch={dispatch} />
+    case 'date':
+      return <DateIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     case 'geolocation':
       return <GeolocationIdentifier name={name} value={value} options={options} dispatch={dispatch} />
     case 'checkbox':
@@ -53,6 +56,8 @@ function dispatchIconName(type) {
   switch(type) {
     case 'number':
       return 'number_input'
+    case 'date':
+      return 'date_input'
     case 'checkbox':
       return 'multi_select_checkbox'
     case 'picklist':
