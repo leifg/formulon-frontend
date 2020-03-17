@@ -3,6 +3,8 @@ import { transformIdentifiers } from '../utils/salesforceUtils'
 
 export const formulaReducer = (state, action) => {
   switch (action.type) {
+    case 'OVERWRITE_FORMULA':
+      return applyFormulaChange(action.formula, action.identifiers, state)
     case 'CHANGE_FORMULA':
       return applyFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), state)
     case 'CHANGE_IDENTIFIER_TYPE':
