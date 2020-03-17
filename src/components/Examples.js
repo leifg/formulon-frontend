@@ -10,7 +10,7 @@ function Examples({dispatch}) {
     <article id='examples' className='slds-card'>
       <CardHeader heading='Examples' icon='' />
       <CardBody>
-      <ul class="slds-has-block-links_space">
+      <ul className="slds-has-block-links_space">
         <li className="slds-text-heading_medium">
           <button className='example-link' onClick={dipatchPreset('workingDays', dispatch)}>
             Calculate Working Days between two dates
