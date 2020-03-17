@@ -24,7 +24,7 @@ function App() {
         <IconSettings iconPath='/assets/icons'>
           <GlobalNavigationBar>
             <GlobalNavigationBarRegion region="primary">
-              <AppLauncher triggerName="Formulon" />
+              <AppLauncher triggerName="Formulon" children={[]} />
             </GlobalNavigationBarRegion>
           </GlobalNavigationBar>
         </IconSettings>
