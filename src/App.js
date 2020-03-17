@@ -29,22 +29,22 @@ function App() {
         </IconSettings>
         <Grid className='App-content'>
           <Row padded>
-            <Column sizeLarge={5} sizeMedium={5} sizeSmall={12}>
+            <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
               <IdentifierList identifiers={ state.identifiers } dispatch={dispatch} />
             </Column>
           </Row>
           <Row padded>
-            <Column sizeLarge={5} sizeMedium={5} sizeSmall={12}>
+            <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
               <FormulaInput dispatch={dispatch} errorText={state.lastError} />
             </Column>
           </Row>
           <Row padded>
-            <Column sizeLarge={5} sizeMedium={5} sizeSmall={12}>
+            <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
               <FormulaOutput value={ state.result } />
             </Column>
           </Row>
           <Row padded>
-            <Column sizeLarge={5} sizeMedium={5} sizeSmall={12}>
+            <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
               <Footer />
             </Column>
           </Row>
