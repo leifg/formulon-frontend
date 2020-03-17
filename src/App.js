@@ -2,13 +2,12 @@ import React, {useReducer} from 'react';
 
 import { formulaReducer, initialState } from './reducers/formula'
 
-import { AppLauncher, IconSettings, GlobalNavigationBar, GlobalNavigationBarRegion } from '@salesforce/design-system-react';
-
 import Grid from './components/lightning/Grid';
 import Column from './components/lightning/Column';
 import Row from './components/lightning/Row';
 
 import Examples from './components/Examples';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import FormulaInput from './components/FormulaInput';
 import FormulaOutput from './components/FormulaOutput';
@@ -21,13 +20,7 @@ function App() {
 
   return (
       <div>
-        <IconSettings iconPath='/assets/icons'>
-          <GlobalNavigationBar>
-            <GlobalNavigationBarRegion region="primary">
-              <AppLauncher triggerName="Formulon" children={[]} />
-            </GlobalNavigationBarRegion>
-          </GlobalNavigationBar>
-        </IconSettings>
+        <Header />
         <Grid className='App-content'>
           <Row padded>
             <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
