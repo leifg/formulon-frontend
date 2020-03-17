@@ -8,6 +8,7 @@ import Grid from './components/lightning/Grid';
 import Column from './components/lightning/Column';
 import Row from './components/lightning/Row';
 
+import Examples from './components/Examples';
 import Footer from './components/Footer';
 import FormulaInput from './components/FormulaInput';
 import FormulaOutput from './components/FormulaOutput';
@@ -35,12 +36,17 @@ function App() {
           </Row>
           <Row padded>
             <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
-              <FormulaInput dispatch={dispatch} errorText={state.lastError} />
+              <FormulaInput dispatch={dispatch} inputFormula={state.inputFormula} errorText={state.lastError} />
             </Column>
           </Row>
           <Row padded>
             <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
               <FormulaOutput value={ state.result } />
+            </Column>
+          </Row>
+          <Row padded>
+            <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
+              <Examples dispatch={dispatch}/>
             </Column>
           </Row>
           <Row padded>

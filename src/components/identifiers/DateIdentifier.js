@@ -12,12 +12,12 @@ function DateIdentifier({name, value, dispatch, ...props}) {
               labels={{
                 label: 'Value',
               }}
-              value=""
+              value={fromUTC(value)}
               onChange={ (_event, data) => {
                 dispatch({
                   type: 'CHANGE_IDENTIFIER_VALUE',
                   name: name,
-                  value: new Date(Date.UTC(data.date.getFullYear(), data.date.getMonth(), data.date.getDate()))
+                  value: toUTC(data.date)
                 })
               }}
             />
@@ -25,6 +25,14 @@ function DateIdentifier({name, value, dispatch, ...props}) {
       </FormElement>
     </>
   )
+}
+
+const toUTC = (input) => {
+  return new Date(Date.UTC(input.getFullYear(), input.getMonth(), input.getDate()))
+}
+
+const fromUTC = (input) => {
+  return new Date(input.getUTCFullYear(), input.getUTCMonth(), input.getUTCDate())
 }
 
 export default DateIdentifier;
