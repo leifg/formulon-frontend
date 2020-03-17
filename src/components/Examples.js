@@ -10,18 +10,18 @@ function Examples({dispatch}) {
     <article id='examples' className='slds-card'>
       <CardHeader heading='Examples' icon='' />
       <CardBody>
-      <ul className="slds-has-block-links_space">
-        <li className="slds-text-heading_medium">
-          <button className='example-link' onClick={dipatchPreset('workingDays', dispatch)}>
-            Calculate Working Days between two dates
-          </button>
-        </li>
-        <li className="slds-text-heading_medium">
-          <button className='example-link' onClick={dipatchPreset('accountRegion', dispatch)}>
-            Determine Account Region based on US State
-          </button>
-        </li>
-      </ul>
+        <ul className="slds-has-block-links_space">
+          <li className="slds-text-heading_medium">
+            <button className='example-link' onClick={dipatchPreset('workingDays', dispatch)}>
+              Calculate Working Days between two dates
+            </button>
+          </li>
+          <li className="slds-text-heading_medium">
+            <button className='example-link' onClick={dipatchPreset('accountRegion', dispatch)}>
+              Determine Account Region based on US State
+            </button>
+          </li>
+        </ul>
       </CardBody>
     </article>
   )
