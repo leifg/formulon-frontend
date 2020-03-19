@@ -27,6 +27,7 @@ export const initialState = {
   inputFormula: '',
   identifiers: [],
   result: '',
+  processing: false,
   lastError: null,
 }
 

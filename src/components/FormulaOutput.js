@@ -2,18 +2,27 @@ import React from 'react';
 
 import FormCard from './lightning/FormCard';
 import FormElement from './lightning/FormElement';
-import { Textarea } from '@salesforce/design-system-react';
+import { Textarea, Spinner } from '@salesforce/design-system-react';
 
-function FormulaOutput({value, ...props}) {
+import './FormulaOutput.css';
+
+function FormulaOutput({value, processing}) {
   return (
     <FormCard id='formula-output' heading='Result' icon='note'>
       <FormElement size={12}>
-        <Textarea
-          id="formula"
-          value={value}
-          className={['slds-text-font_monospace']}
-          disabled
-        />
+        {
+          processing ?  <Spinner
+                          containerClassName={['formula-spinner']}
+                          size='large'
+                          variant='base'
+                          assistiveText={{ label: 'Calculating Formula' }}
+                        /> : <Textarea
+                                id="formula"
+                                value={value}
+                                className={['slds-text-font_monospace']}
+                                disabled />
+        }
+
       </FormElement>
     </FormCard>
   )

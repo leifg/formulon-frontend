@@ -34,7 +34,7 @@ function App() {
           </Row>
           <Row padded>
             <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
-              <FormulaOutput value={ state.result } />
+              <FormulaOutput value={state.result} processing={state.processing} />
             </Column>
           </Row>
           <Row padded>
