@@ -22,12 +22,12 @@ function TimeIdentifier({name, value, options, dispatch}) {
                   date.getMinutes() * 60 * 1000 +
                   date.getHours() * 60 * 60 * 1000
                 dispatch({
-                  type: 'CHANGE_IDENTIFIER_VALUE',
+                  type: 'REQUEST_IDENTIFIER_VALUE_CHANGE',
                   name: name,
                   value: new Date(millisecondsSinceMidnightlet)
                 })
                 dispatch({
-                  type: 'CHANGE_IDENTIFIER_OPTIONS',
+                  type: 'REQUEST_IDENTIFIER_OPTIONS_CHANGE',
                   name: name, value: { timeString: inputStr }
                 })
               }}

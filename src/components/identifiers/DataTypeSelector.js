@@ -56,7 +56,7 @@ function DataTypeSelector({selected, name, dispatch, ...props}) {
           }}
           events={{
             onSelect: (_event, data) => {
-              dispatch({type: 'CHANGE_IDENTIFIER_TYPE', name: name, value: data.selection[0].id})
+              dispatch({type: 'REQUEST_IDENTIFIER_TYPE_CHANGE', name: name, value: data.selection[0].id})
             }
           }}
           options={dataTypes}

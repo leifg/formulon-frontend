@@ -1,18 +1,19 @@
-import { extract, parse, toString } from 'formulon'
-import { transformIdentifiers } from '../utils/salesforceUtils'
+import { extract, toString } from 'formulon'
 
 export const formulaReducer = (state, action) => {
   switch (action.type) {
     case 'OVERWRITE_FORMULA':
-      return applyFormulaChange(action.formula, action.identifiers, state)
-    case 'CHANGE_FORMULA':
-      return applyFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), state)
-    case 'CHANGE_IDENTIFIER_TYPE':
-      return applyFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), state)
-    case 'CHANGE_IDENTIFIER_VALUE':
-      return applyFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), state)
-    case 'CHANGE_IDENTIFIER_OPTIONS':
-      return applyFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), state)
+      return requestFormulaChange(action.formula, action.identifiers, state)
+    case 'UPDATE_FORMULA_RESULT':
+      return updateFormulaResult(action.parsedFormula, action.error, state)
+    case 'REQUEST_FORMULA_CHANGE':
+      return requestFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), state)
+    case 'REQUEST_IDENTIFIER_TYPE_CHANGE':
+      return requestFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), state)
+    case 'REQUEST_IDENTIFIER_VALUE_CHANGE':
+      return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), state)
+    case 'REQUEST_IDENTIFIER_OPTIONS_CHANGE':
+      return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), state)
     case 'CHANGE_IDENTIFER_PICKLIST_VALUES':
       return {
         ...state,
@@ -126,24 +127,20 @@ function updateIdentiferOptions(identifiers, name, options) {
   })
 }
 
-function evalFormula(formula, identifiers) {
-  const parsedFormula = parse(formula, transformIdentifiers(identifiers))
-
-  if(parsedFormula.type === 'error') {
-    return [parsedFormula, `${parsedFormula.errorType}: ${parsedFormula.message}`]
-  }
-
-  return [parsedFormula, null]
-}
-
-function applyFormulaChange(inputFormula, identifiers, state) {
-  const [parsedFormula, error] = evalFormula(inputFormula, identifiers)
-
+function requestFormulaChange(inputFormula, identifiers, state) {
   return {
     ...state,
     inputFormula: inputFormula,
     identifiers: identifiers,
+    processing: true,
+  }
+}
+
+function updateFormulaResult(parsedFormula, error, state) {
+  return {
+    ...state,
     result: error ? state.result : toString(parsedFormula),
     lastError: error,
+    processing: false,
   }
 }

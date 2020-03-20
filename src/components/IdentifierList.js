@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import FormCard from './lightning/FormCard';
 import Row from './lightning/Row';
 import Column from './lightning/Column';
 import Identifier from './Identifier'
 
-function IdentifierList({identifiers, dispatch}) {
+import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
+
+function IdentifierList() {
+  const state = useContext(FormulaStateContext)
+  const dispatch = useContext(FormulaDispatchContext)
+
   return (
     <FormCard id='identifier-list' heading='variables' icon='calibration'>
       {
-        identifiers.map((identifier) =>
+        state.identifiers.map((identifier) =>
           <Row key={identifier.name} padded>
             <Column padded>
               <Identifier
@@ -16,7 +21,8 @@ function IdentifierList({identifiers, dispatch}) {
                 type={identifier.dataType}
                 value={identifier.value}
                 options={identifier.options}
-                dispatch={dispatch} />
+                dispatch={dispatch}
+              />
             </Column>
           </Row>)
       }
