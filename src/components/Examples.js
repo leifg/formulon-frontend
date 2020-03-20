@@ -56,7 +56,7 @@ const PRESETS = {
         name: 'BillingState',
         dataType: 'text',
         value: 'CA',
-        options: { length: 2 }
+        options: { length: 255 }
       },
     ]
   }

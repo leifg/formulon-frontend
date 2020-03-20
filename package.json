@@ -2,13 +2,20 @@
   "name": "formulon-frontend",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "workerize-loader(\\?.*)?!(.*)": "<rootDir>/workerize-jest.js"
+    }
+  },
   "dependencies": {
     "@salesforce-ux/design-system": "^2.11.6",
     "@salesforce/design-system-react": "^0.10.18",
     "formulon": "^6.16.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "workerize-loader": "^1.1.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

@@ -14,7 +14,8 @@ const CheckboxIdentifier = ({name, value, dispatch}) => {
           labels={ { toggleDisabled: 'False', toggleEnabled: 'True', } }
           onChange={ (_event, value) => {
             dispatch({type: 'REQUEST_IDENTIFIER_VALUE_CHANGE', name: name, value: value.checked }) }
-          }/>
+          }
+        />
       </FormElement>
     </>
   )

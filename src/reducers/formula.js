@@ -14,6 +14,10 @@ export const formulaReducer = (state, action) => {
       return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), state)
     case 'REQUEST_IDENTIFIER_OPTIONS_CHANGE':
       return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), state)
+    case 'REGISTER_WORKER':
+      return registerWorker(action.worker, state)
+    case 'TERMINATE_WORKERS':
+      return registerWorker(null, state)
     case 'CHANGE_IDENTIFER_PICKLIST_VALUES':
       return {
         ...state,
@@ -30,6 +34,7 @@ export const initialState = {
   result: '',
   processing: false,
   lastError: null,
+  currentWorker: null,
 }
 
 const replaceIdentifiers = (formula, existingIdentifiers) => {
@@ -142,5 +147,14 @@ const updateFormulaResult = (parsedFormula, error, state) => {
     result: error ? state.result : toString(parsedFormula),
     lastError: error,
     processing: false,
+  }
+}
+
+const registerWorker = (worker, state) => {
+  if(state.currentWorker) state.currentWorker.terminate()
+
+  return {
+    ...state,
+    currentWorker: worker
   }
 }
