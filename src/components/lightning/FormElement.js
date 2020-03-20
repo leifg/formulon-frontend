@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames'
 
-function FormElement({size, sizeSmall, sizeMedium, sizeLarge, sizeMax = 12, className= [], children}) {
+const FormElement = ({size, sizeSmall, sizeMedium, sizeLarge, sizeMax = 12, className= [], children}) => {
   const sizeClass = classnames([
     size ? `slds-size_${size}-of-${sizeMax}` : null,
     sizeSmall ? `slds-small-size_${sizeSmall}-of-12` : null,

@@ -41,7 +41,7 @@ const dataTypes = [
   }
 ]
 
-function DataTypeSelector({selected, name, dispatch, ...props}) {
+const DataTypeSelector = ({selected, name, dispatch, ...props}) => {
   const selectedElement = dataTypes.find(element => element.id === selected)
 
   return (

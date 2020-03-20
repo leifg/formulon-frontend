@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames'
 
-function Row({padded, children, className = [], ...props}) {
+const Row = ({padded, children, className = [], ...props}) => {
   const classNames = classnames([
     padded ? 'slds-col_padded' : 'slds-col',
     'slds-wrap',

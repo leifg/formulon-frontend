@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CardHeader({heading, icon, ...props}) {
+const CardHeader = ({heading, icon, ...props}) => {
   return (
     <div className="slds-card__header slds-grid">
       <header className="slds-media slds-media_center slds-has-flexi-truncate">

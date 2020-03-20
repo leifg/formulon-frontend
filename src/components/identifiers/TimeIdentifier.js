@@ -2,7 +2,7 @@ import React from 'react';
 import FormElement from '../lightning/FormElement';
 import { Timepicker, IconSettings } from '@salesforce/design-system-react';
 
-function TimeIdentifier({name, value, options, dispatch}) {
+const TimeIdentifier = ({name, value, options, dispatch}) => {
   return (
     <>
       <FormElement sizeLarge={8} sizeMax={12} sizeSmall={12}>

@@ -7,7 +7,7 @@ import { FormulaDispatchContext } from '../contexts'
 
 import './Examples.css';
 
-function Examples() {
+const Examples = () => {
   const dispatch = useContext(FormulaDispatchContext)
 
   return (

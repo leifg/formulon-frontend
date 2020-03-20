@@ -2,7 +2,7 @@ import React from 'react';
 import CardHeader from './CardHeader'
 import CardBody from './CardBody'
 
-function FormCard({id, heading, icon, children}) {
+const FormCard = ({id, heading, icon, children}) => {
   return (
     <article id={ id } className='slds-card'>
       { (heading || icon) && <CardHeader heading={ heading } icon={ icon } /> }

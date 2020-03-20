@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Footer.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <article id='footer' className='slds-card'>
       <p className='footer-content'>

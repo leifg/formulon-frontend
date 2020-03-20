@@ -6,7 +6,7 @@ import { Textarea } from '@salesforce/design-system-react';
 
 import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
 
-function FormulaInput() {
+const FormulaInput = () => {
   const state = useContext(FormulaStateContext)
   const dispatch = useContext(FormulaDispatchContext)
 

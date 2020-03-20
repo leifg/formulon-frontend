@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames'
 
-function Column({padded, size, sizeSmall, sizeMedium, sizeLarge, className = [], ...props}) {
+const Column = ({padded, size, sizeSmall, sizeMedium, sizeLarge, className = [], ...props}) => {
   const classNames = classnames([
     padded ? 'slds-col_padded' : 'slds-col',
     size ? `slds-size_${size}-of-12` : null,

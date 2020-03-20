@@ -2,7 +2,7 @@ import React from 'react';
 import FormElement from '../lightning/FormElement';
 import { Input } from '@salesforce/design-system-react';
 
-function TextIdentifier({name, value, options, dispatch, formula, allIdentifers}) {
+const TextIdentifier = ({name, value, options, dispatch, formula, allIdentifers}) => {
   return (
     <>
       <FormElement sizeLarge={6} sizeMedium={6} sizeSmall={12} sizeMax={12}>

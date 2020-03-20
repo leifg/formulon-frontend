@@ -6,7 +6,7 @@ import Identifier from './Identifier'
 
 import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
 
-function IdentifierList() {
+const IdentifierList = () => {
   const state = useContext(FormulaStateContext)
   const dispatch = useContext(FormulaDispatchContext)
 
