@@ -2,7 +2,7 @@ import React from 'react';
 import FormElement from '../lightning/FormElement';
 import { Input } from '@salesforce/design-system-react';
 
-function NumberIdentifier({name, options, dispatch, ...props}) {
+const NumberIdentifier = ({name, options, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4}  sizeMedium={12} sizeSmall={12} sizeMax={12}>

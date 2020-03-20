@@ -17,7 +17,7 @@ import IdentifierList from './components/IdentifierList';
 
 import './App.css';
 
-function App() {
+const App = () => {
   const [state, dispatch] = useReducer(formulaReducer, initialState)
 
   useEffect(() => {

@@ -32,7 +32,7 @@ export const initialState = {
   lastError: null,
 }
 
-function replaceIdentifiers(formula, existingIdentifiers) {
+const replaceIdentifiers = (formula, existingIdentifiers) => {
   return extract(formula).map( identifierName => {
     const existing = existingIdentifiers.find( existing => existing.name === identifierName )
 
@@ -48,7 +48,7 @@ function replaceIdentifiers(formula, existingIdentifiers) {
     }})
 }
 
-function defaultOptions(type) {
+const defaultOptions = (type) => {
   switch(type) {
     case 'text':
       return { length: 255 }
@@ -62,7 +62,7 @@ function defaultOptions(type) {
   }
 }
 
-function defaultValue(type) {
+const defaultValue = (type) => {
   switch(type) {
     case 'text':
       return ''
@@ -77,7 +77,7 @@ function defaultValue(type) {
   }
 }
 
-function updateIdentiferType(identifiers, name, type) {
+const updateIdentiferType = (identifiers, name, type) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
@@ -91,7 +91,7 @@ function updateIdentiferType(identifiers, name, type) {
   })
 }
 
-function updateIdentiferValue(identifiers, name, value) {
+const updateIdentiferValue = (identifiers, name, value) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
@@ -103,7 +103,7 @@ function updateIdentiferValue(identifiers, name, value) {
   })
 }
 
-function updatePicklistValues(identifiers, name, values) {
+const updatePicklistValues = (identifiers, name, values) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
@@ -115,7 +115,7 @@ function updatePicklistValues(identifiers, name, values) {
   })
 }
 
-function updateIdentiferOptions(identifiers, name, options) {
+const updateIdentiferOptions = (identifiers, name, options) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
@@ -127,7 +127,7 @@ function updateIdentiferOptions(identifiers, name, options) {
   })
 }
 
-function requestFormulaChange(inputFormula, identifiers, state) {
+const requestFormulaChange = (inputFormula, identifiers, state) => {
   return {
     ...state,
     inputFormula: inputFormula,
@@ -136,7 +136,7 @@ function requestFormulaChange(inputFormula, identifiers, state) {
   }
 }
 
-function updateFormulaResult(parsedFormula, error, state) {
+const updateFormulaResult = (parsedFormula, error, state) => {
   return {
     ...state,
     result: error ? state.result : toString(parsedFormula),

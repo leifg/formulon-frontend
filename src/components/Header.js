@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AppLauncher, IconSettings, GlobalNavigationBar, GlobalNavigationBarLink, GlobalNavigationBarRegion } from '@salesforce/design-system-react';
 
-function Footer() {
+const Footer = () => {
   return (
     <IconSettings iconPath='/assets/icons'>
       <GlobalNavigationBar>

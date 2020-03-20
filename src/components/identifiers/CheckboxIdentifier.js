@@ -2,7 +2,7 @@ import React from 'react';
 import FormElement from '../lightning/FormElement';
 import { Checkbox } from '@salesforce/design-system-react';
 
-function CheckboxIdentifier({name, value, dispatch}) {
+const CheckboxIdentifier = ({name, value, dispatch}) => {
   return (
     <>
       <FormElement sizeLarge={8} sizeMax={12} sizeSmall={12}>

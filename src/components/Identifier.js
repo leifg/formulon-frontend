@@ -14,7 +14,7 @@ import DataTypeSelector from './identifiers/DataTypeSelector';
 
 import './Identifier.css';
 
-function Identifier({name, type, value, options, dispatch}) {
+const Identifier = ({name, type, value, options, dispatch}) => {
   return (
     <article
       id={`identifier-${name}`}
@@ -35,7 +35,7 @@ function Identifier({name, type, value, options, dispatch}) {
   )
 }
 
-function dispatchIdentifier(type, name, value, options, dispatch) {
+const dispatchIdentifier = (type, name, value, options, dispatch) => {
   switch(type) {
     case 'number':
       return <NumberIdentifier name={name} value={value} options={options} dispatch={dispatch} />
@@ -58,7 +58,7 @@ function dispatchIdentifier(type, name, value, options, dispatch) {
   }
 }
 
-function dispatchIconName(type) {
+const dispatchIconName = (type) => {
   switch(type) {
     case 'number':
       return 'number_input'

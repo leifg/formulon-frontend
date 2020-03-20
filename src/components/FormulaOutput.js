@@ -8,7 +8,7 @@ import { FormulaStateContext } from '../contexts'
 
 import './FormulaOutput.css';
 
-function FormulaOutput() {
+const FormulaOutput = () => {
   const state = useContext(FormulaStateContext)
 
   return (

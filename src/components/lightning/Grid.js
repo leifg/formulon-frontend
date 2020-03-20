@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames'
 
-function Grid({className = [], ...props}) {
+const Grid = ({className = [], ...props}) => {
   const classNames = classnames([
     'slds-grid',
     'slds-wrap',

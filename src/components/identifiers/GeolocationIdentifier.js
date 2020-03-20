@@ -2,7 +2,7 @@ import React from 'react';
 import FormElement from '../lightning/FormElement';
 import { Input } from '@salesforce/design-system-react';
 
-function GeolocationIdentifier({name, value, dispatch, ...props}) {
+const GeolocationIdentifier = ({name, value, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4}  sizeMedium={6} sizeSmall={6} sizeMax={12}>
