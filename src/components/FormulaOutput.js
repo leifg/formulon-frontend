@@ -1,24 +1,28 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import FormCard from './lightning/FormCard';
 import FormElement from './lightning/FormElement';
 import { Textarea, Spinner } from '@salesforce/design-system-react';
 
+import { FormulaStateContext } from '../contexts'
+
 import './FormulaOutput.css';
 
-function FormulaOutput({value, processing}) {
+function FormulaOutput() {
+  const state = useContext(FormulaStateContext)
+
   return (
     <FormCard id='formula-output' heading='Result' icon='note'>
       <FormElement size={12}>
         {
-          processing ?  <Spinner
-                          containerClassName={['formula-spinner']}
+          state.processing ?  <Spinner
+                          containerClassName='formula-spinner'
                           size='large'
                           variant='base'
                           assistiveText={{ label: 'Calculating Formula' }}
                         /> : <Textarea
                                 id="formula"
-                                value={value}
+                                value={state.result}
                                 className={['slds-text-font_monospace']}
                                 disabled />
         }

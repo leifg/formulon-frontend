@@ -18,7 +18,7 @@ function TextIdentifier({name, value, options, dispatch, ...props}) {
               events={{
                 onSelect: (_event, data) => {
                   if(data.selection[0]) {
-                    dispatch({type: 'CHANGE_IDENTIFIER_VALUE', name: name, value: data.selection[0].id})
+                    dispatch({type: 'REQUEST_IDENTIFIER_VALUE_CHANGE', name: name, value: data.selection[0].id})
                   }
                 }
               }}

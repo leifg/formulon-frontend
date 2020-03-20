@@ -19,7 +19,7 @@ function TextIdentifier({name, value, options, dispatch, ...props}) {
                 onSelect: (_event, data) => {
                   if(data.selection[0] && value.indexOf(data.selection[0].id) === -1) {
                     dispatch({
-                      type: 'CHANGE_IDENTIFIER_VALUE',
+                      type: 'REQUEST_IDENTIFIER_VALUE_CHANGE',
                       name: name,
                       value: value.concat(data.selection[0].id)
                     })

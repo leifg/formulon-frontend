@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import CardHeader from './lightning/CardHeader';
 import CardBody from './lightning/CardBody'
 
+import { FormulaDispatchContext } from '../contexts'
+
 import './Examples.css';
 
-function Examples({dispatch}) {
+function Examples() {
+  const dispatch = useContext(FormulaDispatchContext)
+
   return (
     <article id='examples' className='slds-card'>
       <CardHeader heading='Examples' icon='' />

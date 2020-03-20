@@ -15,7 +15,7 @@ function DateIdentifier({name, value, dispatch, ...props}) {
               value={fromUTC(value)}
               onChange={ (_event, data) => {
                 dispatch({
-                  type: 'CHANGE_IDENTIFIER_VALUE',
+                  type: 'REQUEST_IDENTIFIER_VALUE_CHANGE',
                   name: name,
                   value: toUTC(data.date)
                 })
