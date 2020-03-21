@@ -9,7 +9,6 @@ import Row from './components/lightning/Row';
 
 import Examples from './components/Examples';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import FormulaInput from './components/FormulaInput';
 import FormulaOutput from './components/FormulaOutput';
 import IdentifierList from './components/IdentifierList';
@@ -58,11 +57,6 @@ const App = () => {
               <Row padded>
                 <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
                   <Examples />
-                </Column>
-              </Row>
-              <Row padded>
-                <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
-                  <Footer />
                 </Column>
               </Row>
             </Grid>

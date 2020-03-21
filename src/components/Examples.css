@@ -3,3 +3,8 @@ button {
   color: #006dcc;
   margin: 5px;
 }
+
+.footer-content {
+  text-align: right;
+  font-size: 10px
+}
