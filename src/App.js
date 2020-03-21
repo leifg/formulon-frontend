@@ -2,7 +2,6 @@ import React, { useReducer, useEffect } from 'react';
 
 import { formulaReducer, initialState } from './reducers/formula'
 import { FormulaStateContext, FormulaDispatchContext } from './contexts'
-import { evalFormula } from './utils/formulonUtils'
 
 import Grid from './components/lightning/Grid';
 import Column from './components/lightning/Column';
@@ -17,12 +16,20 @@ import IdentifierList from './components/IdentifierList';
 
 import './App.css';
 
+const formulaWorker = () => require('workerize-loader!./workers/formulaWorker.js') // eslint-disable-line import/no-webpack-loader-syntax
+
 const App = () => {
   const [state, dispatch] = useReducer(formulaReducer, initialState)
 
   useEffect(() => {
-    const [parsedFormula, error] = evalFormula(state.inputFormula, state.identifiers)
-    dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: parsedFormula, error })
+    const workerInstance = formulaWorker()
+
+    dispatch({ type: 'REGISTER_WORKER', worker: workerInstance })
+
+    workerInstance.parseFormula(state.inputFormula, state.identifiers).then(result => {
+      dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: result[0], error: result[1] })
+      dispatch({ type: 'TERMINATE_WORKERS', worker: workerInstance })
+    })
   }, [dispatch, state.inputFormula, state.identifiers])
 
   return (
