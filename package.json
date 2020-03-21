@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "jest": {
-    "verbose": true,
-    "transform": {
-      "workerize-loader(\\?.*)?!(.*)": "<rootDir>/workerize-jest.js"
-    }
+    "verbose": true
   },
   "scripts": {
     "start": "react-app-rewired start",

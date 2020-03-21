@@ -22,7 +22,9 @@ const App = () => {
   const [state, dispatch] = useReducer(formulaReducer, initialState)
 
   useEffect(() => {
-    const workerInstance = formulaWorker()
+    // Tests won't work if require is executed on top level
+    // Advice on workerize-loader does not seem to work: https://github.com/developit/workerize-loader#testing
+    const workerInstance = formulaWorker()()
 
     dispatch({ type: 'REGISTER_WORKER', worker: workerInstance })
 
