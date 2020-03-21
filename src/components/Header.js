@@ -11,7 +11,7 @@ const Footer = () => {
         </GlobalNavigationBarRegion>
 
         <GlobalNavigationBarRegion region="secondary" navigation>
-          <GlobalNavigationBarLink active label="Feedback" id="feedback-link" href="mailto:formulon@leif.io"/>
+          <GlobalNavigationBarLink label="Feedback" id="feedback-link" href="mailto:formulon@leif.io"/>
         </GlobalNavigationBarRegion>
       </GlobalNavigationBar>
     </IconSettings>
