@@ -11,7 +11,7 @@ const IdentifierList = () => {
   const dispatch = useContext(FormulaDispatchContext)
 
   return (
-    <FormCard id='identifier-list' heading='variables' icon='calibration'>
+    <FormCard id='identifier-list' heading='Variables' icon='calibration'>
       {
         state.identifiers.map((identifier) =>
           <Row key={identifier.name} padded>
