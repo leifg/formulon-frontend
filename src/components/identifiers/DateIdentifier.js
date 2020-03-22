@@ -12,7 +12,7 @@ const DateIdentifier = ({name, value, dispatch, ...props}) => {
               labels={{
                 label: 'Value',
               }}
-              value={fromUTC(value)}
+              value={value && fromUTC(value)}
               onChange={ (_event, data) => {
                 dispatch({
                   type: 'REQUEST_IDENTIFIER_VALUE_CHANGE',
