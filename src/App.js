@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect } from 'react';
+import { useDebounce } from 'use-debounce';
 
 import { formulaReducer, initialState } from './reducers/formula'
 import { FormulaStateContext, FormulaDispatchContext } from './contexts'
@@ -19,6 +20,8 @@ const formulaWorker = () => require('workerize-loader!./workers/formulaWorker.js
 
 const App = () => {
   const [state, dispatch] = useReducer(formulaReducer, initialState)
+  const [debouncedFormula] = useDebounce(state.inputFormula, 300)
+  const [debouncedIdentifiers] = useDebounce(state.identifiers, 300)
 
   useEffect(() => {
     // Tests won't work if require is executed on top level
@@ -27,16 +30,16 @@ const App = () => {
 
     dispatch({ type: 'REGISTER_WORKER', worker: workerInstance })
 
-    workerInstance.parseFormula(state.inputFormula, state.identifiers).then(result => {
+    workerInstance.parseFormula(debouncedFormula, debouncedIdentifiers).then(result => {
       dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: result[0], error: result[1] })
       dispatch({ type: 'TERMINATE_WORKERS', worker: workerInstance })
     })
-  }, [dispatch, state.inputFormula, state.identifiers])
+  }, [dispatch, debouncedFormula, debouncedIdentifiers])
 
   return (
       <div>
         <Header />
-        <div class="slds-panel__body">
+        <div className="slds-panel__body">
           <FormulaDispatchContext.Provider value={dispatch}>
           <FormulaStateContext.Provider value={state}>
             <Grid className='App-content'>
