@@ -32,7 +32,7 @@ const App = () => {
 
     workerInstance.parseFormula(debouncedFormula, debouncedIdentifiers).then(result => {
       dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: result[0], error: result[1] })
-      dispatch({ type: 'TERMINATE_WORKERS', worker: workerInstance })
+      dispatch({ type: 'TERMINATE_WORKERS' })
     })
   }, [dispatch, debouncedFormula, debouncedIdentifiers])
 
