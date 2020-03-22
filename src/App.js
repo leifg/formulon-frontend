@@ -36,7 +36,8 @@ const App = () => {
   return (
       <div>
         <Header />
-        <FormulaDispatchContext.Provider value={dispatch}>
+        <div class="slds-panel__body">
+          <FormulaDispatchContext.Provider value={dispatch}>
           <FormulaStateContext.Provider value={state}>
             <Grid className='App-content'>
               <Row padded>
@@ -62,6 +63,7 @@ const App = () => {
             </Grid>
           </FormulaStateContext.Provider>
         </FormulaDispatchContext.Provider>
+        </div>
       </div>
   );
 }

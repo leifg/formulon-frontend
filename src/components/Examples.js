@@ -12,7 +12,7 @@ const Examples = () => {
 
   return (
     <article id='examples' className='slds-card'>
-      <CardHeader heading='Examples' icon='' />
+      <CardHeader heading='Examples' icon='bot_training' />
       <CardBody>
         <ul className="slds-has-block-links_space">
           <li className="slds-text-heading_medium">
