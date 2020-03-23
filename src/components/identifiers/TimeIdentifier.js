@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Timepicker, IconSettings } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Timepicker, IconSettings } from '@salesforce/design-system-react'
 
 const TimeIdentifier = ({name, value, options, dispatch}) => {
   return (
@@ -38,4 +38,4 @@ const TimeIdentifier = ({name, value, options, dispatch}) => {
   )
 }
 
-export default TimeIdentifier;
+export default TimeIdentifier

@@ -1,8 +1,8 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Combobox, IconSettings, Input } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Combobox, IconSettings, Input } from '@salesforce/design-system-react'
 
-const TextIdentifier = ({name, value, options, dispatch, ...props}) => {
+const PicklistIdentifier = ({name, value, options, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4} sizeMax={12} sizeSmall={12}>
@@ -51,4 +51,4 @@ const mapValues = (values) => {
 
 const mapValue = (value) => ({ id: value, label: value })
 
-export default TextIdentifier;
+export default PicklistIdentifier

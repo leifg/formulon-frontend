@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Input } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Input } from '@salesforce/design-system-react'
 
 const NumberIdentifier = ({name, options, dispatch, ...props}) => {
   return (
@@ -31,4 +31,4 @@ const NumberIdentifier = ({name, options, dispatch, ...props}) => {
   )
 }
 
-export default NumberIdentifier;
+export default NumberIdentifier

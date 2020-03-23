@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 
-import CardHeader from './lightning/CardHeader';
+import CardHeader from './lightning/CardHeader'
 import CardBody from './lightning/CardBody'
 
 import { FormulaDispatchContext } from '../contexts'
 
-import './Examples.css';
+import './Examples.css'
 
 const Examples = () => {
   const dispatch = useContext(FormulaDispatchContext)
@@ -74,4 +74,4 @@ const dipatchPreset = (name, dispatch) => {
   }
 }
 
-export default Examples;
+export default Examples

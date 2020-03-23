@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const CardBody = ({icon, children, ...props}) => {
   return (
@@ -8,4 +8,4 @@ const CardBody = ({icon, children, ...props}) => {
   );
 }
 
-export default CardBody;
+export default CardBody

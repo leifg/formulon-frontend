@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import classnames from 'classnames'
 
 const Grid = ({className = [], ...props}) => {
@@ -12,7 +12,7 @@ const Grid = ({className = [], ...props}) => {
     <div className={classNames}>
       { props.children }
     </div>
-  );
+  )
 }
 
-export default Grid;
+export default Grid

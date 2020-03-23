@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const IconWithTitle = ({title, name }) => {
   return (
@@ -20,4 +20,4 @@ const IconWithTitle = ({title, name }) => {
   )
 }
 
-export default IconWithTitle;
+export default IconWithTitle

@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Input } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Input } from '@salesforce/design-system-react'
 
 const GeolocationIdentifier = ({name, value, dispatch, ...props}) => {
   return (
@@ -23,4 +23,4 @@ const GeolocationIdentifier = ({name, value, dispatch, ...props}) => {
   )
 }
 
-export default GeolocationIdentifier;
+export default GeolocationIdentifier

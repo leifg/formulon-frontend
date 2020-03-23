@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import classnames from 'classnames'
 
 const FormElement = ({size, sizeSmall, sizeMedium, sizeLarge, sizeMax = 12, className= [], children}) => {
@@ -17,7 +17,7 @@ const FormElement = ({size, sizeSmall, sizeMedium, sizeLarge, sizeMax = 12, clas
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default FormElement;
+export default FormElement

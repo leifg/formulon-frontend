@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Checkbox } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Checkbox } from '@salesforce/design-system-react'
 
 const CheckboxIdentifier = ({name, value, dispatch}) => {
   return (
@@ -21,4 +21,4 @@ const CheckboxIdentifier = ({name, value, dispatch}) => {
   )
 }
 
-export default CheckboxIdentifier;
+export default CheckboxIdentifier

@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Input } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Input } from '@salesforce/design-system-react'
 
 const TextIdentifier = ({name, value, options, dispatch, formula, allIdentifers}) => {
   return (
@@ -25,4 +25,4 @@ const TextIdentifier = ({name, value, options, dispatch, formula, allIdentifers}
   )
 }
 
-export default TextIdentifier;
+export default TextIdentifier

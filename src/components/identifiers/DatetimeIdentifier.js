@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Datepicker, IconSettings, Timepicker } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Datepicker, IconSettings, Timepicker } from '@salesforce/design-system-react'
 
 const DateTimeIdentifier = ({name, value, options, dispatch, ...props}) => {
   return (
@@ -73,4 +73,4 @@ const setTimePart = (oldDatetime, newTimestamp) => {
   return new Date(datePart + newTimestamp)
 }
 
-export default DateTimeIdentifier;
+export default DateTimeIdentifier

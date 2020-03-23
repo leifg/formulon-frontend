@@ -1,6 +1,6 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Combobox, IconSettings } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Combobox, IconSettings } from '@salesforce/design-system-react'
 
 const dataTypes = [
   {
@@ -66,4 +66,4 @@ const DataTypeSelector = ({selected, name, dispatch, ...props}) => {
   )
 }
 
-export default DataTypeSelector;
+export default DataTypeSelector

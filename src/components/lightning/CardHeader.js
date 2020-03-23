@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import IconWithTitle from './IconWithTitle'
 
@@ -12,4 +12,4 @@ const CardHeader = ({heading, icon}) => {
   )
 }
 
-export default CardHeader;
+export default CardHeader

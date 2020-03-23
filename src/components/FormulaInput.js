@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, {useContext} from 'react'
 
-import FormCard from './lightning/FormCard';
-import FormElement from './lightning/FormElement';
-import { Textarea } from '@salesforce/design-system-react';
+import FormCard from './lightning/FormCard'
+import FormElement from './lightning/FormElement'
+import { Textarea } from '@salesforce/design-system-react'
 
 import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
 
@@ -27,6 +27,4 @@ const FormulaInput = () => {
   )
 }
 
-
-
-export default FormulaInput;
+export default FormulaInput

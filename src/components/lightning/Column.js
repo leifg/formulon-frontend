@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import classnames from 'classnames'
 
 const Column = ({padded, size, sizeSmall, sizeMedium, sizeLarge, className = [], ...props}) => {
@@ -17,4 +17,4 @@ const Column = ({padded, size, sizeSmall, sizeMedium, sizeLarge, className = [],
   );
 }
 
-export default Column;
+export default Column

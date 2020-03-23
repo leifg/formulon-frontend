@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import CardHeader from './CardHeader'
 import CardBody from './CardBody'
 
@@ -19,4 +19,4 @@ const FormCard = ({id, heading, icon, children}) => {
   );
 }
 
-export default FormCard;
+export default FormCard
