@@ -6,15 +6,15 @@ const PicklistIdentifier = ({name, value, options, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4} sizeMax={12} sizeSmall={12}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Combobox
               id={ `${name}-value` }
-              variant="readonly"
+              variant='readonly'
               labels={{
                 label: 'Value',
                 placeholder: 'Select Value',
               }}
-              value=""
+              value=''
               events={{
                 onSelect: (_event, data) => {
                   if(data.selection[0]) {

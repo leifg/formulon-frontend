@@ -16,7 +16,7 @@ const FormCard = ({id, heading, icon, children}) => {
         </fieldset>
       </CardBody>
     </article>
-  );
+  )
 }
 
 export default FormCard

@@ -21,7 +21,7 @@ const FormulaOutput = () => {
                           variant='base'
                           assistiveText={{ label: 'Calculating Formula' }}
                         /> : <Textarea
-                                id="formula"
+                                id='formula'
                                 value={state.result}
                                 className={['slds-text-font_monospace']}
                                 disabled />
@@ -32,4 +32,4 @@ const FormulaOutput = () => {
   )
 }
 
-export default FormulaOutput;
+export default FormulaOutput

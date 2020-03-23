@@ -6,7 +6,7 @@ const DateIdentifier = ({name, value, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={8} sizeMax={12} sizeSmall={12}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Datepicker
               id={ `${name}-value` }
               labels={{

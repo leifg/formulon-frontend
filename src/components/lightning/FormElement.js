@@ -11,8 +11,8 @@ const FormElement = ({size, sizeSmall, sizeMedium, sizeLarge, sizeMax = 12, clas
 
   return (
     <div className={ sizeClass }>
-      <div className="slds-form-element">
-        <div className="slds-form-element__control">
+      <div className='slds-form-element'>
+        <div className='slds-form-element__control'>
           { children }
         </div>
       </div>

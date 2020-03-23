@@ -14,20 +14,20 @@ const Examples = () => {
     <article id='examples' className='slds-card'>
       <CardHeader heading='Examples' icon='bot_training' />
       <CardBody>
-        <ul className="slds-has-block-links_space">
-          <li className="slds-text-heading_medium">
+        <ul className='slds-has-block-links_space'>
+          <li className='slds-text-heading_medium'>
             <button className='example-link' onClick={dipatchPreset('workingDays', dispatch)}>
               Calculate Working Days between two dates
             </button>
           </li>
-          <li className="slds-text-heading_medium">
+          <li className='slds-text-heading_medium'>
             <button className='example-link' onClick={dipatchPreset('accountRegion', dispatch)}>
               Determine Account Region based on US State
             </button>
           </li>
         </ul>
         <p className='footer-content'>
-          powered by <a href='https://github.com/leifg/formulon' target='_blank' rel='noopener noreferrer'>formulon</a> built by <a href="https://leif.io" target='_blank' rel='noopener noreferrer'>Leif Gensert</a>
+          powered by <a href='https://github.com/leifg/formulon' target='_blank' rel='noopener noreferrer'>formulon</a> built by <a href='https://leif.io' target='_blank' rel='noopener noreferrer'>Leif Gensert</a>
         </p>
       </CardBody>
     </article>

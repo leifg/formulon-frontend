@@ -14,7 +14,7 @@ const Column = ({padded, size, sizeSmall, sizeMedium, sizeLarge, className = [],
     <div className={classNames}>
       { props.children }
     </div>
-  );
+  )
 }
 
 export default Column

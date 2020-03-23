@@ -22,9 +22,9 @@ const Identifier = ({name, type, value, options, dispatch}) => {
     >
       <CardHeader heading={name} icon={dispatchIconName(type)}/>
       <CardBody>
-        <fieldset className="slds-form-element slds-form-element_compound slds-form-element_address">
-          <div className="slds-form-element__control">
-            <div className="slds-form-element__row slds-wrap">
+        <fieldset className='slds-form-element slds-form-element_compound slds-form-element_address'>
+          <div className='slds-form-element__control'>
+            <div className='slds-form-element__row slds-wrap'>
               <DataTypeSelector selected={ type } name={name} dispatch={ dispatch }/>
               { dispatchIdentifier(type, name, value, options, dispatch) }
             </div>

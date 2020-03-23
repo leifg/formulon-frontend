@@ -39,7 +39,7 @@ const App = () => {
   return (
       <div>
         <Header />
-        <div className="slds-panel__body">
+        <div className='slds-panel__body'>
           <FormulaDispatchContext.Provider value={dispatch}>
           <FormulaStateContext.Provider value={state}>
             <Grid className='App-content'>

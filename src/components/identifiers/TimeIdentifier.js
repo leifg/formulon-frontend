@@ -6,7 +6,7 @@ const TimeIdentifier = ({name, value, options, dispatch}) => {
   return (
     <>
       <FormElement sizeLarge={8} sizeMax={12} sizeSmall={12}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Timepicker
               id={ `${name}-value` }
               labels={{
