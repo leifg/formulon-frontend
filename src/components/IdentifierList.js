@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
-import FormCard from './lightning/FormCard';
-import Row from './lightning/Row';
-import Column from './lightning/Column';
+import React, {useContext} from 'react'
+import FormCard from './lightning/FormCard'
+import Row from './lightning/Row'
+import Column from './lightning/Column'
 import Identifier from './Identifier'
 
 import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
@@ -30,4 +30,4 @@ const IdentifierList = () => {
   )
 }
 
-export default IdentifierList;
+export default IdentifierList

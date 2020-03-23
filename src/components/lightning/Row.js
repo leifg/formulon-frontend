@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import classnames from 'classnames'
 
 const Row = ({padded, children, className = [], ...props}) => {
@@ -14,7 +14,7 @@ const Row = ({padded, children, className = [], ...props}) => {
     <div className={classNames}>
       { children }
     </div>
-  );
+  )
 }
 
-export default Row;
+export default Row

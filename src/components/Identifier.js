@@ -1,18 +1,18 @@
-import React from 'react';
-import CardHeader from './lightning/CardHeader';
-import CardBody from './lightning/CardBody';
-import CheckboxIdentifier from './identifiers/CheckboxIdentifier';
-import DateIdentifier from './identifiers/DateIdentifier';
-import TimeIdentifier from './identifiers/TimeIdentifier';
-import DatetimeIdentifier from './identifiers/DatetimeIdentifier';
-import TextIdentifier from './identifiers/TextIdentifier';
-import PicklistIdentifier from './identifiers/PicklistIdentifier';
-import MultipicklistIdentifier from './identifiers/MultipicklistIdentifier';
-import GeolocationIdentifier from './identifiers/GeolocationIdentifier';
-import NumberIdentifier from './identifiers/NumberIdentifier';
-import DataTypeSelector from './identifiers/DataTypeSelector';
+import React from 'react'
+import CardHeader from './lightning/CardHeader'
+import CardBody from './lightning/CardBody'
+import CheckboxIdentifier from './identifiers/CheckboxIdentifier'
+import DateIdentifier from './identifiers/DateIdentifier'
+import TimeIdentifier from './identifiers/TimeIdentifier'
+import DatetimeIdentifier from './identifiers/DatetimeIdentifier'
+import TextIdentifier from './identifiers/TextIdentifier'
+import PicklistIdentifier from './identifiers/PicklistIdentifier'
+import MultipicklistIdentifier from './identifiers/MultipicklistIdentifier'
+import GeolocationIdentifier from './identifiers/GeolocationIdentifier'
+import NumberIdentifier from './identifiers/NumberIdentifier'
+import DataTypeSelector from './identifiers/DataTypeSelector'
 
-import './Identifier.css';
+import './Identifier.css'
 
 const Identifier = ({name, type, value, options, dispatch}) => {
   return (
@@ -22,9 +22,9 @@ const Identifier = ({name, type, value, options, dispatch}) => {
     >
       <CardHeader heading={name} icon={dispatchIconName(type)}/>
       <CardBody>
-        <fieldset className="slds-form-element slds-form-element_compound slds-form-element_address">
-          <div className="slds-form-element__control">
-            <div className="slds-form-element__row slds-wrap">
+        <fieldset className='slds-form-element slds-form-element_compound slds-form-element_address'>
+          <div className='slds-form-element__control'>
+            <div className='slds-form-element__row slds-wrap'>
               <DataTypeSelector selected={ type } name={name} dispatch={ dispatch }/>
               { dispatchIdentifier(type, name, value, options, dispatch) }
             </div>
@@ -81,4 +81,4 @@ const dispatchIconName = (type) => {
   }
 }
 
-export default Identifier;
+export default Identifier

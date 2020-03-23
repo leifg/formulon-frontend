@@ -1,18 +1,18 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Datepicker, IconSettings, Timepicker } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Datepicker, IconSettings, Timepicker } from '@salesforce/design-system-react'
 
 const DateTimeIdentifier = ({name, value, options, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4} sizeMax={6} sizeSmall={6}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Datepicker
               id={ `${name}-value` }
               labels={{
                 label: 'Value',
               }}
-              value=""
+              value=''
               onChange={ (_event, data) => {
                 dispatch({
                   type: 'REQUEST_IDENTIFIER_VALUE_CHANGE',
@@ -24,7 +24,7 @@ const DateTimeIdentifier = ({name, value, options, dispatch, ...props}) => {
         </IconSettings>
       </FormElement>
       <FormElement sizeLarge={4} sizeMax={6} sizeSmall={6}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Timepicker
               id={ `${name}-value` }
               labels={{
@@ -73,4 +73,4 @@ const setTimePart = (oldDatetime, newTimestamp) => {
   return new Date(datePart + newTimestamp)
 }
 
-export default DateTimeIdentifier;
+export default DateTimeIdentifier

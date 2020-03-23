@@ -1,12 +1,12 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Datepicker, IconSettings } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Datepicker, IconSettings } from '@salesforce/design-system-react'
 
 const DateIdentifier = ({name, value, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={8} sizeMax={12} sizeSmall={12}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Datepicker
               id={ `${name}-value` }
               labels={{
@@ -35,4 +35,4 @@ const fromUTC = (input) => {
   return new Date(input.getUTCFullYear(), input.getUTCMonth(), input.getUTCDate())
 }
 
-export default DateIdentifier;
+export default DateIdentifier

@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
+import React, {useContext} from 'react'
 
-import FormCard from './lightning/FormCard';
-import FormElement from './lightning/FormElement';
-import { Textarea, Spinner } from '@salesforce/design-system-react';
+import FormCard from './lightning/FormCard'
+import FormElement from './lightning/FormElement'
+import { Textarea, Spinner } from '@salesforce/design-system-react'
 
 import { FormulaStateContext } from '../contexts'
 
-import './FormulaOutput.css';
+import './FormulaOutput.css'
 
 const FormulaOutput = () => {
   const state = useContext(FormulaStateContext)
@@ -21,7 +21,7 @@ const FormulaOutput = () => {
                           variant='base'
                           assistiveText={{ label: 'Calculating Formula' }}
                         /> : <Textarea
-                                id="formula"
+                                id='formula'
                                 value={state.result}
                                 className={['slds-text-font_monospace']}
                                 disabled />
@@ -32,4 +32,4 @@ const FormulaOutput = () => {
   )
 }
 
-export default FormulaOutput;
+export default FormulaOutput

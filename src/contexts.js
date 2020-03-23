@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
-export const FormulaStateContext = React.createContext();
-export const FormulaDispatchContext = React.createContext();
+export const FormulaStateContext = React.createContext()
+export const FormulaDispatchContext = React.createContext()

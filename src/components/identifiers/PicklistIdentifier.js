@@ -1,20 +1,20 @@
-import React from 'react';
-import FormElement from '../lightning/FormElement';
-import { Combobox, IconSettings, Input } from '@salesforce/design-system-react';
+import React from 'react'
+import FormElement from '../lightning/FormElement'
+import { Combobox, IconSettings, Input } from '@salesforce/design-system-react'
 
-const TextIdentifier = ({name, value, options, dispatch, ...props}) => {
+const PicklistIdentifier = ({name, value, options, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4} sizeMax={12} sizeSmall={12}>
-        <IconSettings iconPath="/assets/icons">
+        <IconSettings iconPath='/assets/icons'>
             <Combobox
               id={ `${name}-value` }
-              variant="readonly"
+              variant='readonly'
               labels={{
                 label: 'Value',
                 placeholder: 'Select Value',
               }}
-              value=""
+              value=''
               events={{
                 onSelect: (_event, data) => {
                   if(data.selection[0]) {
@@ -51,4 +51,4 @@ const mapValues = (values) => {
 
 const mapValue = (value) => ({ id: value, label: value })
 
-export default TextIdentifier;
+export default PicklistIdentifier
