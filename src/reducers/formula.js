@@ -137,7 +137,7 @@ const requestFormulaChange = (inputFormula, identifiers, state) => {
     ...state,
     inputFormula: inputFormula,
     identifiers: identifiers,
-    processing: true,
+    processing: state.inputFormula !== inputFormula || state.identifiers !== identifiers,
   }
 }
 
