@@ -7,6 +7,7 @@
 }
 
 .link-button:hover,
+.link-button:visited,
 .link-button:focus {
-text-decoration: none;
+  text-decoration: none;
 }
