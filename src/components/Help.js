@@ -13,25 +13,31 @@ const Help = () => {
   return (
     <Modal
       isOpen={state.helpOpen}
-      size='large'
+      size='medium'
       footer={[
         <Button label='Close' key='close' variant="brand" onClick={toggleHelp} />
       ]}
       onRequestClose={toggleHelp}
       heading='Help'
     >
-      <section className="slds-p-around_large">
-        <p><h2 className='slds-text-heading_large slds-text-title_bold slds-p-bottom_small'>Formulon is a full featured Salesforce Formula Parser</h2></p>
-        <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore quis
-          aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
-        <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
-          ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+      <section className="slds-p-around_medium">
+        <p><h2 className='slds-text-heading_large slds-text-title_bold slds-p-bottom_small'>What is Formulon?</h2></p>
+        <p>This tool is for everyone who writes or maintains <a href='https://help.salesforce.com/articleView?id=customize_formuladef.htm' target='_blank' rel='noopener noreferrer'>Salesforce Formulas</a>. It shortens the development cycle by a lot.</p>
+        <p>Instead of writing formulas and testing it on several test data records, simply write the code into the formula field on this page and see the result right away</p>
+        <p>If you're using variables, test the output with different values and get a feeling if your formula works in edge cases</p>
+        <p>The best way to get started is to try out any of the examples listed below</p>
       </section>
-      <section className="slds-p-around_large">
-        <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore quis
-          aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
-        <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
-          ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+      <section className="slds-p-around_medium">
+        <p><h2 className='slds-text-heading_large slds-text-title_bold slds-p-bottom_small'>Limitations</h2></p>
+        <p>Formulon is a reimplementation of the Salesforce formula language in JavaScript. The most common functions have been implemented and verified against its original implementations</p>
+        <p>However there are some features that won't work in this implementation:</p>
+        <p>
+          <ul className='slds-list_dotted'>
+            <li>Cross Object Formulas (Work in Progress)</li>
+            <li>Functions that rely on external state such as ISNEW, ISCHANGED, PRIORVALUE</li>
+          </ul>
+        </p>
+        <p>If you are missing any functionality, don't hesitate to reach out: <a href="mailto:formulon@leif.io">formulon@leif.io</a></p>
       </section>
     </Modal>
   )
