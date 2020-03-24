@@ -38,7 +38,7 @@ const Header = () => {
               <div className='slds-media__body'>Feedback</div>
             </a>
           </div>
-          {/* <div className='slds-builder-header__utilities-item'>
+          <div className='slds-builder-header__utilities-item'>
             <button className='link-button slds-builder-header__item-action slds-media slds-media_center' onClick={toggleHelp}>
               <div className='slds-media__figure'>
                 <span className='slds-icon_container slds-icon-utility-help slds-current-color'>
@@ -49,7 +49,7 @@ const Header = () => {
               </div>
               <div className='slds-media__body'>What is this?</div>
             </button>
-          </div> */}
+          </div>
         </div>
       </header>
       { <Help /> }
