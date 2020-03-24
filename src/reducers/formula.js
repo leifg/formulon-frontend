@@ -2,6 +2,11 @@ import { extract, toString } from 'formulon'
 
 export const formulaReducer = (state, action) => {
   switch (action.type) {
+    case 'TOGGLE_HELP':
+      return {
+        ...state,
+        helpOpen: !state.helpOpen,
+      }
     case 'OVERWRITE_FORMULA':
       return requestFormulaChange(action.formula, action.identifiers, state)
     case 'UPDATE_FORMULA_RESULT':
@@ -35,6 +40,7 @@ export const initialState = {
   processing: false,
   lastError: null,
   currentWorker: null,
+  helpOpen: false,
 }
 
 const replaceIdentifiers = (formula, existingIdentifiers) => {
