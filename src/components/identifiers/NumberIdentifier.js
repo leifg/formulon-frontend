@@ -2,13 +2,14 @@ import React from 'react'
 import FormElement from '../lightning/FormElement'
 import { Input } from '@salesforce/design-system-react'
 
-const NumberIdentifier = ({name, options, dispatch, ...props}) => {
+const NumberIdentifier = ({name, value, options, dispatch, ...props}) => {
   return (
     <>
       <FormElement sizeLarge={4}  sizeMedium={12} sizeSmall={12} sizeMax={12}>
         <Input
           type='number'
           id={ `${name}-value` }
+          value={value}
           label='Value'
           onChange={ (event) => { dispatch({type: 'REQUEST_IDENTIFIER_VALUE_CHANGE', name: name, value: parseFloat(event.target.value)}) } }/>
       </FormElement>
