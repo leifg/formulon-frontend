@@ -28,7 +28,7 @@
     ]
   },
   "dependencies": {
-    "@salesforce-ux/design-system": "^2.11.6",
+    "@salesforce-ux/design-system": "^2.11.7",
     "@salesforce/design-system-react": "^0.10.18",
     "formulon": "^6.18.0",
     "react": "^16.13.1",
