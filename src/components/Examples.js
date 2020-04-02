@@ -25,6 +25,11 @@ const Examples = () => {
               Determine Account Region based on US State
             </button>
           </li>
+          <li className='slds-text-heading_medium'>
+            <button className='example-link' onClick={dipatchPreset('totalPayAmount', dispatch)}>
+              Total Pay Amount
+            </button>
+          </li>
         </ul>
         <p className='footer-content'>
           powered by <a href='https://github.com/leifg/formulon' target='_blank' rel='noopener noreferrer'>formulon</a> built by <a href='https://leif.io' target='_blank' rel='noopener noreferrer'>Leif Gensert</a>
@@ -62,8 +67,32 @@ const PRESETS = {
         options: { length: 255 }
       },
     ]
+  },
+  totalPayAmount: {
+    formula: 'IF(Total_Hours__c <= 40, Total_Hours__c * Hourly_Rate__c,  40 * Hourly_Rate__c + (Total_Hours__c - 40) * Overtime_Rate__c)',
+    identifiers: [
+      {
+        name: 'Total_Hours__c',
+        dataType: 'number',
+        value: 55,
+        options: { length: 8, scale: 2}
+      },
+      {
+        name: 'Hourly_Rate__c',
+        dataType: 'number',
+        value: 20,
+        options: { length: 8, scale: 2}
+      },
+      {
+        name: 'Overtime_Rate__c',
+        dataType: 'number',
+        value: 30,
+        options: { length: 8, scale: 2}
+      }
+  ],
   }
 }
+
 
 const dipatchPreset = (name, dispatch) => {
   return () => {
