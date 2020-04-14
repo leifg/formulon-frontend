@@ -5161,10 +5161,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-formulon@^6.19.3:
-  version "6.19.3"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.19.3.tgz#43c13ed0ca990d21b67ea0f15c385be828a571c2"
-  integrity sha512-wOCbbDZ4YA9k8tytjmOUVMOiokI1yf01b59nfC1TeemjYTfGiWsN0ePTqwQ1YXQaXhu5lBahiznbdKNbxVChYA==
+formulon@^6.19.4:
+  version "6.19.4"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.19.4.tgz#c11aa85a09eb8418167159436e92da8f0ab620dc"
+  integrity sha512-hHrrSYtzxqp+zzpBzKbdO67+4C6I5+iSy0tRzBn59PEm92irnXyn3AJZHtcaEZou41L3Kh6BoeR2HGmULSUupg==
 
 forwarded@~0.1.2:
   version "0.1.2"
