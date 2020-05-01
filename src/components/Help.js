@@ -35,6 +35,7 @@ const Help = () => {
           <ul className='slds-list_dotted'>
             <li>Cross Object Formulas (Work in Progress)</li>
             <li>Functions that rely on external state such as ISNEW, ISCHANGED, PRIORVALUE</li>
+            <li>GETSESSIONID returns a static value (<code>00D3z000001eRlg!AQMAQC3Y4aM9sFux6SRWhyFcOUKin4taGaBxNMU8TN_R_1R0Y7ArI95eSyzQZVIlrnV_unTbmwHZlXex8xhlXz2kXZNP49Fa</code>)</li>
           </ul>
         </p>
         <p>If you are missing any functionality, don't hesitate to reach out: <a href="mailto:formulon@leif.io">formulon@leif.io</a></p>
