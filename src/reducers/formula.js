@@ -7,18 +7,24 @@ export const formulaReducer = (state, action) => {
         ...state,
         helpOpen: !state.helpOpen,
       }
+    case 'UPDATE_RETURN_TYPE':
+      return {
+        ...state,
+        lastError: updateFormulaError(state.lastError, state.lastReturnType, action.value),
+        returnType: action.value,
+      }
     case 'OVERWRITE_FORMULA':
-      return requestFormulaChange(action.formula, action.identifiers, state)
+      return requestFormulaChange(action.formula, action.identifiers, action.returnType, state)
     case 'UPDATE_FORMULA_RESULT':
       return updateFormulaResult(action.parsedFormula, action.error, state)
     case 'REQUEST_FORMULA_CHANGE':
-      return requestFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), state)
+      return requestFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), null, state)
     case 'REQUEST_IDENTIFIER_TYPE_CHANGE':
-      return requestFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), state)
+      return requestFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), null, state)
     case 'REQUEST_IDENTIFIER_VALUE_CHANGE':
-      return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), state)
+      return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), null, state)
     case 'REQUEST_IDENTIFIER_OPTIONS_CHANGE':
-      return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), state)
+      return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), null, state)
     case 'REGISTER_WORKER':
       return registerWorker(action.worker, state)
     case 'TERMINATE_WORKERS':
@@ -38,6 +44,8 @@ export const initialState = {
   identifiers: [],
   result: '',
   processing: false,
+  returnType: 'text',
+  lastReturnType: 'text',
   lastError: null,
   currentWorker: null,
   helpOpen: false,
@@ -138,9 +146,10 @@ const updateIdentiferOptions = (identifiers, name, options) => {
   })
 }
 
-const requestFormulaChange = (inputFormula, identifiers, state) => {
+const requestFormulaChange = (inputFormula, identifiers, returnType, state) => {
   return {
     ...state,
+    returnType: returnType ? returnType : state.returnType ,
     inputFormula: inputFormula,
     identifiers: identifiers,
     processing: state.inputFormula !== inputFormula || state.identifiers !== identifiers,
@@ -151,9 +160,23 @@ const updateFormulaResult = (parsedFormula, error, state) => {
   return {
     ...state,
     result: error ? state.result : toString(parsedFormula),
-    lastError: error,
+    lastReturnType: parsedFormula.dataType,
+    lastError: updateFormulaError(error, parsedFormula.dataType, state.returnType),
     processing: false,
   }
+}
+
+const updateFormulaError = (lastError, actualReturnType, expectedReturnType) => {
+
+  if (lastError) {
+    return lastError
+  }
+
+  if (actualReturnType !== expectedReturnType) {
+    return `Formula result is data type (${actualReturnType}), incompatible with expected data type (${expectedReturnType}).`
+  }
+
+  return null;
 }
 
 const registerWorker = (worker, state) => {
