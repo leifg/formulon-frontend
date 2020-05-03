@@ -1,8 +1,9 @@
 import React, {useContext} from 'react'
 
 import FormCard from './lightning/FormCard'
-import FormElement from './lightning/FormElement'
 import { Textarea } from '@salesforce/design-system-react'
+
+import ReturnType from './ReturnType'
 
 import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
 
@@ -12,18 +13,23 @@ const FormulaInput = () => {
 
   return (
     <FormCard id='formula-input' heading='Formula' icon='formula'>
-      <FormElement size={12}>
-        <Textarea
-          id='formula-input'
-          autoFocus={ true }
-          placeholder='Start typing your formula'
-          value={state.inputFormula}
-          className={['slds-text-font_monospace']}
-          onChange={ (event) => { dispatch({type: 'REQUEST_FORMULA_CHANGE', value: event.target.value}) } }
-          errorText={ state.lastError }
-          maxLength='3900' />
-      </FormElement>
-    </FormCard>
+      <div className='slds-form slds-size_12-of-12'>
+        <div class='slds-form-element slds-form-element_stacked'>
+          <ReturnType returnType={state.returnType} dispatch={dispatch} />
+        </div>
+        <div class='slds-form-element slds-form-element_stacked'>
+            <Textarea
+              id='formula-input'
+              autoFocus={ true }
+              placeholder='Start typing your formula'
+              value={state.inputFormula}
+              className={['slds-text-font_monospace']}
+              onChange={ (event) => { dispatch({type: 'REQUEST_FORMULA_CHANGE', value: event.target.value}) } }
+              errorText={ state.lastError }
+              maxLength='3900' />
+        </div>
+        </div>
+      </FormCard>
   )
 }
 

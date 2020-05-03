@@ -10,11 +10,15 @@ import PicklistIdentifier from './identifiers/PicklistIdentifier'
 import MultipicklistIdentifier from './identifiers/MultipicklistIdentifier'
 import GeolocationIdentifier from './identifiers/GeolocationIdentifier'
 import NumberIdentifier from './identifiers/NumberIdentifier'
-import DataTypeSelector from './identifiers/DataTypeSelector'
+import DataTypeSelector from './lightning/DataTypeSelector'
 
 import './Identifier.css'
 
 const Identifier = ({name, type, value, options, dispatch}) => {
+  const onSelect = (_event, data) => {
+    dispatch({type: 'REQUEST_IDENTIFIER_TYPE_CHANGE', name: name, value: data.selection[0].id})
+  }
+
   return (
     <article
       id={`identifier-${name}`}
@@ -25,7 +29,7 @@ const Identifier = ({name, type, value, options, dispatch}) => {
         <fieldset className='slds-form-element slds-form-element_compound slds-form-element_address'>
           <div className='slds-form-element__control'>
             <div className='slds-form-element__row slds-wrap'>
-              <DataTypeSelector selected={ type } name={name} dispatch={ dispatch }/>
+              <DataTypeSelector selected={ type } name={name} dispatch={ dispatch } onSelect={onSelect} />
               { dispatchIdentifier(type, name, value, options, dispatch) }
             </div>
           </div>

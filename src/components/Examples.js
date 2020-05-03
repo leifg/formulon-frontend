@@ -42,6 +42,7 @@ const Examples = () => {
 const PRESETS = {
   workingDays: {
     formula: '(5 * ( FLOOR( ( date_1 - DATE( 1900, 1, 8) ) / 7 ) ) + MIN( 5, MOD( date_1 - DATE( 1900, 1, 8), 7 ) ) )\n-\n(5 * ( FLOOR( ( date_2 - DATE( 1900, 1, 8) ) / 7 ) ) + MIN( 5, MOD( date_2 - DATE( 1900, 1, 8), 7 ) ) )',
+    returnType: 'number',
     identifiers: [
       {
         name: 'date_1',
@@ -59,6 +60,7 @@ const PRESETS = {
   },
   accountRegion: {
     formula: 'IF(ISBLANK(BillingState), "None",\nIF(CONTAINS("AK:AZ:CA:HA:NV:NM:OR:UT:WA", BillingState), "West",\nIF(CONTAINS("CO:ID:MT:KS:OK:TX:WY", BillingState), "Central",\nIF(CONTAINS("CT:ME:MA:NH:NY:PA:RI:VT", BillingState), "East",\nIF(CONTAINS("AL:AR:DC:DE:FL:GA:KY:LA:MD:MS:NC:NJ:SC:TN:VA:WV", BillingState), "South",\nIF(CONTAINS("IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI", BillingState), "North", "Other"))))))',
+    returnType: 'text',
     identifiers: [
       {
         name: 'BillingState',
@@ -70,6 +72,7 @@ const PRESETS = {
   },
   totalPayAmount: {
     formula: 'IF(Total_Hours__c <= 40, Total_Hours__c * Hourly_Rate__c,  40 * Hourly_Rate__c + (Total_Hours__c - 40) * Overtime_Rate__c)',
+    returnType: 'number',
     identifiers: [
       {
         name: 'Total_Hours__c',
