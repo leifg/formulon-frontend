@@ -14,10 +14,10 @@ const FormulaInput = () => {
   return (
     <FormCard id='formula-input' heading='Formula' icon='formula'>
       <div className='slds-form slds-size_12-of-12'>
-        <div class='slds-form-element slds-form-element_stacked'>
+        <div className='slds-form-element slds-form-element_stacked'>
           <ReturnType returnType={state.returnType} dispatch={dispatch} />
         </div>
-        <div class='slds-form-element slds-form-element_stacked'>
+        <div className='slds-form-element slds-form-element_stacked'>
             <Textarea
               id='formula-input'
               autoFocus={ true }
