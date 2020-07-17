@@ -1529,10 +1529,10 @@
   resolved "https://registry.yarnpkg.com/@salesforce/babel-preset-design-system-react/-/babel-preset-design-system-react-3.0.0.tgz#b8334d14fc3801064ac5b6e5349145dc057bc17f"
   integrity sha512-NM3aObtfYl9RpfVu5eDU96fmTW7Mj2V1Y1O5b8dpLGESgXxqHiGIV7d4bKHzmD8O00g1qjPAPusd0f2IB7Yi0Q==
 
-"@salesforce/design-system-react@^0.10.19":
-  version "0.10.19"
-  resolved "https://registry.yarnpkg.com/@salesforce/design-system-react/-/design-system-react-0.10.19.tgz#cd8cc7960ac739fc94647d6ebe972feccd71bcef"
-  integrity sha512-1QWLT8uoRYjlszP8q24EHZrbE2oMTkVkMVLjOmWWDDxu6CCif6hsl9hopEXWt5pNiS7Fq082JnSk6uSNB81oPw==
+"@salesforce/design-system-react@^0.10.20":
+  version "0.10.20"
+  resolved "https://registry.yarnpkg.com/@salesforce/design-system-react/-/design-system-react-0.10.20.tgz#86a0698f714f339855fda6cb911cc4d950fdfbce"
+  integrity sha512-TddgDFiMsly4vvpEu1+4dbLHYe/TcyHPDDvccPwUjnUR8/fTogmLGRNuGrlG0wv2AFo2qQS5ZGBiio0tu2ZAIw==
   dependencies:
     "@salesforce/babel-preset-design-system-react" "^3.0.0"
     classnames "^2.2.6"
@@ -1547,8 +1547,8 @@
     lodash.memoize "^4.1.1"
     lodash.reject "^4.3.0"
     popper.js "^1.10.8"
-    prop-types ">=15.5.8"
-    react-contenteditable "^3.3.1"
+    prop-types ">=15.7.2"
+    react-contenteditable "^3.3.5"
     react-highlighter "^0.4.3"
     react-modal "3.8.1"
     react-onclickoutside "^6.9.0"
@@ -9262,7 +9262,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@>=15.5.8, prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.1, prop-types@^15.7.2:
+prop-types@>=15.7.2, prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.1, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9458,10 +9458,10 @@ react-app-rewired@^2.1.6:
   dependencies:
     semver "^5.6.0"
 
-react-contenteditable@^3.3.1:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/react-contenteditable/-/react-contenteditable-3.3.3.tgz#73ea271a0e84d54516e6075c318d4372e5b95c70"
-  integrity sha512-3sOt9x6A7SzHqJgFRqKfaUnIh2tdxrdnJcE/0g1dN/g3twsqNxMxUCJGWvZUUDIQjUzqdSz6tsnGdddrPr5UNg==
+react-contenteditable@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/react-contenteditable/-/react-contenteditable-3.3.5.tgz#febff7a46570fdb2f5ff199e506c512e5924e22e"
+  integrity sha512-38A7hlRQfb2KQAQT0kIJC2YlQUU7jcyYM4eh1fj6kAYb3Hmk6hHlr0snelyxVSpPXjPdFllrnSsPkzUS5AtrEA==
   dependencies:
     fast-deep-equal "^2.0.1"
     prop-types "^15.7.1"
