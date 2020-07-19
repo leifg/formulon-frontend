@@ -1,7 +1,8 @@
-button {
+button.example-link {
   border: none;
   color: #006dcc;
   margin: 5px;
+  background-color: #ffffff;
 }
 
 .footer-content {
