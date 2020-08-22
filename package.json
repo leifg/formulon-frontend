@@ -40,7 +40,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.10.4",
     "@babel/plugin-proposal-export-namespace-from": "^7.10.4",
-    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^12.1.1",
     "canvas": "^2.6.1",
