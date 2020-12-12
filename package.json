@@ -49,6 +49,6 @@
     "eslint": "^7.15.0",
     "eslint-config-react-app": "^6.0.0",
     "jest-canvas-mock": "^2.3.0",
-    "react-app-rewired": "^2.1.7"
+    "react-app-rewired": "^2.1.8"
   }
 }
