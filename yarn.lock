@@ -5227,10 +5227,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-formulon@^6.22.0:
-  version "6.22.0"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.22.0.tgz#82720e4ffdc1b8719431989bfcb43e85a997dbd6"
-  integrity sha512-gu6rYDOwws2jABs1OzNvKwII9pON1wBJHme8vpWGmBsaIE/Y6o1NeRPswY0515po1uYdWMuxoRZ5Sia4hbdKiw==
+formulon@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.0.tgz#5e1ddff088704527903084c8d0fcf4b61dd78ce3"
+  integrity sha512-vZbjEOcT58sHgvtnUrrPscHYxelRj4zYw/26tnrpDjWHdAkbBt39VrBflBw25dRjA7yCbXlwbANIYTXAKSS8eQ==
 
 forwarded@~0.1.2:
   version "0.1.2"
