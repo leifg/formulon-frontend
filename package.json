@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@salesforce-ux/design-system": "^2.16.2",
-    "@salesforce/design-system-react": "^0.10.40",
+    "@salesforce/design-system-react": "^0.10.41",
     "formulon": "^6.23.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
