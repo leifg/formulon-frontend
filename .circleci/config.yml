@@ -1,18 +1,30 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@4.7.0
 jobs:
   build-and-test:
     executor:
       name: 'node/default'
-      tag: '12.16.2'
+      tag: '16.13.1'
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: yarn install
-            - run: yarn lint
-            - run: yarn test
+      - restore_cache:
+         keys:
+           - v1-deps-{{ checksum "yarn.lock" }}
+           - v1-deps-{{ checksum "package.json" }}
+           - v1-deps-
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn test
+      - save_cache:
+          key: v1-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      - save_cache:
+          key: v1-deps-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 workflows:
     build-and-test:
       jobs:
