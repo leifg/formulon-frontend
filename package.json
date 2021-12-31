@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.16.5",
-    "@babel/plugin-proposal-export-namespace-from": "^7.16.5",
+    "@babel/plugin-proposal-export-namespace-from": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
