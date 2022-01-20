@@ -9,9 +9,9 @@ const NumberIdentifier = ({name, value, options, dispatch, ...props}) => {
         <Input
           type='number'
           id={ `${name}-value` }
-          value={value}
+          value={value || null}
           label='Value'
-          onChange={ (event) => { dispatch({type: 'REQUEST_IDENTIFIER_VALUE_CHANGE', name: name, value: parseFloat(event.target.value)}) } }/>
+          onChange={ (event) => { dispatch({type: 'REQUEST_IDENTIFIER_VALUE_CHANGE', name: name, value: parseFloat(event.target.value) || null}) } }/>
       </FormElement>
       <FormElement sizeLarge={2}  sizeMedium={12} sizeSmall={6} sizeMax={12}>
         <Input
