@@ -6162,10 +6162,10 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-formulon@^6.23.0:
-  version "6.23.0"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.0.tgz#5e1ddff088704527903084c8d0fcf4b61dd78ce3"
-  integrity sha512-vZbjEOcT58sHgvtnUrrPscHYxelRj4zYw/26tnrpDjWHdAkbBt39VrBflBw25dRjA7yCbXlwbANIYTXAKSS8eQ==
+formulon@^6.23.1:
+  version "6.23.1"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.1.tgz#03ef2b023b39c07112479fd0b9a81a2110762abd"
+  integrity sha512-vcqiX5Ar3Nk5tJWwujh6vnfXvNDKLI/MJjDsHnsiXGPlwtprjEKzqwEz5cmOV6nVDVTxYmQY5QJf7heGby0ZPA==
 
 forwarded@~0.1.2:
   version "0.1.2"
