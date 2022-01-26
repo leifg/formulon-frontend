@@ -2226,10 +2226,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@salesforce-ux/design-system@^2.17.1":
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.17.1.tgz#16c35dc9e3a594bf5920a62fd5495ed8e2e493c5"
-  integrity sha512-1mBwWJnQIwTr+9cxoM3Jq89nW3zoRNj2nSHLgKhQciHln3IBfWk7N3odUxW7jrpqDE/bNzR+FJrNgjzQsKM3Ng==
+"@salesforce-ux/design-system@^2.17.2":
+  version "2.17.2"
+  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.17.2.tgz#585e914e60f78613e83280c9d130c524eabe6d38"
+  integrity sha512-JkBytYofvl4wimiKoiCV2wVbX9v4E6jmz1ZyWQebDY/4gYYmWStd8OnCpCCCqM1k0wfnZMDgjsIlYJyf2tpS7Q==
 
 "@salesforce/babel-preset-design-system-react@^3.0.0":
   version "3.0.0"
