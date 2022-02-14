@@ -2236,10 +2236,10 @@
   resolved "https://registry.yarnpkg.com/@salesforce/babel-preset-design-system-react/-/babel-preset-design-system-react-3.0.0.tgz#b8334d14fc3801064ac5b6e5349145dc057bc17f"
   integrity sha512-NM3aObtfYl9RpfVu5eDU96fmTW7Mj2V1Y1O5b8dpLGESgXxqHiGIV7d4bKHzmD8O00g1qjPAPusd0f2IB7Yi0Q==
 
-"@salesforce/design-system-react@^0.10.44":
-  version "0.10.44"
-  resolved "https://registry.yarnpkg.com/@salesforce/design-system-react/-/design-system-react-0.10.44.tgz#94761b81397f7656a84641631f7441154417a0ea"
-  integrity sha512-ys3sA8ngluGQlX/KEwLHXMkxbLPmJa/LZLr/LsrNuuUT138xFV9N1eLoyXhtdXczypfR9SHJVVCGutlDpj96dg==
+"@salesforce/design-system-react@^0.10.45":
+  version "0.10.45"
+  resolved "https://registry.yarnpkg.com/@salesforce/design-system-react/-/design-system-react-0.10.45.tgz#7a081f647f5724841365b39ea5234b9b58e7972e"
+  integrity sha512-px1rcxbbZtwzWKZwqR3+L41qLB0Rb2Fx+VgBqa48ERa24Nw0fpP2QGdyTVmkcK/U/wsZ7N43U+D9vzb5ZDVCog==
   dependencies:
     "@salesforce/babel-preset-design-system-react" "^3.0.0"
     classnames "^2.2.6"
@@ -2252,8 +2252,8 @@
     lodash.isdate "^4.0.1"
     lodash.isequal "^4.5.0"
     lodash.isfunction "^3.0.9"
-    lodash.memoize "^4.1.2"
     lodash.reject "^4.6.0"
+    memoize-one "^6.0.0"
     popper.js "^1.10.8"
     prop-types ">=15.7.2"
     react-contenteditable "^3.3.5"
@@ -8330,6 +8330,11 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+
+memoize-one@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
+  integrity sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==
 
 memory-fs@^0.4.1:
   version "0.4.1"
