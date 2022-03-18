@@ -17,11 +17,11 @@ export const transformIdentifiers = (identifersList = []) => {
 
 const coerceData = (value, dataType) => {
   switch (dataType) {
-    case 'number':
-      return parseFloat(value, 10)
-    case 'checkbox':
-      return value === true
-    default:
-      return value
+  case "number":
+    return parseFloat(value, 10)
+  case "checkbox":
+    return value === true
+  default:
+    return value
   }
 }
