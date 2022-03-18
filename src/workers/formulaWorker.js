@@ -1,5 +1,6 @@
-import { evalFormula } from '../utils/formulonUtils'
+import { evalFormula } from "../utils/formulonUtils"
 
-export const parseFormula = (formula, identifiers) => {
-  return evalFormula(formula, identifiers)
-}
+addEventListener("message", e => {
+  const [formula, identifiers] = e.data
+  postMessage(evalFormula(formula, identifiers))
+})

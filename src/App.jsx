@@ -14,9 +14,11 @@ import FormulaInput from './components/FormulaInput'
 import FormulaOutput from './components/FormulaOutput'
 import IdentifierList from './components/IdentifierList'
 
+import FormulaWorker from './workers/formulaWorker.js?worker'
+
 import './App.css'
 
-const formulaWorker = () => require('workerize-loader!./workers/formulaWorker.js') // eslint-disable-line import/no-webpack-loader-syntax
+// const formulaWorker = () => require('workerize-loader!./workers/formulaWorker.js') // eslint-disable-line import/no-webpack-loader-syntax
 
 const App = () => {
   const [state, dispatch] = useReducer(formulaReducer, initialState)
@@ -26,14 +28,16 @@ const App = () => {
   useEffect(() => {
     // Tests won't work if require is executed on top level
     // Advice on workerize-loader does not seem to work: https://github.com/developit/workerize-loader#testing
-    const workerInstance = formulaWorker()()
+    const workerInstance = new FormulaWorker()
 
     dispatch({ type: 'REGISTER_WORKER', worker: workerInstance })
 
-    workerInstance.parseFormula(debouncedFormula, debouncedIdentifiers).then(result => {
-      dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: result[0], error: result[1] })
+    workerInstance.onmessage = (result) => {
+      dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: result.data[0], error: result.data[1] })
       dispatch({ type: 'TERMINATE_WORKERS' })
-    })
+    }
+
+    workerInstance.postMessage([debouncedFormula, debouncedIdentifiers]);
   }, [dispatch, debouncedFormula, debouncedIdentifiers])
 
   return (

@@ -1,51 +1,51 @@
-import { extract, toString } from 'formulon'
+import { extract, toString } from "formulon"
 
 export const formulaReducer = (state, action) => {
   switch (action.type) {
-    case 'TOGGLE_HELP':
-      return {
-        ...state,
-        helpOpen: !state.helpOpen,
-      }
-    case 'UPDATE_RETURN_TYPE':
-      return {
-        ...state,
-        lastError: updateFormulaError(state.lastError, state.lastReturnType, action.value),
-        returnType: action.value,
-      }
-    case 'OVERWRITE_FORMULA':
-      return requestFormulaChange(action.formula, action.identifiers, action.returnType, state)
-    case 'UPDATE_FORMULA_RESULT':
-      return updateFormulaResult(action.parsedFormula, action.error, state)
-    case 'REQUEST_FORMULA_CHANGE':
-      return requestFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), null, state)
-    case 'REQUEST_IDENTIFIER_TYPE_CHANGE':
-      return requestFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), null, state)
-    case 'REQUEST_IDENTIFIER_VALUE_CHANGE':
-      return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), null, state)
-    case 'REQUEST_IDENTIFIER_OPTIONS_CHANGE':
-      return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), null, state)
-    case 'REGISTER_WORKER':
-      return registerWorker(action.worker, state)
-    case 'TERMINATE_WORKERS':
-      return registerWorker(null, state)
-    case 'CHANGE_IDENTIFER_PICKLIST_VALUES':
-      return {
-        ...state,
-        identifiers: updatePicklistValues(state.identifiers, action.name, action.values),
-      }
-    default:
-      return state
+  case "TOGGLE_HELP":
+    return {
+      ...state,
+      helpOpen: !state.helpOpen,
+    }
+  case "UPDATE_RETURN_TYPE":
+    return {
+      ...state,
+      lastError: updateFormulaError(state.lastError, state.lastReturnType, action.value),
+      returnType: action.value,
+    }
+  case "OVERWRITE_FORMULA":
+    return requestFormulaChange(action.formula, action.identifiers, action.returnType, state)
+  case "UPDATE_FORMULA_RESULT":
+    return updateFormulaResult(action.parsedFormula, action.error, state)
+  case "REQUEST_FORMULA_CHANGE":
+    return requestFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), null, state)
+  case "REQUEST_IDENTIFIER_TYPE_CHANGE":
+    return requestFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), null, state)
+  case "REQUEST_IDENTIFIER_VALUE_CHANGE":
+    return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), null, state)
+  case "REQUEST_IDENTIFIER_OPTIONS_CHANGE":
+    return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), null, state)
+  case "REGISTER_WORKER":
+    return registerWorker(action.worker, state)
+  case "TERMINATE_WORKERS":
+    return registerWorker(null, state)
+  case "CHANGE_IDENTIFER_PICKLIST_VALUES":
+    return {
+      ...state,
+      identifiers: updatePicklistValues(state.identifiers, action.name, action.values),
+    }
+  default:
+    return state
   }
 }
 
 export const initialState = {
-  inputFormula: '',
+  inputFormula: "",
   identifiers: [],
-  result: '',
+  result: "",
   processing: false,
-  returnType: 'text',
-  lastReturnType: 'text',
+  returnType: "text",
+  lastReturnType: "text",
   lastError: null,
   currentWorker: null,
   helpOpen: false,
@@ -61,38 +61,38 @@ const replaceIdentifiers = (formula, existingIdentifiers) => {
 
     return {
       name: identifierName,
-      dataType: 'text',
-      value: defaultValue('text'),
-      options: defaultOptions('text')
+      dataType: "text",
+      value: defaultValue("text"),
+      options: defaultOptions("text")
     }})
 }
 
 const defaultOptions = (type) => {
   switch(type) {
-    case 'text':
-      return { length: 255 }
-    case 'number':
-      return { length: 8, scale: 0 }
-    case 'picklist':
-    case 'multipicklist':
-      return { values: [] }
-    default:
-      return {}
+  case "text":
+    return { length: 255 }
+  case "number":
+    return { length: 8, scale: 0 }
+  case "picklist":
+  case "multipicklist":
+    return { values: [] }
+  default:
+    return {}
   }
 }
 
 const defaultValue = (type) => {
   switch(type) {
-    case 'text':
-      return ''
-    case 'checkbox':
-      return false
-    case 'geolocation':
-      return [null, null]
-    case 'multipicklist':
-      return []
-    default:
-      return null
+  case "text":
+    return ""
+  case "checkbox":
+    return false
+  case "geolocation":
+    return [null, null]
+  case "multipicklist":
+    return []
+  default:
+    return null
   }
 }
 
@@ -176,7 +176,7 @@ const updateFormulaError = (lastError, actualReturnType, expectedReturnType) => 
     return `Formula result is data type (${actualReturnType}), incompatible with expected data type (${expectedReturnType}).`
   }
 
-  return null;
+  return null
 }
 
 const registerWorker = (worker, state) => {
