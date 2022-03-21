@@ -2,9 +2,9 @@ import React from 'react'
 import CardHeader from './CardHeader'
 import CardBody from './CardBody'
 
-const FormCard = ({id, heading, icon, children}) => {
+const FormCard = ({id, testId, heading, icon, children}) => {
   return (
-    <article id={ id } className='slds-card'>
+    <article id={ id } data-testid={testId} className='slds-card'>
       { (heading || icon) && <CardHeader heading={ heading } icon={ icon } /> }
       <CardBody>
         <fieldset className='slds-form-element slds-form-element_compound'>

@@ -3,6 +3,7 @@ import { useDebounce } from 'use-debounce'
 
 import { formulaReducer, initialState } from './reducers/formula'
 import { FormulaStateContext, FormulaDispatchContext } from './contexts'
+import { initializeWorker } from './workers/initialize'
 
 import Grid from './components/lightning/Grid'
 import Column from './components/lightning/Column'
@@ -14,8 +15,6 @@ import FormulaInput from './components/FormulaInput'
 import FormulaOutput from './components/FormulaOutput'
 import IdentifierList from './components/IdentifierList'
 
-import FormulaWorker from './workers/formulaWorker.js?worker'
-
 import './App.css'
 
 // const formulaWorker = () => require('workerize-loader!./workers/formulaWorker.js') // eslint-disable-line import/no-webpack-loader-syntax
@@ -26,9 +25,7 @@ const App = () => {
   const [debouncedIdentifiers] = useDebounce(state.identifiers, 300)
 
   useEffect(() => {
-    // Tests won't work if require is executed on top level
-    // Advice on workerize-loader does not seem to work: https://github.com/developit/workerize-loader#testing
-    const workerInstance = new FormulaWorker()
+    const workerInstance = initializeWorker()
 
     dispatch({ type: 'REGISTER_WORKER', worker: workerInstance })
 
@@ -37,7 +34,7 @@ const App = () => {
       dispatch({ type: 'TERMINATE_WORKERS' })
     }
 
-    workerInstance.postMessage([debouncedFormula, debouncedIdentifiers]);
+    workerInstance.postMessage([debouncedFormula, debouncedIdentifiers])
   }, [dispatch, debouncedFormula, debouncedIdentifiers])
 
   return (
