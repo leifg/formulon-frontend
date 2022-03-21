@@ -680,11 +680,6 @@ debug@^4.1.0, debug@^4.1.1, debug@^4.3.2:
   dependencies:
     ms "2.1.2"
 
-decimal.js@^10.3.1:
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-10.3.1.tgz#d8c3a444a9c6774ba60ca6ad7261c3a94fd5e783"
-  integrity sha512-V0pfhfr8suzyPGOx3nmq4aHqabehUZn6Ch9kyFpV79TGDTWFmHqUqXdabR7QHqxzrYolF4+tVmJhUG4OURg5dQ==
-
 deep-eql@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/deep-eql/-/deep-eql-3.0.1.tgz#dfc9404400ad1c8fe023e7da1df1c147c4b444df"
@@ -1172,12 +1167,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-formulon@^6.23.5:
-  version "6.23.5"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.5.tgz#c6c452b2dc019cd59e206550964052a8b9e82c15"
-  integrity sha512-Ggju1nYNFjWPSLjFdkNZacKKfpobM7PWp+6JJw/9mN5UlUD4Y9BACCPzr51hxjo/ktU5KpurLn7EuVkF+2pGAw==
-  dependencies:
-    decimal.js "^10.3.1"
+formulon@^6.23.0:
+  version "6.23.4"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.4.tgz#a69bbf69591a9abd4b3521fee8ed67d9a3e8d25a"
+  integrity sha512-bmLvdC8yd1C9VqBwHDto0xbFXWi1vzYGX08p0Ltlq0wBHFpfVvDoJdeMAQKipe8GGKX3O2ZuI2c363jCXzeJfw==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
