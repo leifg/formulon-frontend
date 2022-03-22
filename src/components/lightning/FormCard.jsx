@@ -1,15 +1,15 @@
-import React from 'react'
-import CardHeader from './CardHeader'
-import CardBody from './CardBody'
+import React from "react"
+import CardHeader from "./CardHeader"
+import CardBody from "./CardBody"
 
 const FormCard = ({id, testId, heading, icon, children}) => {
   return (
-    <article id={ id } data-testid={testId} className='slds-card'>
+    <article id={ id } data-testid={testId} className="slds-card">
       { (heading || icon) && <CardHeader heading={ heading } icon={ icon } /> }
       <CardBody>
-        <fieldset className='slds-form-element slds-form-element_compound'>
-          <div className='slds-form-element__control'>
-            <div className='slds-form-element__row slds-wrap content' >
+        <fieldset className="slds-form-element slds-form-element_compound">
+          <div className="slds-form-element__control">
+            <div className="slds-form-element__row slds-wrap content" >
               { children }
             </div>
           </div>

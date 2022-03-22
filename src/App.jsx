@@ -1,23 +1,21 @@
-import React, { useReducer, useEffect } from 'react'
-import { useDebounce } from 'use-debounce'
+import React, { useReducer, useEffect } from "react"
+import { useDebounce } from "use-debounce"
 
-import { formulaReducer, initialState } from './reducers/formula'
-import { FormulaStateContext, FormulaDispatchContext } from './contexts'
-import { initializeWorker } from './workers/initialize'
+import { formulaReducer, initialState } from "./reducers/formula"
+import { FormulaStateContext, FormulaDispatchContext } from "./contexts"
+import { initializeWorker } from "./workers/initialize"
 
-import Grid from './components/lightning/Grid'
-import Column from './components/lightning/Column'
-import Row from './components/lightning/Row'
+import Grid from "./components/lightning/Grid"
+import Column from "./components/lightning/Column"
+import Row from "./components/lightning/Row"
 
-import Examples from './components/Examples'
-import Header from './components/Header'
-import FormulaInput from './components/FormulaInput'
-import FormulaOutput from './components/FormulaOutput'
-import IdentifierList from './components/IdentifierList'
+import Examples from "./components/Examples"
+import Header from "./components/Header"
+import FormulaInput from "./components/FormulaInput"
+import FormulaOutput from "./components/FormulaOutput"
+import IdentifierList from "./components/IdentifierList"
 
-import './App.css'
-
-// const formulaWorker = () => require('workerize-loader!./workers/formulaWorker.js') // eslint-disable-line import/no-webpack-loader-syntax
+import "./App.css"
 
 const App = () => {
   const [state, dispatch] = useReducer(formulaReducer, initialState)
@@ -27,23 +25,23 @@ const App = () => {
   useEffect(() => {
     const workerInstance = initializeWorker()
 
-    dispatch({ type: 'REGISTER_WORKER', worker: workerInstance })
+    dispatch({ type: "REGISTER_WORKER", worker: workerInstance })
 
     workerInstance.onmessage = (result) => {
-      dispatch({ type: 'UPDATE_FORMULA_RESULT', parsedFormula: result.data[0], error: result.data[1] })
-      dispatch({ type: 'TERMINATE_WORKERS' })
+      dispatch({ type: "UPDATE_FORMULA_RESULT", parsedFormula: result.data[0], error: result.data[1] })
+      dispatch({ type: "TERMINATE_WORKERS" })
     }
 
     workerInstance.postMessage([debouncedFormula, debouncedIdentifiers])
   }, [dispatch, debouncedFormula, debouncedIdentifiers])
 
   return (
-      <div>
-        <div className='slds-panel__body'>
-          <FormulaDispatchContext.Provider value={dispatch}>
+    <div>
+      <div className="slds-panel__body">
+        <FormulaDispatchContext.Provider value={dispatch}>
           <FormulaStateContext.Provider value={state}>
             <Header />
-            <Grid className='App-content'>
+            <Grid className="App-content">
               <Row padded>
                 <Column sizeLarge={12} sizeMedium={12} sizeSmall={12}>
                   <IdentifierList />
@@ -67,8 +65,8 @@ const App = () => {
             </Grid>
           </FormulaStateContext.Provider>
         </FormulaDispatchContext.Provider>
-        </div>
       </div>
+    </div>
   )
 }
 

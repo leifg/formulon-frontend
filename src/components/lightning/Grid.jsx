@@ -1,11 +1,11 @@
-import React from 'react'
-import classnames from 'classnames'
+import React from "react"
+import classnames from "classnames"
 
 const Grid = ({className = [], ...props}) => {
   const classNames = classnames([
-    'slds-grid',
-    'slds-wrap',
-    'slds-grid_align-center'
+    "slds-grid",
+    "slds-wrap",
+    "slds-grid_align-center"
   ].concat(className))
 
   return (

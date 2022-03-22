@@ -23,22 +23,26 @@
   "plugins": [
     "react"
   ],
-  "ignorePatterns": ["dist/**/*.js"],
   "rules": {
+    "react/prop-types": "off",
     "indent": [
-      "warn",
+      "error",
       2
     ],
     "linebreak-style": [
-      "warn",
+      "error",
       "unix"
     ],
     "quotes": [
-      "warn",
+      "error",
       "double"
     ],
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ],
     "semi": [
-      "warn",
+      "error",
       "never"
     ],
     "no-debugger": "warn",

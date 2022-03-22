@@ -1,17 +1,17 @@
-import React, {useContext} from 'react'
-import FormCard from './lightning/FormCard'
-import Row from './lightning/Row'
-import Column from './lightning/Column'
-import Identifier from './Identifier'
+import React, {useContext} from "react"
+import FormCard from "./lightning/FormCard"
+import Row from "./lightning/Row"
+import Column from "./lightning/Column"
+import Identifier from "./Identifier"
 
-import { FormulaStateContext, FormulaDispatchContext } from '../contexts'
+import { FormulaStateContext, FormulaDispatchContext } from "../contexts"
 
 const IdentifierList = () => {
   const state = useContext(FormulaStateContext)
   const dispatch = useContext(FormulaDispatchContext)
 
   return (
-    <FormCard id='identifier-list' testId='identifier-list' heading='Variables' icon='calibration'>
+    <FormCard id="identifier-list" testId="identifier-list" heading="Variables" icon="calibration">
       {
         state.identifiers.map((identifier) =>
           <Row key={identifier.name} padded>
