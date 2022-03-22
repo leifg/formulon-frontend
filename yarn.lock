@@ -1233,10 +1233,12 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-formulon@^6.23.0:
-  version "6.23.4"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.4.tgz#a69bbf69591a9abd4b3521fee8ed67d9a3e8d25a"
-  integrity sha512-bmLvdC8yd1C9VqBwHDto0xbFXWi1vzYGX08p0Ltlq0wBHFpfVvDoJdeMAQKipe8GGKX3O2ZuI2c363jCXzeJfw==
+formulon@^6.23.5:
+  version "6.23.5"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.5.tgz#c6c452b2dc019cd59e206550964052a8b9e82c15"
+  integrity sha512-Ggju1nYNFjWPSLjFdkNZacKKfpobM7PWp+6JJw/9mN5UlUD4Y9BACCPzr51hxjo/ktU5KpurLn7EuVkF+2pGAw==
+  dependencies:
+    decimal.js "^10.3.1"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
