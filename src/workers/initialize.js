@@ -1,4 +1,4 @@
-import FormulaWorker from './formulaWorker.js?worker'
+import FormulaWorker from "./formulaWorker.js?worker"
 import { evalFormula } from "../utils/formulonUtils"
 
 class MockWorker {
