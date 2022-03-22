@@ -12,7 +12,7 @@ const FormulaOutput = () => {
   const state = useContext(FormulaStateContext)
 
   return (
-    <FormCard id='formula-output' heading='Result' icon='note'>
+    <FormCard id='formula-output' testId='formula-output' heading='Result' icon='note'>
       <FormElement size={12}>
         {
           state.processing ?  <Spinner

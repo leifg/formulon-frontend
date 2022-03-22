@@ -12,7 +12,7 @@ const FormulaInput = () => {
   const dispatch = useContext(FormulaDispatchContext)
 
   return (
-    <FormCard id='formula-input' heading='Formula' icon='formula'>
+    <FormCard id='formula-input' testId='formula-input'  heading='Formula' icon='formula'>
       <div className='slds-form slds-size_12-of-12'>
         <div className='slds-form-element slds-form-element_stacked'>
           <ReturnType returnType={state.returnType} dispatch={dispatch} />

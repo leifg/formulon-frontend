@@ -1,26 +1,34 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import { describe, expect, test } from "vitest"
 
+
 import App from "./App"
-import FormulaInput from "./components/FormulaInput"
-import FormulaOutput from "./components/FormulaOutput"
-import IdentifierList from "./components/IdentifierList"
 
 
 describe("displaying of element", () => {
-  test("Renders the Identifier List", () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper.find(IdentifierList)).toHaveLength(1)
+  test("Renders Everything", async () => {
+    render(<App />)
+    expect(screen.queryAllByTestId("identifier-list")).toHaveLength(1)
+    expect(screen.queryAllByTestId("formula-input")).toHaveLength(1)
+    expect(screen.queryAllByTestId("formula-output")).toHaveLength(1)
   })
 
-  test("Renders the Formula Input Box", () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper.find(FormulaInput)).toHaveLength(1)
-  })
+  test("It Correctly Calculates Formula", async () => {
+    const result = render(<App />)
+    const dataTypeSelector = result.container.querySelector("#data-type-selector")
+    fireEvent.change(dataTypeSelector, {target: {value: "Number"}})
 
-  test("Renders the Formula Output Box", () => {
-    const wrapper = shallow(<App />)
-    expect(wrapper.find(FormulaOutput)).toHaveLength(1)
+    const formulaInput = result.container.querySelector("#formula-input").querySelector("textarea")
+    fireEvent.change(formulaInput, {target: {value: "2411 + 1291"}})
+
+    const formulaOutput = await screen.findByTestId("formula-output")
+
+    await waitFor(
+      () => expect(formulaOutput).toHaveTextContent("3702")
+    )
+
+    // const formulaOutput = await 
+    // expect(node).toHaveTextContent("3702")
   })
 })
