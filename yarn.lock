@@ -358,10 +358,10 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
-"@testing-library/jest-dom@^5.16.2":
-  version "5.16.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.16.2.tgz#f329b36b44aa6149cd6ced9adf567f8b6aa1c959"
-  integrity sha512-6ewxs1MXWwsBFZXIk4nKKskWANelkdUehchEOokHsN8X7c2eKXGw+77aRV63UU8f/DTSVUPLaGxdrj4lN7D/ug==
+"@testing-library/jest-dom@^5.16.3":
+  version "5.16.3"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.16.3.tgz#b76851a909586113c20486f1679ffb4d8ec27bfa"
+  integrity sha512-u5DfKj4wfSt6akfndfu1eG06jsdyA/IUrlX2n3pyq5UXgXMhXY+NJb8eNK/7pqPWAhCKsCGWDdDO0zKMKAYkEA==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@types/testing-library__jest-dom" "^5.9.1"
@@ -1233,10 +1233,12 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-formulon@^6.23.0:
-  version "6.23.4"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.4.tgz#a69bbf69591a9abd4b3521fee8ed67d9a3e8d25a"
-  integrity sha512-bmLvdC8yd1C9VqBwHDto0xbFXWi1vzYGX08p0Ltlq0wBHFpfVvDoJdeMAQKipe8GGKX3O2ZuI2c363jCXzeJfw==
+formulon@^6.23.8:
+  version "6.23.8"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.8.tgz#8fbdf8322424cafd3536fdbc8617990bfbcac545"
+  integrity sha512-SDbYNcZy3MWjnj3dXhayf0iE6ny0DDvUhMpTk0y6tEXzMTOz007/zaXvi/bpLy3Y9ynCPlMAj0w/KaArg3EYqA==
+  dependencies:
+    decimal.js "^10.3.1"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
