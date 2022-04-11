@@ -26,8 +26,8 @@
     "@salesforce/design-system-react": "^0.10.43",
     "classnames": "^2.2.6",
     "formulon": "^6.23.8",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "use-debounce": "^7.0.1"
   },
   "devDependencies": {
