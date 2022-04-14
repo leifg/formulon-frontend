@@ -1271,10 +1271,10 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-formulon@^6.23.8:
-  version "6.23.8"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.8.tgz#8fbdf8322424cafd3536fdbc8617990bfbcac545"
-  integrity sha512-SDbYNcZy3MWjnj3dXhayf0iE6ny0DDvUhMpTk0y6tEXzMTOz007/zaXvi/bpLy3Y9ynCPlMAj0w/KaArg3EYqA==
+formulon@^6.23.9:
+  version "6.23.9"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.23.9.tgz#67d704e8060ecf17b983d9090938fd3d8eaeb138"
+  integrity sha512-Lj/qftWS7GvPoE8YZHcV0KK+kpEJq2lKZ6kh1dFxXfv6jVEtbHAA4yRmm66C3h2eAIDnvH+qxQIiESd2i8rbzQ==
   dependencies:
     decimal.js "^10.3.1"
 
