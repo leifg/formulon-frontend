@@ -38,6 +38,6 @@
     "eslint-plugin-react": "^7.31.8",
     "jsdom": "^20.0.1",
     "vite": "^3.1.6",
-    "vitest": "^0.24.0"
+    "vitest": "^0.24.1"
   }
 }
