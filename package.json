@@ -33,7 +33,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
-    "@vitejs/plugin-react": "^2.1.0",
+    "@vitejs/plugin-react": "^2.2.0",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
     "jsdom": "^20.0.1",
