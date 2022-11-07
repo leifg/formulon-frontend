@@ -433,10 +433,10 @@
   resolved "https://registry.yarnpkg.com/@salesforce/babel-preset-design-system-react/-/babel-preset-design-system-react-3.0.0.tgz#b8334d14fc3801064ac5b6e5349145dc057bc17f"
   integrity sha512-NM3aObtfYl9RpfVu5eDU96fmTW7Mj2V1Y1O5b8dpLGESgXxqHiGIV7d4bKHzmD8O00g1qjPAPusd0f2IB7Yi0Q==
 
-"@salesforce/design-system-react@^0.10.48":
-  version "0.10.48"
-  resolved "https://registry.yarnpkg.com/@salesforce/design-system-react/-/design-system-react-0.10.48.tgz#04566523a9fb873bce44416ff30f66ae1656be3b"
-  integrity sha512-vRAC/mt4J4geQiyRaY7sd4Op3YCL1unqdp8oVBCl5O4fu8znX5wIPuFbCss282Y3tATiCfDamjafk9CpncBhpA==
+"@salesforce/design-system-react@^0.10.50":
+  version "0.10.50"
+  resolved "https://registry.yarnpkg.com/@salesforce/design-system-react/-/design-system-react-0.10.50.tgz#99ace4c9ebdc5ccef06beacfbd2e852b46426e96"
+  integrity sha512-m+RD9B7cLwFSyAjnk+URysNjn73NVErF4lv4wMwtPidu51eSwv2Co4b2/al080qEAt3gJIxLw1rU4ABkkC+2/w==
   dependencies:
     "@salesforce/babel-preset-design-system-react" "^3.0.0"
     classnames "^2.2.6"
@@ -458,7 +458,7 @@
     react-modal "3.14.3"
     react-onclickoutside "^6.10.0"
     react-required-if "^1.0.3"
-    react-text-truncate "^0.16.0"
+    react-text-truncate "^0.19.0"
     shortid "^2.2.15"
     warning "^4.0.3"
 
@@ -2277,10 +2277,10 @@ react-required-if@^1.0.3:
   resolved "https://registry.yarnpkg.com/react-required-if/-/react-required-if-1.0.3.tgz#6a40a761b1d54815c1d4e6610910cbf92b5aa987"
   integrity sha1-akCnYbHVSBXB1OZhCRDL+StaqYc=
 
-react-text-truncate@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/react-text-truncate/-/react-text-truncate-0.16.0.tgz#03bbb942437dfba5cc0faf614f1339f888926f80"
-  integrity sha512-hMFXhUHgIBCCDaOfOsZAFeO4DGfG/paLyaS/F+X11CXseuScpxmMBUW6Luwjk9/FlGrVJWNGy1FSfK6b4yyiIg==
+react-text-truncate@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/react-text-truncate/-/react-text-truncate-0.19.0.tgz#60bc5ecf29a03ebc256f31f90a2d8402176aac91"
+  integrity sha512-QxHpZABfGG0Z3WEYbRTZ+rXdZn50Zvp+sWZXgVAd7FCKAMzv/kcwctTpNmWgXDTpAoHhMjOVwmgRtX3x5yeF4w==
   dependencies:
     prop-types "^15.5.7"
 
