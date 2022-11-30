@@ -2742,10 +2742,10 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-use-debounce@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-9.0.1.tgz#ea1022353afe26c1aced0809d63899f96936a79a"
-  integrity sha512-TQ94VpX8kj2wgVTYA027UnjdRojne6iLs9EUwEF17XdHwuPNoRw4+1J23Pyca6gL56nN09AAu2dSJa/j9aMbAw==
+use-debounce@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-9.0.2.tgz#2883982ec1eb79affec46f14047244057b78161c"
+  integrity sha512-QLyB0sxt9F5AisGDrUybCRJSLE60bTQR0yXc+IebNGUu1GCXwii1zsZl82mPGdWqDVQy7+1FKMLHQUixxf5Nbw==
 
 vite@^3.0.0, vite@^3.2.4:
   version "3.2.4"
