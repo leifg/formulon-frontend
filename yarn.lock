@@ -522,10 +522,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@salesforce-ux/design-system@^2.19.0":
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.19.0.tgz#972829078c94870d143509bc0091d4f0b141832a"
-  integrity sha512-WmMzB7eqZ67OZ9sS5A6MI3BKmyOevjwZCuizg43ahukzc7lsvlQheHX0TKuHvL8oVaZSrChFIz6gmMQk9+mmSw==
+"@salesforce-ux/design-system@^2.20.1":
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.20.1.tgz#b9581b6d980d35ba49923beaab279592bef91de4"
+  integrity sha512-MZbOfmTOPZD6JOARmW+Co83Ypge5zNAXiu/C2RuVVSa14xS/kqcYuuyPgGPITu7TNMdQ706oQFJRqSj1HH6uZA==
 
 "@salesforce/babel-preset-design-system-react@^3.0.0":
   version "3.0.0"
