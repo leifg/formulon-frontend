@@ -2,9 +2,7 @@ import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import { describe, expect, test } from "vitest"
 
-
 import App from "./App"
-
 
 describe("displaying of element", () => {
   test("Renders Everything", async () => {
