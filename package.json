@@ -31,7 +31,7 @@
     "use-debounce": "^10.0.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/jest-dom": "^6.4.0",
     "@testing-library/react": "^12.1.5",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
