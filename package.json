@@ -38,7 +38,7 @@
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^23.0.1",
     "vite": "^5.0.8",
-    "vitest": "^1.1.0",
+    "vitest": "^1.4.0",
     "vitest-canvas-mock": "^0.3.3"
   }
 }
