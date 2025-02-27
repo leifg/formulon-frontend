@@ -34,7 +34,7 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^12.1.5",
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.55.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^23.0.1",
     "vite": "^5.0.8",
