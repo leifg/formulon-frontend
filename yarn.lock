@@ -732,10 +732,10 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.34.8.tgz#4cdb2cfae69cdb7b1a3cc58778e820408075e928"
   integrity sha512-U0FaE5O1BCpZSeE6gBl3c5ObhePQSfk9vDRToMmTkbhCOgW4jqvtS5LGyQ76L1fH8sM0keRp4uDTsbjiUyjk0g==
 
-"@salesforce-ux/design-system@^2.22.2":
-  version "2.22.2"
-  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.22.2.tgz#5f88f45939ab17b7b1272f5414bbfa6133112c9d"
-  integrity sha512-Q9JjQcpf/KerzylgSNuXpB7ugz7PXPkcR3HJNjqiISuWTXT562/frLnoUaa2VVMgK/8kuRQw288ACLWVCLIFHA==
+"@salesforce-ux/design-system@^2.26.2":
+  version "2.26.2"
+  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.26.2.tgz#8bb91c12ca2193af39371fcacfde6e8d60dcbb25"
+  integrity sha512-Wyj2sVn26vAQHmujlxHcq4oABCPzf7+4lXnne6v3FryTJba5WJ0O9tiD9pa6mHKoxAiFhkg2VhNh0v5MUD311Q==
 
 "@salesforce/babel-preset-design-system-react@^3.0.0":
   version "3.0.0"
