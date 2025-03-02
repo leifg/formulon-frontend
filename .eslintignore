@@ -1,7 +1,0 @@
-/dist/**
-/coverage/**
-/docs/**
-/jsdoc/**
-/templates/**
-/tmp/**
-/node_modules/**
