@@ -26,13 +26,14 @@
     "@salesforce/design-system-react": "^0.10.57",
     "classnames": "^2.5.1",
     "formulon": "^6.25.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "use-debounce": "^10.0.4"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^16.3.0",
     "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.26.0",
     "eslint-plugin-react": "^7.37.5",
