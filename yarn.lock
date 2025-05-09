@@ -1923,10 +1923,10 @@ for-each@^0.3.3:
   dependencies:
     is-callable "^1.1.3"
 
-formulon@^6.25.3:
-  version "6.25.3"
-  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.25.3.tgz#cb8768e8ec881fc6090cc4d7494609cb54e92606"
-  integrity sha512-B4lCkwOxwLT3WJsa92CE2grHQS5LY+zKsYTVIW2Sm1blsBKVKjKbPxiUg+F++sZDaS966Cm20tD4oZuHqTTvUg==
+formulon@^6.25.4:
+  version "6.25.4"
+  resolved "https://registry.yarnpkg.com/formulon/-/formulon-6.25.4.tgz#554915d9e9a68273beef726b8813c5fb0e75f6e0"
+  integrity sha512-fy7GR21TrqDuhbb1e2U87mZzj72rU91Dmq0hfgFqSdXo4SXl3lJfT9OqMfMT9TQtxnvTelCXRqTssOZUYWqzxg==
   dependencies:
     decimal.js "^10.3.1"
 
