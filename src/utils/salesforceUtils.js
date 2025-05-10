@@ -1,5 +1,5 @@
-export const transformIdentifiers = (identifersList = []) => {
-  return identifersList.reduce((agg, identifier) => {
+export const transformIdentifiers = (identifiersList = []) => {
+  return identifiersList.reduce((agg, identifier) => {
     return Object.assign(
       agg,
       {
