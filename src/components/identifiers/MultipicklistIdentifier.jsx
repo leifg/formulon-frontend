@@ -39,7 +39,7 @@ const MultiPicklistIdentifier = ({name, value, options, dispatch}) => {
           label="Values"
           onChange={ (event) => {
             dispatch({
-              type: "CHANGE_IDENTIFER_PICKLIST_VALUES",
+              type: "CHANGE_IDENTIFIER_PICKLIST_VALUES",
               name: name,
               values: event.target.value.split(";")
             })}

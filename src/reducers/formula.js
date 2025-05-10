@@ -20,16 +20,16 @@ export const formulaReducer = (state, action) => {
   case "REQUEST_FORMULA_CHANGE":
     return requestFormulaChange(action.value, replaceIdentifiers(action.value, state.identifiers), null, state)
   case "REQUEST_IDENTIFIER_TYPE_CHANGE":
-    return requestFormulaChange(state.inputFormula, updateIdentiferType(state.identifiers, action.name, action.value), null, state)
+    return requestFormulaChange(state.inputFormula, updateIdentifierType(state.identifiers, action.name, action.value), null, state)
   case "REQUEST_IDENTIFIER_VALUE_CHANGE":
-    return requestFormulaChange(state.inputFormula, updateIdentiferValue(state.identifiers, action.name, action.value), null, state)
+    return requestFormulaChange(state.inputFormula, updateIdentifierValue(state.identifiers, action.name, action.value), null, state)
   case "REQUEST_IDENTIFIER_OPTIONS_CHANGE":
-    return requestFormulaChange(state.inputFormula, updateIdentiferOptions(state.identifiers, action.name, action.value), null, state)
+    return requestFormulaChange(state.inputFormula, updateIdentifierOptions(state.identifiers, action.name, action.value), null, state)
   case "REGISTER_WORKER":
     return registerWorker(action.worker, state)
   case "TERMINATE_WORKERS":
     return registerWorker(null, state)
-  case "CHANGE_IDENTIFER_PICKLIST_VALUES":
+  case "CHANGE_IDENTIFIER_PICKLIST_VALUES":
     return {
       ...state,
       identifiers: updatePicklistValues(state.identifiers, action.name, action.values),
@@ -96,7 +96,7 @@ const defaultValue = (type) => {
   }
 }
 
-const updateIdentiferType = (identifiers, name, type) => {
+const updateIdentifierType = (identifiers, name, type) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
@@ -110,7 +110,7 @@ const updateIdentiferType = (identifiers, name, type) => {
   })
 }
 
-const updateIdentiferValue = (identifiers, name, value) => {
+const updateIdentifierValue = (identifiers, name, value) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
@@ -134,7 +134,7 @@ const updatePicklistValues = (identifiers, name, values) => {
   })
 }
 
-const updateIdentiferOptions = (identifiers, name, options) => {
+const updateIdentifierOptions = (identifiers, name, options) => {
   return identifiers.map((identifier) => {
     if (identifier.name !== name) {
       return identifier
